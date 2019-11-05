@@ -27,6 +27,7 @@
     <title>React App</title>
   </head>
   <body>
+    <div id="location"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,4 +41,22 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+  var x = document.getElementById("location");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    var timestamp = Date.now();
+    var time = new Date(timestamp);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude + '<br>' + 'timestamp: ' + Date.now();
+}
+getLocation();
+</script>
 </html>
