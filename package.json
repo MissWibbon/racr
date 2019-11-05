@@ -1,0 +1,30 @@
+{
+  "name": "racr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix racr",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix newssite && npm run build --prefix racr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissWibbon/racr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MissWibbon/racr/issues"
+  },
+  "homepage": "https://github.com/MissWibbon/racr#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "socket.io-client": "^2.3.0"
+  }
+}
