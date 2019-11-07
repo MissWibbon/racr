@@ -1,4 +1,6 @@
+
 import React, {useState}  from 'react'
+
 const Landing =() =>{
     const email = useInput('');
     const password = useInput('');
@@ -8,13 +10,15 @@ const Landing =() =>{
         
     }
     return(
-        <div>
-            <form>
-                <label>Email:</label>
+
+        <div className="loginWrap">
+            <form id="login">
+                <label id="email">Email:</label>
                 <input {...email}type ='text' name = 'name'></input>
-                <label>password:</label>
+                <label id="password">password:</label>
                 <input {...password}type ='password' name = 'name'></input>
                 <button onClick ={handleSubmit} type ='submit'>Submit</button>
+
             </form>
         </div>
     )

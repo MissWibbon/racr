@@ -8,9 +8,9 @@
     <meta
       name="description"
       content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="logo192.png" />
-    <!--
+      />
+      <link rel="stylesheet" href="../src/styles/main.css" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Anton|Questrial&display=swap" rel="stylesheet">    <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
@@ -27,7 +27,6 @@
     <title>React App</title>
   </head>
   <body>
-    <div id="location"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -42,21 +41,6 @@
     -->
   </body>
   <script>
-  var x = document.getElementById("location");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    var timestamp = Date.now();
-    var time = new Date(timestamp);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude + '<br>' + 'timestamp: ' + Date.now();
-}
-getLocation();
+  
 </script>
 </html>

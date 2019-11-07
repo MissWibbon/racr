@@ -2,8 +2,11 @@ import React from 'react';
 import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom'
 import Landing from './landing'
 import Home from './home'
+
+import './styles/main.scss';
+
 import SignUp from './profile'
-import './App.css';
+
 function App() {
   return (
     <BrowserRouter>
