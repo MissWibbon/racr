@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-​
+
 const raceSchema = new Schema({
     requestor: String,
     acceptor: String,
@@ -12,7 +12,7 @@ const raceSchema = new Schema({
     acceptorTime: { type: Number, default: 0 },
     date: { type: Date, default: Date.now }
 });
-​
+
 const Race = mongoose.model("Race", raceSchema);
-​
+
 module.exports = Race;
