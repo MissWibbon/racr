@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom'
 import Landing from './landing'
-import Home from './'
+import Home from './home'
 import './App.css';
 function App() {
   return (
