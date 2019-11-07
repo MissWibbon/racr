@@ -12,7 +12,7 @@ app.use(express.json());
 // Define API routes
 app.use(routes);
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/RacrDB";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/racrDB";
 mongoose.connect(MONGODB_URI)
 .then(() => console.log('Mongo Db connected'))
 .catch(err => console.log(err));
