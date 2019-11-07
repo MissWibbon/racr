@@ -13,7 +13,7 @@ const SignUp = () =>{
     const state = useInput('');
     const country = useInput('');
     const age = useInput('');
-    const image ='';
+    let image ='';
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -28,6 +28,7 @@ const SignUp = () =>{
         client.upload(file)
           .then(res => {
             console.log('success: ', res)
+            image = res.url
           })
           .catch(err => {
             console.log(err)
