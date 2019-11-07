@@ -1,8 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom'
 import Landing from './landing'
-import Home from './'
-import './App.css';
+import Home from './home'
+import './styles/main.scss';
+
 function App() {
   return (
     <BrowserRouter>
