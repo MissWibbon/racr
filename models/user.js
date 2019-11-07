@@ -12,6 +12,7 @@ const userSchema = new Schema({
     country: { type: String, default: "USA" },
     age: Number,
     image: String,
+    raceType: String,
     date: { type: Date, default: Date.now }
 });
 
