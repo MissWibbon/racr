@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import * as filestack from 'filestack-js';
 import {Link} from 'react-router-dom'
+import API from './utils/API'
 
 
 const client = filestack.init('apikey');
@@ -20,6 +21,20 @@ const SignUp = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        const body ={
+            email,
+            password,
+            firstName,
+        lastName,
+        userName,
+    city,
+    state,
+    country,
+    age,
+    image
+    }
+
+
         console.log('this is where i send shit');
         
     }
