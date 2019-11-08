@@ -41,26 +41,46 @@ const SignUp = () =>{
     return(
         <div className="registerWrap">
             <form id="register">
-                <label id="email">Email:</label>
-                <input {...email} type ='text' name = 'name'></input>
-                <label id="password">Password:</label>
-                <input {...password} type ='password' name = 'name'></input>
-                <label id="firstName">First Name:</label>
-                <input {...firstName} type ='text' name = 'name'></input>
-                <label id="lastName">Last Name:</label>
-                <input {...lastName} type ='text' name = 'name'></input>
-                <label id="userName">User Name:</label>
-                <input {...userName} type ='text' name = 'name'></input>
-                <label id="city">City:</label>
-                <input {...city} type ='text' name = 'name'></input>
-                <label id="state">State:</label>
-                <input {...state} type ='text' name = 'name'></input>
-                <label id="country">Country:</label>
-                <input {...country} type ='text' name = 'name'></input>
-                <label id="age">Age:</label>
-                <input {...age} type ='text' name = 'name'></input>
-                <label id="profileImage">Image:</label>
-                <input type = "file" onChange = {fileChange}name = 'name'></input>
+                <div className="inputWrap">
+                    <label id="email">Email:</label>
+                    <input {...email} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="userName">User Name:</label>
+                    <input {...userName} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="password">Password:</label>
+                    <input {...password} type ='password' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="age">Age:</label>
+                    <input {...age} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="firstName">First Name:</label>
+                    <input id="firstNameInput" {...firstName} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="lastName">Last Name:</label>
+                    <input id="lastNameInput" {...lastName} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="city">City:</label>
+                    <input {...city} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="state">State:</label>
+                    <input {...state} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="country">Country:</label>
+                    <input {...country} type ='text' name = 'name'></input>
+                </div>
+                <div className="inputWrap">
+                    <label id="profileImage">Image:</label>
+                    <input id="imageUpload" type = "file" onChange = {fileChange}name = 'name'></input>
+                </div>
                 <button id="submitButton" onClick ={handleSubmit} type ='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
