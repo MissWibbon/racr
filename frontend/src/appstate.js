@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import API from './utils/API'
 
 const RaceContext = React.createContext();
@@ -13,6 +13,9 @@ export const Provider  = props =>{
         } )
 
     }
+    useEffect(()=>{
+        fetchUsers()
+    })
     return(
         <RaceContext.Provider value = {{ users,
         actions:{fetchUsers}
