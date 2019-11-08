@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-​
 const userSchema = new Schema({
     id: Number,
     firstName: String,
@@ -13,9 +12,9 @@ const userSchema = new Schema({
     country: { type: String, default: "USA" },
     age: Number,
     image: String,
+    raceType: String,
     date: { type: Date, default: Date.now }
 });
-​
+
 const User = mongoose.model("User", userSchema);
-​
 module.exports = User;
