@@ -1,0 +1,90 @@
+$dark-green: #1F3753;
+$green: #C2FF30;
+$grey-green: #A4C9B4;
+$light-grey: #F8F8F8;
+$bold-font: 'Anton', sans-serif;
+$light-font: 'Questrial', sans-serif;
+$gradient: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+$grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+html, body { 
+    height: 100%;
+  }
+
+.loginWrap, .registerWrap {
+    background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
+    background-position: 20%;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-size: cover;
+    background-color: $dark-green;
+    background-blend-mode: soft-light;
+    min-height: 100vh;
+
+    a{
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+}
+#login, #register {
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    //background-color: $dark-green;
+    color: $green;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+}
+#submitButton {
+    width: 80%; 
+    margin: auto; 
+    background-color: $green; 
+    margin-top: 20px; 
+    border: none; 
+    font-family: $light-font; 
+    padding:5px; 
+    margin-left: 10%; 
+    font-size: 20px;
+    border-radius: 2em;
+    color: $dark-green;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    transition: all 0.3s 
+}
+#submitButton:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+label {
+    width: 100%; 
+    text-align: center; 
+    display: block; 
+    padding-top: 20px; 
+    font-family: $light-font;
+}
+.inputWrap {
+    width: 50%;
+    display: inline-block;
+}
+
+input {
+    width: 80%; 
+    margin-left: 10%;
+    background: rgba(#fff, .3);
+    border: none;
+    border-radius: 2em;
+    color: white;
+    padding-left: 5px;
+}
+#imageUpload {padding-left: 0px;}
+.registerLink, .signinLink {
+    padding-top: 10px;
+    text-align: center;
+    a{
+    color: $green; 
+    font-weight: 500; 
+    font-family: $light-font;
+    transition: all 0.3s 
+
+    }
+    a:hover{color: white;}
+}
