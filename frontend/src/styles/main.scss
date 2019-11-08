@@ -1,14 +1,16 @@
-$dark-green: #136572;
-$green: #26E478;
+$dark-green: #013E34;
+$green: #6AEF32;
 $grey-green: #A4C9B4;
 $light-grey: #F8F8F8;
 $bold-font: 'Anton', sans-serif;
 $light-font: 'Questrial', sans-serif;
+$gradient: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+$grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 html, body { 
     height: 100%;
   }
 
-.loginWrap {
+.loginWrap, .registerWrap {
     background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
     background-position: 20%;
     padding-top: 15%;
@@ -19,16 +21,47 @@ html, body {
     background-color: $dark-green;
     background-blend-mode: soft-light;
     min-height: 100vh;
+
+    a{
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
 }
-#login {
+#login, #register {
     max-width: 600px;
     margin: auto;
-    margin-top: 40px;
     padding-bottom: 20px;
     border-radius: 5px;
-    background: $dark-green;
-    color: $light-grey;
+    background-image: $grey-gradient;
+    color: $dark-green;
 
 }
-#email, #password {width: 100%; text-align: center; display: block; padding-top: 20px; font-family: $bold-font;}
+#submitButton {
+    width: 80%; 
+    margin: auto; 
+    background-color: $green; 
+    margin-top: 20px; 
+    border: none; 
+    font-family: $light-font; 
+    padding:5px; 
+    margin-left: 10%; 
+    font-size: 20px;
+    border-radius: 5px;
+    color: $dark-green;
+}
+#email, #password, #firstName, #lastName, #userName, #city, #state, #country, #age, #profileImage {
+    width: 100%; 
+    text-align: center; 
+    display: block; 
+    padding-top: 20px; 
+    font-family: $bold-font;
+}
 input {width: 80%; margin-left: 10%;}
+.registerLink, .signinLink {
+    padding-top: 10px;
+    width: 57px;
+    margin: auto;
+    a{
+    color: $dark-green; font-weight: 500; font-family: $light-font;}
+}

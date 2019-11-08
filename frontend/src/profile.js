@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import * as filestack from 'filestack-js';
+import {Link} from 'react-router-dom'
+
+
 const client = filestack.init('apikey');
 
 const SignUp = () =>{
@@ -36,30 +39,32 @@ const SignUp = () =>{
           return image
     }
     return(
-        <div>
-            <form>
-                <label>Email:</label>
+        <div className="registerWrap">
+            <form id="register">
+                <label id="email">Email:</label>
                 <input {...email} type ='text' name = 'name'></input>
-                <label>password:</label>
+                <label id="password">Password:</label>
                 <input {...password} type ='password' name = 'name'></input>
-                <label>First Name:</label>
+                <label id="firstName">First Name:</label>
                 <input {...firstName} type ='text' name = 'name'></input>
-                <label>Last Name:</label>
+                <label id="lastName">Last Name:</label>
                 <input {...lastName} type ='text' name = 'name'></input>
-                <label>User Name:</label>
+                <label id="userName">User Name:</label>
                 <input {...userName} type ='text' name = 'name'></input>
-                <label>City:</label>
+                <label id="city">City:</label>
                 <input {...city} type ='text' name = 'name'></input>
-                <label>State:</label>
+                <label id="state">State:</label>
                 <input {...state} type ='text' name = 'name'></input>
-                <label>Country:</label>
+                <label id="country">Country:</label>
                 <input {...country} type ='text' name = 'name'></input>
-                <label>Age:</label>
+                <label id="age">Age:</label>
                 <input {...age} type ='text' name = 'name'></input>
-                <label>Image:</label>
+                <label id="profileImage">Image:</label>
                 <input type = "file" onChange = {fileChange}name = 'name'></input>
-                <button onClick ={handleSubmit} type ='submit'>Submit</button>
+                <button id="submitButton" onClick ={handleSubmit} type ='submit'>Submit</button>
+                <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
+
         </div>
     )
 }
