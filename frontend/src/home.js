@@ -1,7 +1,8 @@
 import React from 'react'
+import User from './user'
 const Home =() =>{
     return(
-        <div>This is a Home Page</div>
+        <User></User>
     )
 }
 export default Home

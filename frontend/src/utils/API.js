@@ -1,4 +1,4 @@
-import axios from ("axios");
+import axios from 'axios';
 
 export default {
     
@@ -6,6 +6,7 @@ export default {
     // Gets users
     getUsers: function() {
         return axios.get(`/api/users/`);
+        
     },
 
     // Gets individual user
