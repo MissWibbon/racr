@@ -107,7 +107,12 @@ input {
     margin: auto;
     margin-top: -75px;
 }
+
+.profileUserName {text-align: center; color: $green; font-family: $bold-font;}
+.profileName {text-align: center; color: white; font-family: $light-font;}
+.profileLocation {text-align: center; color: white; font-family: $light-font;}
+.profileRunType {text-align: center; color: white; font-family: $light-font;}
 .profileUserName {text-align: center; color: $green; font-weight: 500;}
 .profileName {text-align: center; color: white;}
 .profileLocation {text-align: center; color: white;}
-.profileRunType {text-align: center; color: white;}
+
