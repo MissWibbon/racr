@@ -43,5 +43,8 @@ export default {
     // Saves a race to the database
     saveRace: function(raceData) {
         return axios.post(`/api/races`, raceData);
-    }
+    },
+    login: function(loginData){
+        return axios.post('/api/users/login', loginData)
+    } 
 }
