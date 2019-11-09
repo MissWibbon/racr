@@ -13,6 +13,7 @@ const userSchema = new Schema({
     age: Number,
     image: String,
     raceType: String,
+    friends: [Schema.Types.ObjectId],
     date: { type: Date, default: Date.now }
 });
 
