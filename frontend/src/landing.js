@@ -1,10 +1,27 @@
-import React, {useState}  from 'react'
+import React, {useState, useContext}  from 'react'
 import {Link} from 'react-router-dom'
+import API from './utils/API'
+import {RaceContext} from './appstate'
 const Landing =() =>{
+    const context = useContext(RaceContext)
     const email = useInput('');
     const password = useInput('');
     const handleSubmit = (e) =>{
+        const body = {
+            email: email.value,
+            password: password.value
+        }
         e.preventDefault();
+        API.login(body)
+            .then(res => {
+                window.localStorage.setItem('token', res.data)
+                context.getToken()
+                if (context.isAuth){
+                    console.log('auth')
+                }else{
+                    console.log('not auth')
+                }
+            })
         console.log('this is where i send shit');
         
     }

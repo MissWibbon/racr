@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import * as filestack from 'filestack-js';
 import {Link} from 'react-router-dom'
 import API from './utils/API'
+import {RaceContext} from './appstate'
 
 
-const client = filestack.init('apikey');
+const client = filestack.init('AFeiQyudCRNK8T2g46sKFz');
 
-const SignUp = () =>{
-
+const SignUp = (props) =>{
+    const context = useContext(RaceContext); 
     const email = useInput('');
     const password = useInput('');
     const firstName = useInput('');
@@ -22,17 +23,23 @@ const SignUp = () =>{
     const handleSubmit = (e) =>{
         e.preventDefault();
         const body ={
-            email,
-            password,
-            firstName,
-        lastName,
-        userName,
-    city,
-    state,
-    country,
-    age,
+            email: email.value,
+            password: password.value,
+            firstName: firstName.value,
+        lastName: lastName.value,
+        userName: userName.value,
+    city: city.value,
+    state: state.value,
+    country: country.value,
+    age: age.value,
     image
     }
+        console.log(body)
+        API.saveUser(body)
+            .then(res => {
+                props.history.push('/login')
+
+            })
 
 
         console.log('this is where i send shit');

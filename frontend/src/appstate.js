@@ -6,6 +6,8 @@ export const RaceContext = React.createContext();
 export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [isLoading, setLoading] = useState(false);
+    const [localUser, setLocalUser] = useState(undefined)
+    const [isAuth, setisAuth] = useState(false)
     const fetchUsers = () =>{
         API.getUsers()
         .then(res =>{
@@ -16,15 +18,29 @@ export const Provider  = props =>{
 
     }
 
-    useEffect(()=>{
+    const getToken = () => {
+       const jwt= window.localStorage.getItem('token');
+        if(jwt){
+            setLocalUser(jwt)
+            setisAuth(true)
+        
 
+        }
+    }
+
+
+    useEffect(()=>{
         fetchUsers()
+        getToken()
     },[])
     return(
         <RaceContext.Provider value = {{
             users,
-            isLoading
-            , fetchUsers}}>
+            isAuth,
+            isLoading,
+            fetchUsers,
+            getToken
+            }}>
             {props.children}
         </RaceContext.Provider>
     )
