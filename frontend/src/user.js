@@ -8,9 +8,9 @@ const User = () =>{
     const context = useContext(RaceContext)
     const {users, isLoading} = context
     const [userState, setUserstate] = useState([]);
- useEffect(() => {
-     setUserstate(users);
- })
+//  useEffect(() => {
+//      setUserstate(users);
+//  })
 //users is an array of dummyinfo right now use an index of users  
  console.log(userState);
     return(
