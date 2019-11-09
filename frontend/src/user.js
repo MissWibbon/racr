@@ -7,21 +7,15 @@ import ReactSearchBox from 'react-search-box'
 const User = () =>{
     const context = useContext(RaceContext)
     const {users, isLoading} = context
-    const [userState, setUserstate] = useState([]);
-//  useEffect(() => {
-//      setUserstate(users);
-//  })
-//users is an array of dummyinfo right now use an index of users  
- console.log(userState);
+    const searchbar = useSearchValue('')
     return(
         
         <div id="profilePage">
-        <ReactSearchBox 
-        placeholder = "Placeholder"
-        value = "Doe"
-        data = {userState}
-        callback = {record => console.log(record)}
-        />
+        <input type= 'text'
+        {...searchbar}
+        data= {users} 
+        placeHolder ='Enter Username Here'
+        ></input>
         {isLoading
         ?(
             <div>
@@ -41,4 +35,19 @@ const User = () =>{
         </div>
     )
 }
+
+const useSearchValue = (initialValue) =>{
+    const [userState, setUserState] = useState(initialValue);
+    const handlevaluechange =(e) =>{
+        setUserState(e.target.value);
+        console.log(e.target.value)
+    }
+    return {
+        value: userState,
+        onChange: handlevaluechange,
+       
+    }
+}
+
+
 export default User
