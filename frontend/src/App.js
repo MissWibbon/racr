@@ -7,6 +7,7 @@ import './styles/main.scss';
 function App() {
   return (
     <BrowserRouter>
+    <NavBar></NavBar>
       <Switch>
         <Route to exact path = '/login' component ={Landing}/>
         <Route to exact path = '/home' component ={Home}/>
