@@ -1,8 +1,7 @@
-import React, {useContext, useEffect, useState}from 'react'
+import React, {useContext, useState}from 'react'
 import {RaceContext} from './appstate'
 const User = () =>{
     const context = useContext(RaceContext)
-    const {localUser} = context
     const {users, isLoading} = context
     const searchbar = useSearchValue('')
     return(
@@ -17,7 +16,7 @@ const User = () =>{
         ?(
             <div>
                 <div className="profileImage">
-                    <img className="imgSrc" src={`${users[0].image}`}/>
+                    <img className="imgSrc" alt="" src={`${users[0].image}`}/>
                 <div className="locationWrap">
                     <div className="profileLocation">{`${users[0].city}, ${users[0].state} ${users[0].country}` }</div>
                 </div>

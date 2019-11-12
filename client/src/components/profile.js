@@ -1,14 +1,13 @@
-import React, {useState, useContext} from 'react'
+import React, {useState} from 'react'
 import * as filestack from 'filestack-js';
-import {Link} from 'react-router-dom'
-import API from '../utils/API'
-import {RaceContext} from './appstate'
+import {Link} from 'react-router-dom';
+import API from '../utils/API';
 
 
 const client = filestack.init('AFeiQyudCRNK8T2g46sKFz');
 
 const SignUp = (props) =>{
-    const context = useContext(RaceContext); 
+    //const context = useContext(RaceContext); 
     const email = useInput('');
     const password = useInput('');
     const firstName = useInput('');
