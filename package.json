@@ -22,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/MissWibbon/racr/issues"
   },
-  "homepage": "https://github.com/MissWibbon/racr#readme",
   "dependencies": {
     "concurrently": "^5.0.0",
     "cookie-parser": "^1.4.4",
