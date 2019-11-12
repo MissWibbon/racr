@@ -14,10 +14,7 @@ Racr uses a number of open source projects to work properly:
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
 * [Express] - fast node.js network app framework
-* [React] - 
-* [Socket.io] - 
-* [Sass] - 
-* [Filestack] - 
+
 And of course Dillinger itself is on GitHub.
 
 ### Installation
