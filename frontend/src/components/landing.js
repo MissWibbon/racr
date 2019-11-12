@@ -1,6 +1,6 @@
 import React, {useState, useContext}  from 'react'
 import {Link} from 'react-router-dom'
-import API from './utils/API'
+import API from '../utils/API'
 import {RaceContext} from './appstate'
 const Landing =() =>{
     const context = useContext(RaceContext)

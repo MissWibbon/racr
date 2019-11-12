@@ -1,5 +1,5 @@
 import React , {useState , useContext, useEffect} from 'react'
-import API from './utils/API'
+import API from '../utils/API'
 
 export const RaceContext = React.createContext();
 
