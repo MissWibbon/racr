@@ -14,7 +14,7 @@ const Landing =() =>{
         e.preventDefault();
         API.login(body)
             .then(res => {
-                window.localStorage.setItem('token', res.data)
+                window.localStorage.setItem('token', JSON.stringify(res.data))
                 context.getToken()
                 if (context.isAuth){
                     console.log('auth')
