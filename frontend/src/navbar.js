@@ -5,11 +5,12 @@ import {NavLink} from 'react-router-dom'
 const Navbar = () =>{
 
     return(
-        <div>
-            <NavLink exact to = '/home'>Home</NavLink>
-            <NavLink exact to = '/notifications'>Notifications</NavLink>
-            <NavLink exact to = '/race'></NavLink>
-            <NavLink exact to = '/users'>Race</NavLink>
+        <div className="navWrapper">
+            <NavLink className="navLink" exact to = '/home'><i class="fas fa-user"></i></NavLink>
+            <NavLink className="navLink" exact to = '/notifications'><i class="fas fa-bell"></i></NavLink>
+            <NavLink className="navLink" exact to = '/race'><i class="fas fa-running"></i></NavLink>
+            <NavLink className="navLink" exact to = '/users'><i class="fas fa-search"></i></NavLink>
+            <NavLink className="navLink" exact to = '/login'><i class="fas fa-sign-out-alt"></i></NavLink>
         </div>
     )
 }
