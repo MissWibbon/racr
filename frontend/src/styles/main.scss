@@ -9,7 +9,30 @@ $grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 html, body { 
     height: 100%;
   }
-#profilePage {background-image: $gradient; color: $dark-green; padding: 2rem;}
+
+.navWrapper {
+    height: 100vh;
+    background-color: $dark-green;
+    padding: 1.5rem;
+    float: left;
+}
+.navLink {
+    color: $green;
+    text-decoration: none;
+    line-height: 45px;
+    display: block;
+    text-align: center;
+}
+.navLink:hover {
+    color: $light-grey;
+}
+#profilePage {
+    background-image: $gradient; 
+    color: $dark-green; 
+    padding: 2rem; 
+    height: 100vh;     
+    width: calc(100vw - 142px);
+    float: left;}
 .loginWrap, .registerWrap {
     background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
     background-position: 20%;
@@ -115,4 +138,3 @@ input {
 .profileUserName {text-align: center; color: $green; font-weight: 500;}
 .profileName {text-align: center; color: white;}
 .profileLocation {text-align: center; color: white;}
-
