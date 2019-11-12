@@ -1,16 +1,12 @@
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
-import ReactSearchBox from 'react-search-box'
-
-
-
 const User = () =>{
     const context = useContext(RaceContext)
     const {localUser} = context
     const {users, isLoading} = context
     const searchbar = useSearchValue('')
-    console.log(localUser)
     return(
+        
         <div id="profilePage">
         <input type= 'text'
         {...searchbar}
@@ -21,12 +17,14 @@ const User = () =>{
         ?(
             <div>
                 <div className="profileImage">
-                    <img className="imgSrc" src={`${localUser.image}`}/>
+                    <img className="imgSrc" src={`${users[0].image}`}/>
+                <div className="locationWrap">
+                    <div className="profileLocation">{`${users[0].city}, ${users[0].state} ${users[0].country}` }</div>
+                </div>
                 </div>
                 <div class="profileInfo">
-                    <div className="profileUserName">{`${localUser.userName}` }</div>
-                    <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
-                    <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
+                    <div className="profileUserName">{`@${users[0].userName}` }</div>
+                    <div className="profileName">{`${users[0].firstName} ${users[0].lastName}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
                 </div>
             </div>
@@ -36,7 +34,6 @@ const User = () =>{
         </div>
     )
 }
-
 const useSearchValue = (initialValue) =>{
     const [userState, setUserState] = useState(initialValue);
     const handlevaluechange =(e) =>{
@@ -49,6 +46,4 @@ const useSearchValue = (initialValue) =>{
        
     }
 }
-
-
 export default User
