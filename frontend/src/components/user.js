@@ -6,7 +6,7 @@ import ReactSearchBox from 'react-search-box'
 
 const User = ({match}) =>{
     const context = useContext(RaceContext)
-    const {id} = match.params
+    const id = match.params.id
     const {users, isLoading} = context
     const searchbar = useSearchValue('')
     let profile = {};
