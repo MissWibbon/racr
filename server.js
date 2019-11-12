@@ -19,7 +19,7 @@ mongoose.connect(MONGODB_URI)
 if (process.env.NODE_ENV === 'production') {
    app.use(express.static('frontend/build'))
    app.get('*', (req, res) => {
-       res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+       res.sendFile(path.resolve(__dirname,'frontend', 'build', 'index.html'))
    })
 }
 var PORT = process.env.PORT || 5000;

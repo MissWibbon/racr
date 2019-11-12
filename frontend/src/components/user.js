@@ -7,14 +7,17 @@ import {RaceContext} from './appstate'
 const User = ({match}) =>{
 
     const context = useContext(RaceContext)
-    const id = match.params.id
-    const {users, isLoading} = context
+
+    const id = match.params.id;
+    const {users, isLoading, profile} = context
     const searchbar = useSearchValue('')
 
-    let profile = {};
+   
 
-    useEffect(() =>{
-        profile = context.fetchOneUser(id)
+    useEffect( () =>{
+            context.fetchOneUser(id)            
+        
+        console.log(`solution = ${profile}`)
     },[])
   
     return(
