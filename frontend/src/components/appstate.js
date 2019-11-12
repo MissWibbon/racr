@@ -20,6 +20,9 @@ export const Provider  = props =>{
 
     const fetchOneUser = (id) =>{
         API.getOneUser(id)
+        .then(res => {
+            console.log(res.data)
+        })
 
     }
 
