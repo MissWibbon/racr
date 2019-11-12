@@ -1,8 +1,8 @@
 import React from 'react'
-import User from './user'
+import LocalUser from './localUser'
 const Home =() =>{
     return(
-        <User></User>
+        <LocalUser></LocalUser>
     )
 }
 export default Home
