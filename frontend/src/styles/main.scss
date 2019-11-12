@@ -1,0 +1,141 @@
+$dark-green: #1F3753;
+$green: #C2FF30;
+$grey-green: #A4C9B4;
+$light-grey: #F8F8F8;
+$bold-font: 'Anton', sans-serif;
+$light-font: 'Questrial', sans-serif;
+$gradient: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+$grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+html, body { 
+    height: 100%;
+  }
+
+.navWrapper {
+    height: 100vh;
+    background-color: $dark-green;
+    padding: 1.5rem;
+    float: left;
+}
+.navLink {
+    color: $green;
+    text-decoration: none;
+    line-height: 45px;
+    display: block;
+    text-align: center;
+}
+.navLink:hover {
+    color: $light-grey;
+}
+#profilePage {
+    background-image: $gradient; 
+    color: $dark-green; 
+    padding: 2rem; 
+    height: 100vh;     
+    width: calc(100vw - 142px);
+    float: left;}
+.loginWrap, .registerWrap {
+    background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
+    background-position: 20%;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-size: cover;
+    background-color: $dark-green;
+    background-blend-mode: soft-light;
+    min-height: 100vh;
+
+    a{
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+}
+#login, #register {
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    //background-color: $dark-green;
+    color: $green;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+}
+#submitButton {
+    width: 80%; 
+    margin: auto; 
+    background-color: $green; 
+    margin-top: 20px; 
+    border: none; 
+    font-family: $light-font; 
+    padding:5px; 
+    margin-left: 10%; 
+    font-size: 20px;
+    border-radius: 2em;
+    color: $dark-green;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    transition: all 0.3s 
+}
+#submitButton:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+label {
+    width: 100%; 
+    text-align: center; 
+    display: block; 
+    padding-top: 20px; 
+    font-family: $light-font;
+}
+.inputWrap {
+    width: 50%;
+    display: inline-block;
+}
+
+input {
+    width: 80%; 
+    margin-left: 10%;
+    background: rgba(#fff, .3);
+    border: none;
+    border-radius: 2em;
+    color: white;
+    padding-left: 5px;
+}
+#imageUpload {padding-left: 0px;}
+.registerLink, .signinLink {
+    padding-top: 10px;
+    text-align: center;
+    a{
+    color: $green; 
+    font-weight: 500; 
+    font-family: $light-font;
+    transition: all 0.3s 
+
+    }
+    a:hover{color: white;}
+}
+.profileImage {
+    height: 150px; 
+    width: 150px; 
+    margin: auto; 
+    margin-top: 20px;
+}
+.imgSrc {
+    height: 100%; 
+    border-radius: 100%;
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+}
+.profileInfo {
+    background-color: $dark-green;
+    padding-top: 85px;
+    padding-bottom: 20px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: -75px;
+}
+
+.profileUserName {text-align: center; color: $green; font-family: $bold-font;}
+.profileName {text-align: center; color: white; font-family: $light-font;}
+.profileLocation {width: fit-content; margin: auto; text-align: center; color:$dark-green;  font-family: $light-font; font-size: 10px;}
+.profileRunType {text-align: center; color: white; font-family: $light-font;}
+.profileUserName {text-align: center; color: $green; font-weight: 500;}
+.profileName {text-align: center; color: white;}
+.locationWrap {position: absolute; margin: auto; margin-top: -20px;
+    margin-left: 3%; width: 150px; background-color:$light-grey; padding: 5px; border-radius: 15px; margin-left: -1px;} 

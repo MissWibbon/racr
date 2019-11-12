@@ -4,7 +4,7 @@ const userSchema = new Schema({
     id: Number,
     firstName: String,
     lastName: String,
-    username: String,
+    userName: String,
     email: String,
     password: String,
     city: String,
@@ -13,6 +13,10 @@ const userSchema = new Schema({
     age: Number,
     image: String,
     raceType: String,
+<<<<<<< HEAD
+=======
+    friends: [Schema.Types.ObjectId],
+>>>>>>> 7c43ded95dc23f833c5ee41f50e8298146be180a
     date: { type: Date, default: Date.now }
 });
 
