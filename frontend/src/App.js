@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, NavLink, Redirect, Switch} from 'react-router-dom'
-import Landing from './landing'
-import Home from './home'
-import Navbar from './Navbar'
-import SignUp from './profile'
+import Landing from './components/landing'
+import Home from './components/home'
+import Navbar from './components/Navbar'
+import SignUp from './components/profile'
 import './styles/main.scss';
 function App() {
   return (
