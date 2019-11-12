@@ -1,0 +1,25 @@
+<script>
+
+const axios = require("axios");
+
+axios({
+    "method":"GET",
+    "url":"https://salnazi-country-codes-v1.p.rapidapi.com/api.php?apiKey=8923sa7aAS7s&secret=us7uS78sj",
+    "headers":{
+    "content-type":"application/octet-stream",
+    "x-rapidapi-host":"salnazi-country-codes-v1.p.rapidapi.com",
+    "x-rapidapi-key":"618de53724msh2ceae5240273222p1c1a6bjsn66021cfcc3ee"
+    },"params":{
+    "apiKey":"8923sa7aAS7s",
+    "secret":["us7uS78sj?apikey=8923sa7aAS7s",
+    "us7uS78sj"]
+    }
+    })
+    .then((response)=>{
+      console.log(response)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+
+</script>
