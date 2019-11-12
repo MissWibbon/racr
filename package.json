@@ -13,17 +13,13 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MissWibbon/racr.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MissWibbon/racr/issues"
+  "devDependencies": {
+    "concurrently": "^5.0",
+    "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "concurrently": "^5.0.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
