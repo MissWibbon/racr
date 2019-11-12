@@ -1,8 +1,8 @@
 import React, {useState, useContext}  from 'react'
 import {Link} from 'react-router-dom'
-import API from '../utils/API'
+import API from './utils/API'
 import {RaceContext} from './appstate'
-const Landing =(props) =>{
+const Landing =() =>{
     const context = useContext(RaceContext)
     const email = useInput('');
     const password = useInput('');
@@ -17,7 +17,7 @@ const Landing =(props) =>{
                 window.localStorage.setItem('token', JSON.stringify(res.data))
                 context.getToken()
                 if (context.isAuth){
-                   props.history.push('/home')
+                    console.log('auth')
                 }else{
                     console.log('not auth')
                 }

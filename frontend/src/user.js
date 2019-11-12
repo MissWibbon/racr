@@ -4,16 +4,11 @@ import ReactSearchBox from 'react-search-box'
 
 
 
-const User = ({match}) =>{
+const User = () =>{
     const context = useContext(RaceContext)
-    const {id} = match.params
+    const {localUser} = context
     const {users, isLoading} = context
     const searchbar = useSearchValue('')
-    let profile = {};
-
-    useEffect(() =>{
-        profile = context.fetchOneUser(id)
-    },[])
     console.log(localUser)
     return(
         <div id="profilePage">
@@ -26,12 +21,12 @@ const User = ({match}) =>{
         ?(
             <div>
                 <div className="profileImage">
-                    <img className="imgSrc" src={`${profile.image}`}/>
+                    <img className="imgSrc" src={`${localUser.image}`}/>
                 </div>
                 <div class="profileInfo">
-                    <div className="profileUserName">{`${profile.userName}` }</div>
-                    <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
-                    <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
+                    <div className="profileUserName">{`${localUser.userName}` }</div>
+                    <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
+                    <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
                 </div>
             </div>
