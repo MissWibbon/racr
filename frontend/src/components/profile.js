@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import * as filestack from 'filestack-js';
 import {Link} from 'react-router-dom'
-import API from './utils/API'
+import API from '../utils/API'
 import {RaceContext} from './appstate'
 
 
