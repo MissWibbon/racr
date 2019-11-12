@@ -21,7 +21,7 @@ export const Provider  = props =>{
     const getToken = () => {
        const jwt= window.localStorage.getItem('token');
         if(jwt){
-            setLocalUser(jwt)
+            setLocalUser(JSON.parse(jwt))
             setisAuth(true)
         
 
@@ -39,6 +39,7 @@ export const Provider  = props =>{
             isAuth,
             isLoading,
             fetchUsers,
+            localUser,
             getToken
             }}>
             {props.children}
