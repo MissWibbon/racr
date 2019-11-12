@@ -1,4 +1,6 @@
 const db = require("../models");
+<<<<<<< HEAD
+=======
 var jwt = require('jsonwebtoken');
 const createHash = require('crypto').createHash
 //encr password
@@ -7,6 +9,7 @@ function hash(str) {
   hash.update(str)
   return hash.digest('hex')
 }
+>>>>>>> 7c43ded95dc23f833c5ee41f50e8298146be180a
 
 module.exports = {
     findAll: function(req, res) {
@@ -17,14 +20,21 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
+<<<<<<< HEAD
+=======
         const hashpw = hash(password.trim());
         password = hashpw;
+>>>>>>> 7c43ded95dc23f833c5ee41f50e8298146be180a
         db.User
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
+<<<<<<< HEAD
+        db.User
+            .create(req.body)
+=======
         let {email, password, firstName ,
             lastName, userName, city, state,
             country, age,  image } = req.body;
@@ -34,6 +44,7 @@ module.exports = {
             .create({email, password, firstName ,
                 lastName, userName, city, state,
                 country, age,  image })
+>>>>>>> 7c43ded95dc23f833c5ee41f50e8298146be180a
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -49,6 +60,9 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+<<<<<<< HEAD
+    }
+=======
     },
     login: function (req, res) {
         const { email, password } = req.body;
@@ -71,4 +85,5 @@ module.exports = {
           })
           .catch(err => res.status(422).json(err));
       },
+>>>>>>> 7c43ded95dc23f833c5ee41f50e8298146be180a
 };
