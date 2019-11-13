@@ -20,6 +20,9 @@ const LocalUser = () =>{
             <div>
                 <div className="profileImage">
                     <img className="imgSrc" src={`${localUser.image}`}/>
+                    <div className="locationWrap">
+                        <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
+                    </div>
                 </div>
                 <div class="profileInfo">
                     <div className="profileUserName">{`${localUser.userName}` }</div>

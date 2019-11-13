@@ -9,7 +9,14 @@ $grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 html, body { 
     height: 100%;
   }
+.logo {
+    background-image: url(../Racr-logo_graphic.svg);
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    margin: auto;
 
+}
 .navWrapper {
     height: 100vh;
     background-color: $dark-green;
@@ -31,7 +38,7 @@ html, body {
     color: $dark-green; 
     padding: 2rem; 
     height: 100vh;     
-    width: calc(100vw - 142px);
+    width: calc(100vw - 128px);
     float: left;}
 .loginWrap, .registerWrap {
     background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
@@ -139,3 +146,30 @@ input {
 .profileName {text-align: center; color: white;}
 .locationWrap {position: absolute; margin: auto; margin-top: -20px;
     margin-left: 3%; width: 150px; background-color:$light-grey; padding: 5px; border-radius: 15px; margin-left: -1px;} 
+
+@media screen and (max-width: 633px) {
+    #login {
+        width: 80%;
+    }
+    .navWrapper {
+        padding: 1.5rem;
+        height: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .navLink {
+        display: inline-block;
+        width: 20%;
+        margin-left: -2%;
+        margin-top: -20px;
+    }
+    .navLink:first-of-type {
+        margin-left: -2%;
+    }
+    #profilePage {
+        width: 100%;
+        padding: 0px;
+        padding-top: 20px;
+    }
+}
