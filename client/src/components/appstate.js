@@ -45,10 +45,12 @@ export const Provider  = props =>{
         .then(res =>{
             console.log(res.data)
         })
-        id = temp;
+        temp = id;
         id= friendId;
         friendId= temp
-        API.getfriend({id,friendId})
+        const newData = {id, friendId}
+        console.log(newData)
+        API.getfriend(newData)
         .then(res =>{
             console.log(res.data)
         })
