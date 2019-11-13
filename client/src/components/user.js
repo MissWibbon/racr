@@ -4,7 +4,7 @@ const User = ({match}) =>{
     const context = useContext(RaceContext);
 
     const {id} = match.params
-    const {users, isLoading, profile,addFriend, localUser} = context
+    const {users, isLoading, profile, addFriend, localUser} = context
     const searchbar = useSearchValue('');
 
     useEffect(() =>{
