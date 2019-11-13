@@ -17,7 +17,7 @@ const User = ({match}) =>{
         {...searchbar}
         data= {users} 
         placeHolder ='Enter Username Here'
-        ></input>
+        ></input>git branch -v
         {isLoading
         ?(
             <div>
@@ -28,7 +28,7 @@ const User = ({match}) =>{
                     <div className="profileUserName">{`${profile.userName}` }</div>
                     <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
                     <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
-                    {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
+                    <button>Add friend</button>
                 </div>
             </div>
         ):

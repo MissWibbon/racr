@@ -22,6 +22,12 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    addFriend: function (req, res) {
+        db.User
+          .findOneAndUpdate({ _id: req.params.id }, { $push: { friends: req.body.friendId } })
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      },
     create: function(req, res) {
         let {email, password, firstName ,
             lastName, userName, city, state,

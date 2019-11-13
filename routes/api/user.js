@@ -13,5 +13,10 @@ router
     .put(userController.update)
     .delete(userController.remove);
 
+router
+    .route('/friends/:id')
+    .put(userController.addFriend)
+
+    
 router.post('/login',userController.login)
 module.exports = router;
