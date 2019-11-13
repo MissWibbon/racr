@@ -36,9 +36,7 @@ export default {
     },
 
     // Deletes race with given id
-    deleteUser: function(id) {
-        return axios.delete(`/api/races/${id}`);
-    },
+   
 
     // Saves a race to the database
     saveRace: function(raceData) {
