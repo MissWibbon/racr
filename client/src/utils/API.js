@@ -23,7 +23,9 @@ export default {
     saveUser: function(userData) {
         return axios.post(`/api/users`, userData);
     },
-
+    getfriend: function(friendData){
+        return axios.put(`/api/friends/${friendData.id}`)
+    },
     // Race APIs
     // Gets races
     getRaces: function() {

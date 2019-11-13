@@ -37,6 +37,22 @@ export const Provider  = props =>{
         }
     }
 
+    const addFriend = (data) =>{
+        let {id, friendId}= data;
+        let temp = '';
+        console.log(data)
+        API.getfriend(data)
+        .then(res =>{
+            console.log(res.data)
+        })
+        id = temp;
+        id= friendId;
+        friendId= temp
+        API.getfriend({id,friendId})
+        .then(res =>{
+            console.log(res.data)
+        })
+    }
 
     useEffect(()=>{
         fetchUsers()
@@ -51,7 +67,8 @@ export const Provider  = props =>{
             fetchUsers,
             localUser,
             fetchOneUser,
-            getToken
+            getToken,
+            addFriend
             }}>
             {props.children}
         </RaceContext.Provider>
