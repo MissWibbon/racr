@@ -17,8 +17,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
-        const hashpw = hash(password.trim());
-        password = hashpw;
         db.User
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))

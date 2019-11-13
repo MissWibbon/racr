@@ -5,6 +5,7 @@ export const RaceContext = React.createContext();
 
 export const Provider  = props =>{
     const [users, setusers] = useState('');
+    const [profile, setProfile] = useState({});
     const [isLoading, setLoading] = useState(false);
     const [localUser, setLocalUser] = useState(undefined)
     const [isAuth, setisAuth] = useState(false)
@@ -18,9 +19,12 @@ export const Provider  = props =>{
 
     }
 
-    const fetchOneUser = (id) =>{
-        API.getOneUser(id)
-
+    const fetchOneUser = async (id) =>{
+        setLoading(false)
+        const res = await API.getOneUser(id)
+        console.log(res.data)
+        setProfile(res.data)
+        setLoading(true)
     }
 
     const getToken = () => {
@@ -42,6 +46,7 @@ export const Provider  = props =>{
         <RaceContext.Provider value = {{
             users,
             isAuth,
+            profile,
             isLoading,
             fetchUsers,
             localUser,
