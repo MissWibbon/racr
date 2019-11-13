@@ -38,7 +38,7 @@ html, body {
     color: $dark-green; 
     padding: 2rem; 
     height: 100vh;     
-    width: calc(100vw - 142px);
+    width: calc(100vw - 128px);
     float: left;}
 .loginWrap, .registerWrap {
     background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
@@ -166,5 +166,10 @@ input {
     }
     .navLink:first-of-type {
         margin-left: -2%;
+    }
+    #profilePage {
+        width: 100%;
+        padding: 0px;
+        padding-top: 20px;
     }
 }
