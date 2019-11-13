@@ -4,7 +4,7 @@ const User = ({match}) =>{
     const context = useContext(RaceContext);
 
     const {id} = match.params
-    const {users, isLoading, profile} = context
+    const {users, isLoading, profile,addFriend, localUser} = context
     const searchbar = useSearchValue('');
 
     useEffect(() =>{
@@ -17,7 +17,7 @@ const User = ({match}) =>{
         {...searchbar}
         data= {users} 
         placeHolder ='Enter Username Here'
-        ></input>git branch -v
+        ></input>
         {isLoading
         ?(
             <div>
@@ -28,7 +28,7 @@ const User = ({match}) =>{
                     <div className="profileUserName">{`${profile.userName}` }</div>
                     <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
                     <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
-                    <button>Add friend</button>
+                    <button onClick = {addFriend({id, friendId:localUser._id})}>Add friend</button>
                 </div>
             </div>
         ):
