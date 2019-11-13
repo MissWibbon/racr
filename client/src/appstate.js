@@ -1,5 +1,5 @@
-import React , {useState , useEffect} from 'react'
-import API from '../utils/API'
+import React , {useState , useContext, useEffect} from 'react'
+import API from './utils/API'
 
 export const RaceContext = React.createContext();
 
@@ -15,11 +15,6 @@ export const Provider  = props =>{
             setusers(res.data)
             setLoading(true)
         } )
-
-    }
-
-    const fetchOneUser = (id) =>{
-        API.getOneUser(id)
 
     }
 
@@ -45,7 +40,6 @@ export const Provider  = props =>{
             isLoading,
             fetchUsers,
             localUser,
-            fetchOneUser,
             getToken
             }}>
             {props.children}
