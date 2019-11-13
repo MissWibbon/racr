@@ -17,13 +17,21 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
-        const hashpw = hash(password.trim());
-        password = hashpw;
         db.User
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    addFriend: function (req, res) {
+        console.log('madeit')
+        db.User
+          .findOneAndUpdate({ _id: req.params.id }, { $push: { friends: req.body.friendId } })
+          .then(dbModel => {
+              console.log('success');
+                res.json(dbModel)
+          })
+          .catch(err => res.status(422).json(err));
+      },
     create: function(req, res) {
         let {email, password, firstName ,
             lastName, userName, city, state,
