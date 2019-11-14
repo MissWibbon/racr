@@ -24,7 +24,7 @@ export default {
         return axios.post(`/api/users`, userData);
     },
     getfriend: function(friendData){
-        return axios.put(`/api/friends/${friendData.id}`)
+        return axios.put(`/api/users/friends/${friendData.id}`, friendData)
     },
     // Race APIs
     // Gets races

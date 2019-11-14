@@ -23,7 +23,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addFriend: function (req, res) {
-        console.log('madeit')
+        console.log(req.body)
         db.User
           .findOneAndUpdate({ _id: req.params.id }, { $push: { friends: req.body.friendId } })
           .then(dbModel => {
