@@ -14,7 +14,7 @@ const Navbar = () =>{
             {isAuth
             ?(
             <div className="navWrapper">
-                <NavLink className="navLink" exact to = '/challengeForm'><div className="racr-nav-icon"/></NavLink>
+                <NavLink className="navLink" exact to = '/challengeform'><div className="racr-nav-icon"/></NavLink>
                 <NavLink className="navLink" exact to = '/home'><i className="fas fa-user"></i></NavLink>
                 <NavLink className="navLink" exact to = '/notifications'><i className="fas fa-bell"></i></NavLink>
                 <NavLink className="navLink" exact to = '/users'><i className="fas fa-search"></i></NavLink>
