@@ -7,6 +7,7 @@ export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
     const [isLoading, setLoading] = useState(false);
+    const [friends, setFriends] = useState([]);
     const [localUser, setLocalUser] = useState(undefined)
     const [isAuth, setisAuth] = useState(false)
     const fetchUsers = () =>{
@@ -26,15 +27,29 @@ export const Provider  = props =>{
         setProfile(res.data)
         setLoading(true)
     }
+    const getfriends =() =>{
+    
+        if(localUser !== undefined){
+            localUser.friends.map(friend =>{
+                return setFriends((prevState)=>{
+                    return [friend, ...prevState]
+                })
+            })
+        }
+    }
 
     const getToken = () => {
        const jwt= window.localStorage.getItem('token');
         if(jwt){
             setLocalUser(JSON.parse(jwt))
+           
             setisAuth(true)
-        
-
+            
+            getfriends()
+            
         }
+
+
     }
 
     const addFriend = (data) =>{
@@ -52,6 +67,7 @@ export const Provider  = props =>{
         console.log(newData)
         API.getfriend(newData)
         .then(res =>{
+            setFriends(friendId)
             console.log(res.data)
         })
     }
@@ -59,6 +75,7 @@ export const Provider  = props =>{
     useEffect(()=>{
         fetchUsers()
         getToken()
+        
     },[])
     return(
         <RaceContext.Provider value = {{
@@ -70,7 +87,9 @@ export const Provider  = props =>{
             localUser,
             fetchOneUser,
             getToken,
-            addFriend
+            addFriend,
+            friends,
+            setFriends
             }}>
             {props.children}
         </RaceContext.Provider>

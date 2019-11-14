@@ -5,6 +5,8 @@ import Home from './components/home'
 import Navbar from './components/Navbar'
 import SignUp from './components/profile'
 import User from './components/user'
+import FriendPool from './components/friendpool'
+import Countdown from './components/countdown'
 import './styles/main.scss';
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route to exact path = '/login' component ={Landing}/>
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
+        <Route to exact path = '/race' component={Countdown}/>
+        <Route to exact path = '/users' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
       </Switch>
