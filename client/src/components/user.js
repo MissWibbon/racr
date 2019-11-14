@@ -16,7 +16,7 @@ const User = ({match}) =>{
         <input type= 'text'
         {...searchbar}
         data= {users} 
-        placeHolder ='Enter Username Here'
+        placeholder ='Enter Username Here'
         ></input>
         {isLoading
         ?(

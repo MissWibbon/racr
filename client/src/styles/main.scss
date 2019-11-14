@@ -10,18 +10,27 @@ html, body {
     height: 100%;
   }
 .logo {
-    background-image: url(../Racr-logo_graphic.svg);
+    background-image: url(../Racr-logo_horizontalfull.svg);
     height: 100px;
-    width: 100px;
+    width: 200px;
     background-repeat: no-repeat;
     margin: auto;
 
 }
+.racr-nav-icon {
+    background-image: url(../Racr-logo_graphic_grey.svg);
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+
+}
 .navWrapper {
-    height: 100vh;
+    height: 102vh;
     background-color: $dark-green;
     padding: 1.5rem;
     float: left;
+    position: fixed;
 }
 .navLink {
     color: $green;
@@ -38,7 +47,7 @@ html, body {
     color: $dark-green; 
     padding: 2rem; 
     height: 100vh;     
-    width: calc(100vw - 128px);
+    width: 100%;
     float: left;}
 .loginWrap, .registerWrap {
     background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
