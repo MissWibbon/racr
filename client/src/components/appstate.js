@@ -47,6 +47,7 @@ export const Provider  = props =>{
             
             getfriends()
             
+            return true
         }
 
 

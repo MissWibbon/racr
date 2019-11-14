@@ -7,6 +7,7 @@ import SignUp from './components/profile'
 import User from './components/user'
 import FriendPool from './components/friendpool'
 import Countdown from './components/countdown'
+import ChallengeForm from './components/challengeForm'
 import './styles/main.scss';
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Navbar></Navbar>
       <Switch>
         <Route to exact path = '/login' component ={Landing}/>
+        <Route to exact path = '/users/:id/challengeform' component ={ChallengeForm}/>
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
         <Route to exact path = '/race' component={Countdown}/>

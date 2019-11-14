@@ -1,15 +1,12 @@
 
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
+import {Link} from 'react-router-dom'
 const User = ({match}) =>{
     const context = useContext(RaceContext);
 
     const {id} = match.params
-<<<<<<< HEAD
     const {users, isLoading, profile, addFriend, localUser} = context
-=======
-    const {users, isLoading, profile} = context
->>>>>>> master
     const searchbar = useSearchValue('');
 
     useEffect(() =>{
@@ -35,12 +32,9 @@ const User = ({match}) =>{
                 <div class="profileInfo">
                     <div className="profileUserName">{`${profile.userName}` }</div>
                     <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
-<<<<<<< HEAD
                     <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
                     <button onClick = {() => addFriend({id, friendId:localUser._id})}>Add friend</button>
-=======
-                    {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
->>>>>>> master
+                    <Link to = {`/users/${id}/challengeform`}><button>Challenge</button></Link>
                 </div>
             </div>
         ):
