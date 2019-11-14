@@ -7,7 +7,7 @@ const FriendPool =({match}) => {
     console.log(friends)
     return(
         <div>
-            <p>boyang</p>
+            {/* <p>boyang</p> */}
         </div>
 
     )

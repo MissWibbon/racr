@@ -1,6 +1,7 @@
 
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
+import {Link} from 'react-router-dom'
 const User = ({match}) =>{
     const context = useContext(RaceContext);
 
@@ -33,6 +34,7 @@ const User = ({match}) =>{
                     <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
                     <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
                     <button onClick = {() => addFriend({id, friendId:localUser._id})}>Add friend</button>
+                    <Link to = {`/users/${id}/challengeform`}><button>Challenge</button></Link>
                 </div>
             </div>
         ):

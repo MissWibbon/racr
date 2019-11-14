@@ -4,6 +4,7 @@ const raceSchema = new Schema({
     requestor: String,
     acceptor: String,
     open: Boolean,
+    metric: String,
     distance: { type: Number, default: 0 },
     winner: { type: String, default: "" },
     reason: { type: String, default: "For the lolz"},

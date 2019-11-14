@@ -1,33 +1,46 @@
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
 const ChallengeForm = ({match}) =>{
+    
     const context = useContext(RaceContext);
-
     const {id} = match.params
-    const {users, isLoading, profile} = context
+    const {users, isLoading, localUser, profile} = context
+    const metric = useInput ('miles')
+    const number = useInput('')
+    const message = useInput('')
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const body = {
+            requestor: localUser._id ,
+            acceptor: profile._id,
+            distance: number.value,
+            metric: metric.value,
+            message: message.value,
+            acceptor: id
 
-    useEffect(() =>{
-        context.fetchOneUser(id)
-    },[])
+        }
+        console.log( body)
+    }
+
+ 
     return(
         
         <div id="challengeModal">
         {isLoading
         ?(
             <div className="challenge-form">
-                <div>Race Against</div>
-                <div className="challenge-profile-user">{`${profile.userName}` }</div>
-                <div className="challenge-label">Schedule:</div>
-                <div className="now-challenge">Now</div>
                 <div className="challenge-label">Distance:</div>
-                <select id="distance-metric">
+                <input type = 'text' {...number} placeholder ='number' ></input>
+                <p>{number.value}</p>
+                <select id="distance-metric" {...metric}>
                     <option value="miles">Miles</option>
                     <option value="kilometers">Kilometers</option>
                     <option value="feet">Feet</option>
                 </select>                
                 <div className="challenge-label">Message:</div>
-                <input value="" placeholder="Your Message" className="challenge-message"></input>               
-                <button id="submitButton">Send Challenge</button>
+                <input  {...message}placeholder="Your Message" className="challenge-message"></input>               
+                <button id="submitButton" onClick ={handleSubmit}>Send Challenge</button>
             </div>
         ):
         <h2>Loading...</h2>
@@ -35,6 +48,22 @@ const ChallengeForm = ({match}) =>{
         </div>
     )
 }
+
+const useInput = (initialValue) =>{
+
+    const  [value , setValue] = useState(initialValue)
+    
+    const  handlevaluechange = (e) => {
+        setValue(e.target.value)
+        console.log(e.target.value)
+    }
+
+    return {
+        value,
+        onChange: handlevaluechange
+    }
+}
+
 const useSearchValue = (initialValue) =>{
     const [userState, setUserState] = useState(initialValue);
     const handlevaluechange =(e) =>{

@@ -7,16 +7,16 @@ const Landing =(props) =>{
     const email = useInput('');
     const password = useInput('');
     const handleSubmit = (e) =>{
+        e.preventDefault();
         const body = {
             email: email.value,
             password: password.value
         }
-        e.preventDefault();
         API.login(body)
             .then(res => {
                 window.localStorage.setItem('token', JSON.stringify(res.data))
-                context.getToken()
-                if (context.isAuth){
+                 const pass = context.getToken()
+                if (pass){
                    props.history.push('/home')
                 }else{
                     console.log('not auth')

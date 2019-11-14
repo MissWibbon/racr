@@ -15,7 +15,7 @@ function App() {
     <Navbar></Navbar>
       <Switch>
         <Route to exact path = '/login' component ={Landing}/>
-        <Route to exact path = '/challengeform' component ={ChallengeForm}/>
+        <Route to exact path = '/users/:id/challengeform' component ={ChallengeForm}/>
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
         <Route to exact path = '/race' component={Countdown}/>
