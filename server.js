@@ -1,10 +1,13 @@
 const express= require('express')
+
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const routes = require("./routes");
 const app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 // const routes = require("./routes");
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -24,4 +27,11 @@ mongoose.connect(MONGODB_URI)
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
    console.log(`server connected to port ${PORT}`);
+})
+
+io.on('connection', function (socket) {
+   socket.emit('news', { hello: 'world' });
+   socket.on('my other event', function (data) {
+     console.log(data);
+   });
 })
