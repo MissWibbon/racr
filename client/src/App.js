@@ -19,7 +19,7 @@ function App(props) {
  
   return (
     <BrowserRouter>
-    <Navbar></Navbar>
+    {/* <Navbar></Navbar> */}
       <Switch>
         <Route to exact path = '/login' component ={Landing}/>
         <Route to exact path = '/users/:id/challengeform' component ={ChallengeForm}/>

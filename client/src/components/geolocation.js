@@ -2,6 +2,17 @@ import React from "react";
 import { geolocated } from "react-geolocated";
  
 class Demo extends React.Component {
+    state = {
+      pos:''  
+    }
+
+    setInterval =(
+        function(){ 
+            navigator.geolocation.getCurrentPosition(function(position) {
+                this.setState({pos: position.coords});
+            }); 
+        },
+    3000);
     render() {
         return !this.props.isGeolocationAvailable ? (
 
@@ -41,7 +52,13 @@ class Demo extends React.Component {
  
 export default geolocated({
     positionOptions: {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: Infinity,
     },
-    userDecisionTimeout: 5000,
+    watchPosition: false,
+    userDecisionTimeout: null,
+    suppressLocationOnMount: false,
+    geolocationProvider: navigator.geolocation,
+    isOptimisticGeolocationEnabled: true
 })(Demo);
