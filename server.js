@@ -48,8 +48,13 @@ io.on('connection', function(socket){
       
       socket.join('public').emit('welcome')
       
-      socket.join(`${data.email}`).emit('event',{msg: 'shit happened'})
+      socket.join(`${data._id}`).emit('event',{msg: 'shit happened'})
    });
+
+   socket.on('challenge',(data) =>{
+      console.log('being challenged')
+      socket.to(data.acceptor).emit('challenge',{data})
+   })
 });
 
 
