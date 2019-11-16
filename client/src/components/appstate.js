@@ -30,6 +30,7 @@ export const Provider  = props =>{
     }
     const getfriends =() =>{
     
+<<<<<<< HEAD
         if(localUser ===undefined){
             return null
 
@@ -40,6 +41,17 @@ export const Provider  = props =>{
                     })
                 })
 
+=======
+        if(localUser === undefined){
+            return null
+        } else{
+            localUser.friends.map(friend =>{
+                return setFriends((prevState)=>{
+                    return [friend, ...prevState]
+                })
+            })
+            
+>>>>>>> 1b314fdd4012f5bf476aeaae52057d8204418084
         }
     }
 
