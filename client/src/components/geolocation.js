@@ -47,7 +47,7 @@ export default geolocated({
         maximumAge: 0,
         timeout: Infinity,
     },
-    watchPosition: true,
+    watchPosition: true, 
     userDecisionTimeout: null,
     suppressLocationOnMount: false,
     geolocationProvider: navigator.geolocation,
