@@ -36,11 +36,7 @@ export const Provider  = props =>{
             return null
 
         } else{
-                localUser.friends.map(friend =>{
-                    return setFriends((prevState)=>{
-                        return [friend, ...prevState]
-                    })
-                })
+                setFriends(localUser.friends)
 
         }
     }
@@ -49,10 +45,9 @@ export const Provider  = props =>{
        const jwt= window.localStorage.getItem('token');
         if(jwt){
             setLocalUser(JSON.parse(jwt))
-           
+            getfriends()
             setisAuth(true)
             
-            getfriends()
             
             return true
         }
@@ -75,7 +70,7 @@ export const Provider  = props =>{
         console.log(newData)
         API.getfriend(newData)
         .then(res =>{
-            setFriends(friendId)
+            setFriends((prevState)=>[...prevState,friendId])
             console.log(res.data)
         })
     }
@@ -84,7 +79,7 @@ export const Provider  = props =>{
         fetchUsers()
         getToken()
         
-    },[])
+    },)
 
     socket.on('some event', function(data){
         console.log(data)
@@ -123,7 +118,8 @@ export const Provider  = props =>{
             friends,
             setFriends,
             isOnline, 
-            setOnline
+            setOnline,
+            getfriends
             }}>
             {props.children}
         </RaceContext.Provider>

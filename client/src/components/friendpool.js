@@ -7,7 +7,11 @@ const FriendPool =({match}) => {
     console.log(friends)
     return(
         <div>
-            {/* <p>boyang</p> */}
+            {friends.map(friend =>
+            (
+                <div>{friend.userName}</div>
+            )
+            )}
         </div>
 
     )

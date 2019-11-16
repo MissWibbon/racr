@@ -4,6 +4,7 @@ import API from '../utils/API'
 import {RaceContext} from './appstate'
 const Landing =(props) =>{
     const context = useContext(RaceContext)
+    const {getfriends} = context
     const email = useInput('');
     const password = useInput('');
     const handleSubmit = (e) =>{
@@ -17,7 +18,8 @@ const Landing =(props) =>{
                 window.localStorage.setItem('token', JSON.stringify(res.data))
                  const pass = context.getToken()
                 if (pass){
-                   props.history.push('/home')
+                    getfriends()
+                   props.history.push('/friends')
                 }else{
                     console.log('not auth')
                 }
