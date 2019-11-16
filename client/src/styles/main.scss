@@ -2,12 +2,15 @@ $dark-green: #1F3753;
 $green: #C2FF30;
 $grey-green: #A4C9B4;
 $light-grey: #F8F8F8;
+$light-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 $bold-font: 'Anton', sans-serif;
 $light-font: 'Questrial', sans-serif;
 $gradient: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 $grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 html, body { 
     height: 100%;
+    background-color: $light-grey;
   }
 .logo {
     background-image: url(../Racr-logo_horizontalfull.svg);
@@ -50,7 +53,7 @@ html, body {
     width: 100%;
     float: left;}
 .loginWrap, .registerWrap {
-    background-image: url('http://fullhdwall.com/wp-content/uploads/2017/01/Top-Running-Wallpaper.jpg');
+    background-image: url('../Top-Running-Wallpaper.jpg');
     background-position: 20%;
     padding-top: 10%;
     padding-left: 5%;
@@ -73,8 +76,7 @@ html, body {
     border-radius: 5px;
     //background-color: $dark-green;
     color: $green;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-
+    box-shadow: $box-shadow;
 }
 #submitButton {
     width: 80%; 
@@ -147,6 +149,8 @@ input {
     margin-top: -75px;
 }
 
+
+
 .profileUserName {text-align: center; color: $green; font-family: $bold-font;}
 .profileName {text-align: center; color: white; font-family: $light-font;}
 .profileLocation {width: fit-content; margin: auto; text-align: center; color:$dark-green;  font-family: $light-font; font-size: 10px;}
@@ -155,6 +159,67 @@ input {
 .profileName {text-align: center; color: white;}
 .locationWrap {position: absolute; margin: auto; margin-top: -20px;
     margin-left: 3%; width: 150px; background-color:$light-grey; padding: 5px; border-radius: 15px; margin-left: -1px;} 
+
+
+#challengeModal {
+    padding: 3rem;
+    width: 75%;
+    float: right;
+}
+.challenge-form {
+    background-color: white;
+    padding: 4rem 2rem;
+    box-shadow: $light-box-shadow;
+    border-radius: 5px;
+    
+
+    input {
+        border-bottom: 1px solid $green;
+        width: 50%;
+        display: inline-block;
+        margin-left: 10px;
+        color: $dark-green;
+    }
+    input:placeholder {
+        color: $dark-green;
+    }
+    .challenge-label {
+        width: fit-content;
+        display: inline-block;
+    }
+    #distance-metric {
+        float: right;
+        margin-top: -30px;
+    }
+    p {
+        font-size: 30px;
+    }
+
+}
+
+
+#add-friend-btn {
+    background-color: $green;
+    padding: 5px;
+    border-radius: 100%;
+    border: none;
+    height: 70px;
+    width: 70px;
+    transition: all .3s;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -40px;
+}
+#add-friend-btn:hover {
+    box-shadow: $box-shadow;
+}
+#challenge-friend-btn {
+    background-image: url('../running-shoe.svg');
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-repeat: no-repeat;
+}
 
 @media screen and (max-width: 633px) {
     #login {

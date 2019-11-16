@@ -19,7 +19,7 @@ const LocalUser = () =>{
         ?(
             <div>
                 <div className="profileImage">
-                    <img className="imgSrc" src={`${localUser.image}`}/>
+                    <img className="imgSrc" src={`${localUser.image} `} alt="profile-img"/>
                     <div className="locationWrap">
                         <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
                     </div>
@@ -27,7 +27,6 @@ const LocalUser = () =>{
                 <div class="profileInfo">
                     <div className="profileUserName">{`${localUser.userName}` }</div>
                     <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
-                    <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
                 </div>
             </div>

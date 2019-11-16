@@ -29,12 +29,15 @@ export const Provider  = props =>{
     }
     const getfriends =() =>{
     
-        if(localUser !== undefined){
+        if(localUser === undefined){
+            return null
+        } else{
             localUser.friends.map(friend =>{
                 return setFriends((prevState)=>{
                     return [friend, ...prevState]
                 })
             })
+            
         }
     }
 

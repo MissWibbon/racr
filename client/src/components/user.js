@@ -24,7 +24,8 @@ const User = ({match}) =>{
         ?(
             <div>
                 <div className="profileImage">
-                    <img className="imgSrc" src={`${profile.image}`}/>
+                    <img className="imgSrc" src={`${profile.image}`} alt="profile-image"/>
+                    <button onClick = {() => addFriend({id, friendId:localUser._id})} id="add-friend-btn">Add friend</button>
                     <div className="locationWrap">
                         <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
                     </div>
@@ -32,9 +33,7 @@ const User = ({match}) =>{
                 <div class="profileInfo">
                     <div className="profileUserName">{`${profile.userName}` }</div>
                     <div className="profileName">{`${profile.firstName} ${profile.lastName}` }</div>
-                    <div className="profileLocation">{`${profile.city}, ${profile.state} ${profile.country}` }</div>
-                    <button onClick = {() => addFriend({id, friendId:localUser._id})}>Add friend</button>
-                    <Link to = {`/users/${id}/challengeform`}><button>Challenge</button></Link>
+                    <Link to = {`/users/${id}/challengeform`}><button id="challenge-friend-btn"></button></Link>
                 </div>
             </div>
         ):
