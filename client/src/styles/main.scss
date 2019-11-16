@@ -221,6 +221,13 @@ input {
     background-repeat: no-repeat;
 }
 
+#location-data {
+    width: 80%;
+    background-color: white;
+    margin: auto;
+    padding: 2rem;
+}
+
 @media screen and (max-width: 633px) {
     #login {
         width: 80%;
