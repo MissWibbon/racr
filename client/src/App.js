@@ -11,6 +11,7 @@ import ChallengeForm from './components/challengeForm'
 import './styles/main.scss';
 import{RaceContext} from './components/appstate'
 import io from 'socket.io-client';
+import Demo from './components/geolocation';
 const socket = io('http://localhost:5000');
 function App(props) {
   const context = useContext(RaceContext);
@@ -28,6 +29,7 @@ function App(props) {
         <Route to exact path = '/users' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
+        <Route to exact path = '/racetest' component={Demo}/>
       </Switch>
     </BrowserRouter>
   );
