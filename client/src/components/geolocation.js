@@ -9,6 +9,7 @@ class Demo extends React.Component {
         ) : !this.props.isGeolocationEnabled ? (
             <div>Geolocation is not enabled</div>
         ) : this.props.coords ? (
+            <div className="location-wrap">
             <table id="location-data">
                 <tbody>
                     <tr>
@@ -33,6 +34,7 @@ class Demo extends React.Component {
                     </tr>
                 </tbody>
             </table>
+            </div>
         ) : (
             <div>Getting the location data&hellip; </div>
         );
@@ -41,7 +43,13 @@ class Demo extends React.Component {
  
 export default geolocated({
     positionOptions: {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: Infinity,
     },
-    userDecisionTimeout: 5000,
+    watchPosition: true,
+    userDecisionTimeout: null,
+    suppressLocationOnMount: false,
+    geolocationProvider: navigator.geolocation,
+    isOptimisticGeolocationEnabled: true
 })(Demo);
