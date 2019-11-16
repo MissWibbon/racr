@@ -6,6 +6,7 @@ export const RaceContext = React.createContext();
 export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
+    const [isOnline, setOnline] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const [friends, setFriends] = useState([]);
     const [localUser, setLocalUser] = useState(undefined)
@@ -29,12 +30,16 @@ export const Provider  = props =>{
     }
     const getfriends =() =>{
     
-        if(localUser !== undefined){
-            localUser.friends.map(friend =>{
-                return setFriends((prevState)=>{
-                    return [friend, ...prevState]
+        if(localUser ===undefined){
+            return null
+
+        } else{
+                localUser.friends.map(friend =>{
+                    return setFriends((prevState)=>{
+                        return [friend, ...prevState]
+                    })
                 })
-            })
+
         }
     }
 
@@ -90,7 +95,9 @@ export const Provider  = props =>{
             getToken,
             addFriend,
             friends,
-            setFriends
+            setFriends,
+            isOnline, 
+            setOnline
             }}>
             {props.children}
         </RaceContext.Provider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import Landing from './components/landing'
 import Home from './components/home'
@@ -9,7 +9,31 @@ import FriendPool from './components/friendpool'
 import Countdown from './components/countdown'
 import ChallengeForm from './components/challengeForm'
 import './styles/main.scss';
+import{RaceContext} from './components/appstate'
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
+
 function App() {
+  const context = useContext(RaceContext);
+  const {localUser} = context
+  socket.on('some event', function(data){
+    console.log(data)
+});
+  socket.on('welcome', function(data){
+    console.log('made it')
+});
+socket.on('ask', () =>{
+   if (localUser === undefined){
+    return false
+   }else{
+   
+     socket.emit('online', {localUser})
+  }
+})
+socket.on('event', data =>{
+  console.log(data)
+})
+socket.on('disconnect', function(){});
   return (
     <BrowserRouter>
     <Navbar></Navbar>
