@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
-
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
 const ChallengeForm = ({match}) =>{
     
     const context = useContext(RaceContext);
@@ -21,6 +22,11 @@ const ChallengeForm = ({match}) =>{
             acceptor: id
 
         }
+        socket.emit('challenge', {body})
+        socket.on('challenge', () =>{
+            console.log('youve been challenged')
+        })
+
         console.log( body)
     }
 

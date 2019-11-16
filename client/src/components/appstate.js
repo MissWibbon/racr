@@ -1,5 +1,7 @@
 import React , {useState , useEffect} from 'react'
 import API from '../utils/API'
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
 
 export const RaceContext = React.createContext();
 
@@ -30,7 +32,6 @@ export const Provider  = props =>{
     }
     const getfriends =() =>{
     
-<<<<<<< HEAD
         if(localUser ===undefined){
             return null
 
@@ -41,17 +42,6 @@ export const Provider  = props =>{
                     })
                 })
 
-=======
-        if(localUser === undefined){
-            return null
-        } else{
-            localUser.friends.map(friend =>{
-                return setFriends((prevState)=>{
-                    return [friend, ...prevState]
-                })
-            })
-            
->>>>>>> 1b314fdd4012f5bf476aeaae52057d8204418084
         }
     }
 
@@ -95,6 +85,30 @@ export const Provider  = props =>{
         getToken()
         
     },[])
+
+    socket.on('some event', function(data){
+        console.log(data)
+    });
+      socket.on('welcome', function(data){
+        console.log('made it')
+    });
+    socket.on('ask', () =>{
+       if (localUser === undefined){
+        return false
+       }else{
+       
+         socket.emit('online', {localUser})
+      }
+    })
+    socket.on('event', data =>{
+      console.log(data)
+    })
+    socket.on('challenge', () =>{
+      return(
+       console.log('you just got a challenge')
+      )
+    })
+    socket.on('disconnect', function(){});
     return(
         <RaceContext.Provider value = {{
             users,
