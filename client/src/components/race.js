@@ -1,8 +1,12 @@
 import React from "react";
 import { geolocated, geoPropTypes } from "geolocation";
  
+
+
+
 class Demo extends React.Component {
     // Same as the basic example
+    
 }
  
 // Using Object.assign

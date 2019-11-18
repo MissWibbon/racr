@@ -22,10 +22,11 @@ html, body {
 }
 .racr-nav-icon {
     background-image: url(../Racr-logo_graphic_grey.svg);
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     background-repeat: no-repeat;
     margin-top: 10px;
+    margin: auto;
 
 }
 .navWrapper {
@@ -137,6 +138,7 @@ input {
 }
 .imgSrc {
     height: 100%; 
+    width: 100%;
     border-radius: 100%;
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 }
@@ -236,14 +238,14 @@ input {
     }
     .navWrapper {
         padding: 1.5rem;
-        height: 10px;
+        height: 25px;
         position: fixed;
         bottom: 0;
         width: 100%;
     }
     .navLink {
         display: inline-block;
-        width: 20%;
+        width: 17%;
         margin-left: -2%;
         margin-top: -20px;
     }

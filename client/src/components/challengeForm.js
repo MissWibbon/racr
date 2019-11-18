@@ -36,7 +36,7 @@ const ChallengeForm = ({match}) =>{
             <div className="challenge-form">
                 <div className="challenge-label">Distance:</div>
                 <input type = 'text' {...number} placeholder ='number' ></input>
-                <p>{number.value}</p>
+                <p>{number.value}{metric.value}</p>
                 <select id="distance-metric" {...metric}>
                     <option value="miles">Miles</option>
                     <option value="kilometers">Kilometers</option>
