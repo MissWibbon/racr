@@ -14,8 +14,8 @@ import { stat } from 'fs';
 const Demo = () => {
     let dist = 0;
     const [state, setState] = useState({
-        lat: undefined,
-        long : undefined,
+        lat: 0,
+        long : 0,
         dist: 0
     }) 
    
