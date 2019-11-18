@@ -1,4 +1,5 @@
-import React from "react";
+import React, {Component, useContext, useEffect, useState}from 'react'
+import {RaceContext} from './appstate'
 
 import { geolocated } from "react-geolocated";
  
@@ -9,11 +10,11 @@ import { geolocated } from "react-geolocated";
 // }
  
 
-class Demo extends React.Component {
+class Demo extends Component {
     
     state = {
-        lat: [],
-        long: [],
+        lat: 0,
+        long: 0,
         latPlayer1: [], 
         longPlayer1: [], 
         latPlayer2: [], 
@@ -21,7 +22,16 @@ class Demo extends React.Component {
         timestamp: []
     }
     //navigator.geolocation.watchPosition(console.log(this.props.coords.latitude)),
-    
+    //Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) );
+    distance = () => {
+        this.setState(prevState => ({
+            lat: this.props.coords.latitude || 0,
+            long: this.props.coords.longitude || 0,
+            distance : Math.sqrt( Math.pow((prevState.lat-this.state.lat), 2) + Math.pow((prevState.long-this.state.long), 2) )
+            
+        }))
+    }
+
     render() {
         //componentDidUpdate( this.props.coords.latitude, this.state.latPlayer1)
         // this.state.lat.push(this.props.coords.latitude);
@@ -32,11 +42,6 @@ class Demo extends React.Component {
             ) : !this.props.isGeolocationEnabled ? (
                 <div>Geolocation is not enabled</div>
                 ) : this.props.coords ? (
-                    this.state.latPlayer1 = this.state.latPlayer1.concat(this.props.coords.latitude),
-                    this.state.longPlayer1 = this.state.longPlayer1.concat(this.props.coords.longitude),
-                    // this.setState(this.state.latPlayer1.concat(this.props.latitude)),
-                    console.log(this.state.latPlayer1),
-                    console.log(this.state.longPlayer1),
                     
                     // this.state.latPlayer1.concat(this.props.coords.latitude),
                     // document.getElementById('newLat').innerHTML = this.props.coords.latitude,
@@ -47,12 +52,6 @@ class Demo extends React.Component {
                     <tr>
                         <td>latitude</td>
                         <td>
-                        <ul>
-                            {
-                            this.state.lat.map(item => (
-                                <li key={item}>{item}</li>
-                            ))}
-                        </ul>
                         {this.props.coords.latitude}</td>
                     </tr>
                     <tr>
@@ -73,7 +72,9 @@ class Demo extends React.Component {
                     </tr>
                 </tbody>
             </table>
-            <div id="newLat">{this.state.latPlayer1}</div>
+            <div id="newLat"></div>
+            <div id="long-distance">{this.state.distance}</div>
+            <div id="lat-distance"></div>
             </div>
         ) : (
             <div>Getting the location data&hellip; </div>
@@ -81,6 +82,8 @@ class Demo extends React.Component {
     }
 
 }
+
+
  
 
 export default geolocated({
