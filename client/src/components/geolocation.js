@@ -21,6 +21,13 @@ const Demo = () => {
    
 
     useEffect(() =>{
+        navigator.geolocation.getCurrentPosition(function(position) {
+            setState({
+                lat:position.coords.latitude, 
+                long:position.coords.longitude,
+                dist: 0
+            });
+          });
        distance()
     },[])
     //navigator.geolocation.watchPosition(console.log(this.props.coords.latitude)),
