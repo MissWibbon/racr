@@ -33,7 +33,7 @@ export const Provider  = props =>{
     const getfriends =() =>{
     
         if(localUser ===undefined){
-            return null
+            return true
 
         } else{
                 setFriends(localUser.friends)
@@ -79,7 +79,13 @@ export const Provider  = props =>{
         fetchUsers()
         getToken()
         
-    },)
+        
+    },[])
+    useEffect(()=>{
+        localStorage.setItem('friends', friends)
+
+        
+    },[friends])
 
     socket.on('some event', function(data){
         console.log(data)
