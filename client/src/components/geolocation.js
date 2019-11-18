@@ -13,7 +13,11 @@ import { stat } from 'fs';
 
 const Demo = () => {
     let dist = 0;
-    const [state, setState] = useState(0) 
+    const [state, setState] = useState({
+        lat: undefined,
+        long : undefined,
+        dist: 0
+    }) 
    
 
     useEffect(() =>{
@@ -28,7 +32,7 @@ const Demo = () => {
                 {
                     lat:position.coords.latitude, 
                     long: position.coords.longitude,
-                    dist:  Math.sqrt( Math.pow((prevState.lat-position.coords.latitude), 2) + Math.pow((prevState.long-position.coords.longitude), 2))
+                    dist: prevState.dist += Math.sqrt( Math.pow((prevState.lat-position.coords.latitude), 2) + Math.pow((prevState.long-position.coords.longitude), 2))
                 }))
           });
             
