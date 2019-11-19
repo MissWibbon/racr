@@ -11,11 +11,15 @@ RACR is a mobile based, web-ready, React powered app for all types of runners.
 
 Racr uses a number of open source projects to work properly:
 
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework
-
-And of course Dillinger itself is on GitHub.
+* [ Bootstrap ] - great UI boilerplate for modern web apps
+* [ Node.js ] - Evented I/O for the backend
+* [ Express ] - Fast node.js network app framework
+* [ React ] - JavaScript library for building user interfaces
+* [ MongoDB ] - Cross-platform document-oriented database program
+* [ Socket.io ] - JavaScript library for realtime web applications. It enables realtime, bi-directional communication between web clients and servers
+* [ jQuary ] - JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax
+* [] -
+* [] -
 
 ### Installation
 
@@ -23,12 +27,17 @@ And of course Dillinger itself is on GitHub.
 
 Racr is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
 
-| Plugin | README |
-| ------ | ------ |
+| Plugin | README                           |
+|--------|----------------------------------|
 | GitHub | [plugins/github/README.md][PlGh] |
 
 ### Development
-
+| Developers       | GitHub                           |
+|------------------|----------------------------------|
+| Michelle Wibben  | https://github.com/MissWibbon    |
+| Tyler Falcoff    | https://github.com/tyfal         |
+| Boyang Matsapola | https://github.com/boyangm       |
+| Jimmy Breseman   | https://github.com/jimmybreseman |
 
 ### Todos
 
