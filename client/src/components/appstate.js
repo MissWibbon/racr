@@ -55,6 +55,7 @@ export const Provider  = props =>{
        const jwt= window.localStorage.getItem('token');
         if(jwt){
             setLocalUser(JSON.parse(jwt))
+            setisAuth(true)
            
             
             

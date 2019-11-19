@@ -28,6 +28,7 @@ function App(props) {
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
         <Route to exact path = '/race' component={Countdown}/>
+        <Route to exact path = '/racetest' component={Demo}/>
         <Route to exact path = '/notifications' render ={(props) => <ChallengeResponse {...props} data = {notifications}/>}/>
         <Route to exact path = '/friends' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
