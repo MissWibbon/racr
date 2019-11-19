@@ -48,12 +48,20 @@ io.on('connection', function(socket){
       
       socket.join('public').emit('welcome')
       
-      socket.join(`${data._id}`).emit('event',{msg: 'shit happened'})
+      socket.join(`${data._id}`).emit('event',{msg: 'data display'})
    });
 
    socket.on('challenge',(data) =>{
       console.log('being challenged')
+      socket.join(`${data.requestor}${data.acceptor}`)
       socket.to(data.acceptor).emit('challengeresponse',{data})
+      socket.on('startrace', data =>{
+         socket.join(`${data.requestor}${data.acceptor}`)
+         socket.to(`${data.requestor}${data.acceptor}`).emit('start', {data: 'race started'})
+         console.log(data);
+      })
+
+
    })
 });
 
