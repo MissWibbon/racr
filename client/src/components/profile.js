@@ -40,7 +40,7 @@ const SignUp = (props) =>{
             })
 
 
-        console.log('this is where i send shit');
+        console.log('this is where i send stuff');
         
     }
     

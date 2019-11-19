@@ -10,6 +10,7 @@ import Countdown from './components/countdown'
 import ChallengeForm from './components/challengeForm'
 import './styles/main.scss';
 import{RaceContext} from './components/appstate'
+import ChallengeResponse from './components/challengResponse'
 import io from 'socket.io-client';
 import Demo from './components/geolocation';
 // import ChallengeResponse from './components/challengResponse';
