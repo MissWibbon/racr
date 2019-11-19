@@ -9,6 +9,7 @@ export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
     const [isOnline, setOnline] = useState(false);
+    const [notifications, setNotifications] = useState({});
     const [isLoading, setLoading] = useState(false);
     const [friends, setFriends] = useState([]);
     const [localUser, setLocalUser] = useState(undefined)
@@ -103,11 +104,7 @@ export const Provider  = props =>{
     socket.on('event', data =>{
       console.log(data)
     })
-    socket.on('challenge', () =>{
-      return(
-       console.log('you just got a challenge')
-      )
-    })
+    
     socket.on('disconnect', function(){});
     return(
         <RaceContext.Provider value = {{
@@ -123,7 +120,9 @@ export const Provider  = props =>{
             friends,
             setFriends,
             isOnline, 
-            setOnline
+            setOnline,
+            notifications,
+            setNotifications
             }}>
             {props.children}
         </RaceContext.Provider>
