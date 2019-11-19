@@ -4,8 +4,13 @@ export default {
     
     // User APIs
     // Gets users
-    getUsers: function() {
-        return axios.get(`/api/users/`);
+    getUsers: function(query = undefined) {
+        if(query === undefined){
+            return axios.get(`/api/users/`);
+
+        }else{
+            return axios.getUri(`/api/users/${query}`)
+        }
         
     },
 
