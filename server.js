@@ -53,7 +53,7 @@ io.on('connection', function(socket){
 
    socket.on('challenge',(data) =>{
       console.log('being challenged')
-      socket.to(data.acceptor).emit('challenge',{data})
+      socket.to(data.acceptor).emit('challengeresponse',{data})
    })
 });
 

@@ -19,9 +19,10 @@ function App(props) {
   const context = useContext(RaceContext);
   const {localUser, notifications, setNotifications} = context;
 
- socket.on('challenge', (data) =>{
-    console.log(data)
+ socket.on('challengeresponse', (data) =>{
+    console.log(`${data} is a challenge`)
       return(
+
         setNotifications(data)
       )
     })
@@ -35,7 +36,7 @@ function App(props) {
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
         <Route to exact path = '/race' component={Countdown}/>
-        <Route to exact path = '/notifications' render ={() => <ChallengeResponse {...props} data = {notifications}/>}/>
+        <Route to exact path = '/notifications' render ={(props) => <ChallengeResponse {...props} data = {notifications}/>}/>
         <Route to exact path = '/friends' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
