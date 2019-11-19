@@ -13,7 +13,7 @@ import{RaceContext} from './components/appstate'
 import ChallengeResponse from './components/challengResponse'
 import io from 'socket.io-client';
 import Demo from './components/geolocation';
-import ChallengeResponse from './components/challengResponse';
+// import ChallengeResponse from './components/challengResponse';
 const socket = io('http://localhost:5000');
 
 function App(props) {
@@ -33,10 +33,6 @@ function App(props) {
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
         <Route to exact path = '/racetest' component={Demo}/>
-<<<<<<< HEAD
-        {/* <Route to exact path = '/notifications' component={ChallengeResponse}/> */}
-=======
->>>>>>> 332cdf64d1b1267df326c5410c22477e13832ef0
       </Switch>
     </BrowserRouter>
   );
