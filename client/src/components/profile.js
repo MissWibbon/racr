@@ -40,7 +40,6 @@ const SignUp = (props) =>{
             })
 
 
-        console.log('this is where i send shit');
         
     }
     
@@ -113,7 +112,6 @@ const useInput = (initialvalue) => {
     const [inputs, setInputs] = useState(initialvalue);
     const handlevaluechange =(e) =>{
         setInputs(e.target.value)
-        console.log(e.target.value)
 
     }
     return {

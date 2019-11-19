@@ -30,7 +30,7 @@ export const Provider  = props =>{
     const fetchOneUser = async (id) =>{
         setLoading(false)
         const res = await API.getOneUser(id)
-        console.log(res.data)
+        console.log(res.data[0])
         setProfile(res.data)
         setLoading(true)
         return res.data[0]

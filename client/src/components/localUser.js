@@ -21,7 +21,7 @@ const LocalUser = (props) =>{
                         <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
                     </div>
                 </div>
-                <div class="profileInfo">
+                <div className="profileInfo">
                     <div className="profileUserName">{`${localUser.userName}` }</div>
                     <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}

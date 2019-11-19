@@ -17,7 +17,7 @@ const SearchBar =(props) =>{
         <>
         <input type= 'text'
         {...searchbar}
-        placeHolder ='Enter Username Here'
+        placeholder ='Enter Username Here'
         ></input>
         <button id="searchFriend" onClick = {handleSubmit}><i className="fas fa-search"></i></button>
         </>

@@ -4,7 +4,6 @@ import API from '../utils/API'
 import {RaceContext} from './appstate'
 const Landing =(props) =>{
     const context = useContext(RaceContext)
-    const{setisAuth} = context;
     const email = useInput('');
     const password = useInput('');
     const handleSubmit = (e) =>{
@@ -16,10 +15,8 @@ const Landing =(props) =>{
         API.login(body)
             .then(res => {
                 window.localStorage.setItem('token', JSON.stringify(res.data))
-                localStorage.setItem('friends', JSON.stringify(res.data.friends))
-                const pass = context.getToken()
+                 const pass = context.getToken()
                 if (pass){
-                    setisAuth(true)
                    props.history.push('/home')
                 }else{
                     console.log('not auth')
@@ -48,7 +45,6 @@ const useInput = (initialvalue) => {
     const [inputs, setInputs] = useState(initialvalue);
     const handlevaluechange =(e) =>{
         setInputs(e.target.value)
-        console.log(e.target.value)
 
     }
     return {
