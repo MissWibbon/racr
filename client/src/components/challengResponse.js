@@ -29,7 +29,7 @@ const ChallengeResponse = (props) =>{
                 <div className="opponentName"></div>
                 in a <div className="distance"></div> race</div>
                 <button id="submitButton" className="accept-race" onClick ={Accept}>Accept</button>
-                <button id="submitButton" className="decline-race" onClick ="#">Decline</button>
+                <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>
             </div>
 
             )
