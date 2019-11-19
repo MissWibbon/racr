@@ -41,6 +41,6 @@ Racr is currently extended with the following plugins. Instructions on how to us
 
 ### Todos
 
- - Add Night Mode
+ - Add Night Mode 
 
 **Run user run!**
