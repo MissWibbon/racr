@@ -11,7 +11,7 @@ import { stat } from 'fs';
 // }
  
 
-const Demo = () => {
+const Demo = (props) => {
     let dist = 0;
     const [state, setState] = useState({
         lat: 0,
