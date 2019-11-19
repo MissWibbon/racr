@@ -3,7 +3,7 @@ import LocalUser from './localUser'
 import {RaceContext} from './appstate';
 
 
-const Home =() =>{
+const Home =(props) =>{
     const context = useContext(RaceContext);
   
     const {isOnline, setOnline, isAuth, localUser} = context
@@ -15,7 +15,7 @@ const Home =() =>{
     //   });
     //   socket.on('disconnect', function(){});
     return(
-        <LocalUser></LocalUser>
+        <LocalUser {...props}></LocalUser>
     )
 }
 export default Home

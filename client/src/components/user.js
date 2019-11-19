@@ -2,6 +2,7 @@
 import React, {useContext, useEffect, useState}from 'react'
 import {RaceContext} from './appstate'
 import {Link} from 'react-router-dom'
+import SearchBar from './searchbar';
 const User = ({match}) =>{
     const context = useContext(RaceContext);
 
@@ -15,11 +16,7 @@ const User = ({match}) =>{
     return(
         
         <div id="profilePage">
-        <input type= 'text'
-        {...searchbar}
-        data= {users} 
-        placeholder ='Enter Username Here'
-        ></input>
+       <SearchBar></SearchBar>
         {isLoading
         ?(
             <div>

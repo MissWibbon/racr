@@ -1,20 +1,17 @@
 import React, {useContext, useState}from 'react'
 import {RaceContext} from './appstate'
+import SearchBar from './searchbar';
 
 
 
-const LocalUser = () =>{
+const LocalUser = (props) =>{
     const context = useContext(RaceContext)
     const {users,localUser} = context
     const {isLoading} = context
     const searchbar = useSearchValue('')
     return(
         <div id="profilePage">
-        <input type= 'text'
-        {...searchbar}
-        data= {users} 
-        placeHolder ='Enter Username Here'
-        ></input>
+        <SearchBar {...props}></SearchBar>
         {isLoading
         ?(
             <div>

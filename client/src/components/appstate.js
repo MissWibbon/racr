@@ -14,8 +14,9 @@ export const Provider  = props =>{
     const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
-    const fetchUsers = () =>{
-        API.getUsers()
+    const fetchUsers = (query) =>{
+
+        API.getUsers(query)
         .then(res =>{
             console.log(res.data)
             setusers(res.data)
@@ -32,6 +33,7 @@ export const Provider  = props =>{
         console.log(res.data)
         setProfile(res.data)
         setLoading(true)
+        return res.data[0]
     }
     const getfriends =() =>{
     
