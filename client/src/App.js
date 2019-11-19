@@ -12,12 +12,21 @@ import './styles/main.scss';
 import{RaceContext} from './components/appstate'
 import io from 'socket.io-client';
 import Demo from './components/geolocation';
-import ChallengeResponse from './components/challengResponse';
+// import ChallengeResponse from './components/challengResponse';
 const socket = io('http://localhost:5000');
+
 function App(props) {
   const context = useContext(RaceContext);
-  const {localUser} = context
- 
+  const {localUser, notifications, setNotifications} = context;
+
+ socket.on('challengeresponse', (data) =>{
+    console.log(`${data} is a challenge`)
+      return(
+
+        setNotifications(data)
+      )
+    })
+
   return (
     <BrowserRouter>
     <Navbar></Navbar>
@@ -27,11 +36,15 @@ function App(props) {
         <Route to exact path = '/home' component ={Home}/>
         <Route to exact path = '/signup' component={SignUp}/>
         <Route to exact path = '/race' component={Countdown}/>
-        <Route to exact path = '/users' component={FriendPool}/>
+        <Route to exact path = '/notifications' render ={(props) => <ChallengeResponse {...props} data = {notifications}/>}/>
+        <Route to exact path = '/friends' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
         <Route to exact path = '/racetest' component={Demo}/>
-        <Route to exact path = '/notifications' component={ChallengeResponse}/>
+<<<<<<< HEAD
+=======
+        {/* <Route to exact path = '/notifications' component={ChallengeResponse}/> */}
+>>>>>>> 606769e207b9a0f65f791a1250aa215cdb5949c3
       </Switch>
     </BrowserRouter>
   );

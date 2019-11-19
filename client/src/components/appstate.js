@@ -9,9 +9,10 @@ export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
     const [isOnline, setOnline] = useState(false);
+    const [notifications, setNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [friends, setFriends] = useState([]);
-    const [localUser, setLocalUser] = useState(undefined)
+    const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
+    const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const fetchUsers = () =>{
         API.getUsers()
@@ -22,6 +23,8 @@ export const Provider  = props =>{
         } )
 
     }
+
+
 
     const fetchOneUser = async (id) =>{
         setLoading(false)
@@ -36,6 +39,7 @@ export const Provider  = props =>{
             return null
 
         } else{
+                
                 localUser.friends.map(friend =>{
                     return setFriends((prevState)=>{
                         return [friend, ...prevState]
@@ -50,9 +54,9 @@ export const Provider  = props =>{
         if(jwt){
             setLocalUser(JSON.parse(jwt))
            
-            setisAuth(true)
             
-            getfriends()
+            
+       
             
             return true
         }
@@ -75,6 +79,7 @@ export const Provider  = props =>{
         console.log(newData)
         API.getfriend(newData)
         .then(res =>{
+            localStorage.setItem('friends', [localUser.friends,friendId])
             setFriends(friendId)
             console.log(res.data)
         })
@@ -83,6 +88,7 @@ export const Provider  = props =>{
     useEffect(()=>{
         fetchUsers()
         getToken()
+
         
     },[])
 
@@ -103,11 +109,19 @@ export const Provider  = props =>{
     socket.on('event', data =>{
       console.log(data)
     })
-    socket.on('challenge', () =>{
-      return(
-       console.log('you just got a challenge')
-      )
-    })
+
+    socket.on('challengeresponse', (data) =>{
+        console.log(data)
+          return(
+            setNotifications((prevState) => {
+
+                localStorage.setItem('notifications',[...prevState, data.data.body])
+                return [...prevState, data.data.body]
+            })
+          )
+        })
+    
+    
     socket.on('disconnect', function(){});
     return(
         <RaceContext.Provider value = {{
@@ -123,7 +137,10 @@ export const Provider  = props =>{
             friends,
             setFriends,
             isOnline, 
-            setOnline
+            setOnline,
+            notifications,
+            setNotifications,
+            setisAuth
             }}>
             {props.children}
         </RaceContext.Provider>

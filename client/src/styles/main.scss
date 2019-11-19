@@ -231,7 +231,26 @@ input {
     margin: auto;
     padding: 2rem;
 }
+.inactive {
+    display: none;
+}
+.active {
+    display: block;
+}
 
+#notify-wrap {
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+#notify-count {
+    background: red;
+    padding: 3px;
+    border-radius: 100%;
+    font-size: 10px;
+    color: white;
+    font-weight: 900;
+}
 @media screen and (max-width: 633px) {
     #login {
         width: 80%;
