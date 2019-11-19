@@ -19,7 +19,7 @@ const SearchBar =(props) =>{
         {...searchbar}
         placeHolder ='Enter Username Here'
         ></input>
-        <button onClick = {handleSubmit}>submit</button>
+        <button id="searchFriend" onClick = {handleSubmit}><i className="fas fa-search"></i></button>
         </>
     )
 }

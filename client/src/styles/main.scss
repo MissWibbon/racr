@@ -52,7 +52,19 @@ html, body {
     padding: 2rem; 
     height: 100vh;     
     width: 100%;
-    float: left;}
+    float: left;
+    input {
+        color: $dark-green;
+        font-size: 16px;
+    }
+    #searchFriend {
+        position: absolute;
+        margin-left: -30px;
+        margin-top: 2px;
+        background: transparent;
+        border: none;
+    }
+}
 .loginWrap, .registerWrap {
     background-image: url('../Top-Running-Wallpaper.jpg');
     background-position: 20%;
@@ -221,6 +233,12 @@ input {
     width: 40px;
     border: none;
     background-repeat: no-repeat;
+    padding: 5px;
+    margin-right: 20%;
+    margin-top: -40px;
+    display: inline-block;
+    float: right;
+
 }
 .location-wrap {
     padding: 3rem;
@@ -250,6 +268,9 @@ input {
     font-size: 10px;
     color: white;
     font-weight: 900;
+}
+.friend-list {
+    margin-left: 60px;
 }
 @media screen and (max-width: 633px) {
     #login {
