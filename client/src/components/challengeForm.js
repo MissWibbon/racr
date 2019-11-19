@@ -23,11 +23,8 @@ const ChallengeForm = ({match}) =>{
 
         }
         socket.emit('challenge', {body})
-        socket.on('challenge', () =>{
-            console.log('youve been challenged')
-        })
 
-        console.log( body)
+        console.log(body)
     }
 
  
