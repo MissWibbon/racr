@@ -41,10 +41,7 @@ function App(props) {
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
         <Route to exact path = '/racetest' component={Demo}/>
-<<<<<<< HEAD
-=======
         {/* <Route to exact path = '/notifications' component={ChallengeResponse}/> */}
->>>>>>> 606769e207b9a0f65f791a1250aa215cdb5949c3
       </Switch>
     </BrowserRouter>
   );
