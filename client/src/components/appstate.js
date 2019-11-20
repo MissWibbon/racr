@@ -9,6 +9,7 @@ export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
     const [isOnline, setOnline] = useState(false);
+    const [requestorId, setRequestorId] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
