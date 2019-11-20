@@ -16,6 +16,8 @@ const ChallengeResponse = (props) => {
     }
 
     let requestorId = null
+    let acceptorName = null
+
     if (Array.isArray(notifications) && notifications.length > 0) {
 
         console.log(notifications[0])
@@ -26,11 +28,12 @@ const ChallengeResponse = (props) => {
     if (Array.isArray(users) && requestorId) {
         console.log(users)
         const user = users.find(item => {
-            console.log(requestorId, item)
+            console.log(requestorId, item, item.userName)
+            acceptorName = item.userName
              return item._id === requestorId
         })
-        console.log(user, user.userName)
     }
+    console.log(acceptorName)
     console.log('----------')
     const notify = []
     const noticeArray = Object.keys(notifications).map(i => notifications[i])
@@ -70,7 +73,7 @@ const ChallengeResponse = (props) => {
                         ? (
                             <div className="challenge-response">
                                 <div className="challenge-label">You have been invited to race against
-                <div className="opponentName"></div>
+                <div className="opponentName"> @{acceptorName} </div>
                                     in a <div className="distance"></div> race</div>
                                 <button id="submitButton" className="accept-race" onClick={Accept}>Accept</button>
                                 <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>

@@ -278,6 +278,12 @@ input {
 .friend-list {
     margin-left: 60px;
 }
+.opponentName {
+    display: inline-block;
+    padding: 0px 5px;
+    color: $dark-green;
+    font-weight: 700;
+}
 @media screen and (max-width: 633px) {
     #login {
         width: 80%;
