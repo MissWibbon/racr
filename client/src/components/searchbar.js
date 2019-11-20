@@ -27,7 +27,6 @@ const useSearchValue = (initialValue) =>{
     const [userState, setUserState] = useState(initialValue);
     const handlevaluechange =(e) =>{
         setUserState(e.target.value);
-        console.log(e.target.value)
     }
     return {
         value: userState,
