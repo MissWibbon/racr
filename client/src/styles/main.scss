@@ -278,9 +278,9 @@ input {
 .friend-list {
     margin-left: 60px;
 }
-.opponentName {
+.opponentName, .distance {
     display: inline-block;
-    padding: 0px 5px;
+    padding: 0px 3px;
     color: $dark-green;
     font-weight: 700;
 }

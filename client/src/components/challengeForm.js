@@ -40,8 +40,8 @@ const ChallengeForm = ({match}) =>{
                 <input type = 'text' {...number} placeholder ='number' ></input>
                 <p>{number.value}{metric.value}</p>
                 <select id="distance-metric" {...metric}>
-                    <option value="miles">Miles</option>
-                    <option value="kilometers">Kilometers</option>
+                    <option value="miles">Mile</option>
+                    <option value="kilometers">Kilometer</option>
                     <option value="feet">Feet</option>
                 </select>                
                 <div className="challenge-label">Message:</div>

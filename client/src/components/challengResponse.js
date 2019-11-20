@@ -16,12 +16,22 @@ const ChallengeResponse = (props) => {
     }
 
     let requestorId = null
+    let requestorname = null
     let acceptorName = null
+    let distance = null
+    let metric = null
+    let message = null
+
 
     if (Array.isArray(notifications) && notifications.length > 0) {
 
         console.log(notifications[0])
         requestorId = notifications[0] && notifications[0].acceptor
+        distance = notifications[0] && notifications[0].distance
+        metric = notifications[0] && notifications[0].metric
+        message = notifications[0] && notifications[0].message
+        console.log(distance, metric, message)
+
     }
 
     console.log('==========')
@@ -74,7 +84,8 @@ const ChallengeResponse = (props) => {
                             <div className="challenge-response">
                                 <div className="challenge-label">You have been invited to race against
                 <div className="opponentName"> @{acceptorName} </div>
-                                    in a <div className="distance"></div> race</div>
+                                    in a <div className="distance">{distance}{metric}</div> race</div>
+                                    <div className="message">Their message to you: {message}</div>
                                 <button id="submitButton" className="accept-race" onClick={Accept}>Accept</button>
                                 <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>
                             </div>
