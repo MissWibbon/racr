@@ -17,9 +17,9 @@ const SearchBar =(props) =>{
         <>
         <input type= 'text'
         {...searchbar}
-        placeHolder ='Enter Username Here'
+        placeholder ='Enter Username Here'
         ></input>
-        <button onClick = {handleSubmit}>submit</button>
+        <button id="searchFriend" onClick = {handleSubmit}><i className="fas fa-search"></i></button>
         </>
     )
 }
@@ -27,7 +27,6 @@ const useSearchValue = (initialValue) =>{
     const [userState, setUserState] = useState(initialValue);
     const handlevaluechange =(e) =>{
         setUserState(e.target.value);
-        console.log(e.target.value)
     }
     return {
         value: userState,

@@ -25,6 +25,8 @@ const ChallengeForm = ({match}) =>{
         socket.emit('challenge', {body})
 
         console.log(body)
+        console.log('--------')
+        console.log(body[0])
     }
 
  
@@ -59,7 +61,6 @@ const useInput = (initialValue) =>{
     
     const  handlevaluechange = (e) => {
         setValue(e.target.value)
-        console.log(e.target.value)
     }
 
     return {
@@ -72,7 +73,6 @@ const useSearchValue = (initialValue) =>{
     const [userState, setUserState] = useState(initialValue);
     const handlevaluechange =(e) =>{
         setUserState(e.target.value);
-        console.log(e.target.value)
     }
     return {
         value: userState,

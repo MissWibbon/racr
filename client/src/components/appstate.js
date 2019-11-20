@@ -9,6 +9,7 @@ export const Provider  = props =>{
     const [users, setusers] = useState('');
     const [profile, setProfile] = useState({});
     const [isOnline, setOnline] = useState(false);
+    const [requestorId, setRequestorId] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
@@ -30,7 +31,7 @@ export const Provider  = props =>{
     const fetchOneUser = async (id) =>{
         setLoading(false)
         const res = await API.getOneUser(id)
-        console.log(res.data)
+        console.log(res.data[0])
         setProfile(res.data)
         setLoading(true)
         return res.data[0]
