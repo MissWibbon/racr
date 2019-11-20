@@ -1,20 +1,20 @@
-import React , {useContext, useEffect, useState} from 'react'
-import {RaceContext} from './appstate'
+import React, { useContext, useEffect, useState } from 'react'
+import { RaceContext } from './appstate'
 
-const FriendPool =({match}) => {
+const FriendPool = ({ match }) => {
     const context = useContext(RaceContext);
-    const {localUser, fetchOneUser, friends, setFriends } = context
+    const { localUser, fetchOneUser, friends, setFriends } = context
 
-    useEffect(()=>{
-        if(localUser !== undefined){
+    useEffect(() => {
+        if (localUser !== undefined) {
 
             fetchOneUser(localUser._id)
         }
-    },[])
+    }, [])
     console.log(friends)
-    return(
+    return (
         <div className="friend-list">
-    
+
         </div>
 
     )

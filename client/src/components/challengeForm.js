@@ -1,20 +1,20 @@
-import React, {useContext, useEffect, useState}from 'react'
-import {RaceContext} from './appstate'
+import React, { useContext, useEffect, useState } from 'react'
+import { RaceContext } from './appstate'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000');
-const ChallengeForm = ({match}) =>{
-    
+const ChallengeForm = ({ match }) => {
+
     const context = useContext(RaceContext);
-    const {id} = match.params
-    const {users, isLoading, localUser, profile} = context
-    const metric = useInput ('miles')
+    const { id } = match.params
+    const { users, isLoading, localUser, profile } = context
+    const metric = useInput('miles')
     const number = useInput('')
     const message = useInput('')
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
-            requestor: localUser._id ,
+            requestor: localUser._id,
             acceptor: profile._id,
             distance: number.value,
             metric: metric.value,
@@ -22,44 +22,44 @@ const ChallengeForm = ({match}) =>{
             acceptor: id
 
         }
-        socket.emit('challenge', {body})
+        socket.emit('challenge', { body })
 
         console.log(body)
         console.log('--------')
         console.log(body[0])
     }
 
- 
-    return(
-        
+
+    return (
+
         <div id="challengeModal">
-        {isLoading
-        ?(
-            <div className="challenge-form">
-                <div className="challenge-label">Distance:</div>
-                <input type = 'text' {...number} placeholder ='number' ></input>
-                <p>{number.value}{metric.value}</p>
-                <select id="distance-metric" {...metric}>
-                    <option value="miles">Miles</option>
-                    <option value="kilometers">Kilometers</option>
-                    <option value="feet">Feet</option>
-                </select>                
-                <div className="challenge-label">Message:</div>
-                <input  {...message}placeholder="Your Message" className="challenge-message"></input>               
-                <button id="submitButton" onClick ={handleSubmit}>Send Challenge</button>
-            </div>
-        ):
-        <h2>Loading...</h2>
-        }
+            {isLoading
+                ? (
+                    <div className="challenge-form">
+                        <div className="challenge-label">Distance:</div>
+                        <input type='text' {...number} placeholder='number' ></input>
+                        <p>{number.value}{metric.value}</p>
+                        <select id="distance-metric" {...metric}>
+                            <option value="miles">Miles</option>
+                            <option value="kilometers">Kilometers</option>
+                            <option value="feet">Feet</option>
+                        </select>
+                        <div className="challenge-label">Message:</div>
+                        <input  {...message} placeholder="Your Message" className="challenge-message"></input>
+                        <button id="submitButton" onClick={handleSubmit}>Send Challenge</button>
+                    </div>
+                ) :
+                <h2>Loading...</h2>
+            }
         </div>
     )
 }
 
-const useInput = (initialValue) =>{
+const useInput = (initialValue) => {
 
-    const  [value , setValue] = useState(initialValue)
-    
-    const  handlevaluechange = (e) => {
+    const [value, setValue] = useState(initialValue)
+
+    const handlevaluechange = (e) => {
         setValue(e.target.value)
     }
 
@@ -69,15 +69,15 @@ const useInput = (initialValue) =>{
     }
 }
 
-const useSearchValue = (initialValue) =>{
+const useSearchValue = (initialValue) => {
     const [userState, setUserState] = useState(initialValue);
-    const handlevaluechange =(e) =>{
+    const handlevaluechange = (e) => {
         setUserState(e.target.value);
     }
     return {
         value: userState,
         onChange: handlevaluechange,
-       
+
     }
 }
 export default ChallengeForm
