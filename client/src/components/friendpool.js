@@ -8,7 +8,12 @@ const FriendPool = ({ match }) => {
     const context = useContext(RaceContext);
 
     const {localUser, users, fetchOneUser, friends, setFriends } = context
-    const localFriends = [];
+    let localFriends = []
+    let localFriendsId = null
+    let friendDets = []
+    let friendName = null
+    let userId = null
+    let userName = null
 
     function getFriendsData(friend){
 
@@ -18,40 +23,43 @@ const FriendPool = ({ match }) => {
         if(localUser !== undefined){
             console.log(users)
             users && users.forEach(user => {
+
+                userId = user._id
+                userName = user.userName
+
+
+                console.log(userId + " user ID")
+                console.log('00000---------')
+                console.log(localFriends)
+                console.log('00000')
                 console.log(user)
                 console.log('user ^this one')
-                console.log(user._id + " :user Id")
-            })
-
-            localUser.friends.forEach(id => {
-                API
-                .getOneUser(id)
-                .then(result => {
+                console.log(user._id + " <= user Id + username => " + user.userName + ' has this many friends ' + user.friends.length)
                 
-               
-                     console.log(id)
-                } 
-                );
-            });
-           
+                
+                function findArrayElementById(localFriends, userId) {
+                    return localFriends.find((userId) => {
+                      return userId === localFriendsId
+                
+                    })
+                  }
 
-            //fetchOneUser(localUser._id)
-               // add api.getUsers - tyfal
-               
+                 
+            })
+            
+            
+
+            //?
         }
 
     },[])
-
     console.log('friends..')
 
-    console.log(friends)
+    console.log(friends + ' friends')
     return (
-
-        <div className="friend-list">
-
-        </div>
-
+        <div>{localFriends}</div>
     )
+
 
 
 
