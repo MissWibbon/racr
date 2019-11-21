@@ -16,12 +16,29 @@ const ChallengeResponse = (props) => {
     }
 
     let requestorId = null
+    let acceptorId = null
+    let localId = localUser._id
+    let requestorname = null
+    let hours = null
+    let minutes = null
+    let seconds = null
     let acceptorName = null
+    let message = null
+    let values = null
 
+    console.log(localUser)
+    console.log("+++++++++++++++++")
     if (Array.isArray(notifications) && notifications.length > 0) {
 
         console.log(notifications[0])
-        requestorId = notifications[0] && notifications[0].acceptor
+        requestorId = notifications[0] && notifications[0].requestor
+        acceptorId = notifications[0] && notifications[0].acceptor
+        hours = notifications[0] && notifications[0].hours
+        minutes = notifications[0] && notifications[0].minutes
+        seconds = notifications[0] && notifications[0].seconds
+        message = notifications[0] && notifications[0].message
+        console.log("requestor:" + requestorId, "acceptor" + acceptorId, "message: " + message)
+
     }
 
     console.log('==========')
@@ -39,30 +56,20 @@ const ChallengeResponse = (props) => {
     const noticeArray = Object.keys(notifications).map(i => notifications[i])
     const notificationArray = Object.keys(noticeArray).map(i => noticeArray[i])
     const firstNotification = notificationArray[0]
-    const noticeString = JSON.stringify(notifications[0])
     notify.push(firstNotification)
-    const notifyReplace = notify[0]
-    console.log(noticeString)
+    console.log("console log 2")
     console.log(noticeArray)
-    console.log(notifyReplace)
+    console.log("console log 3")
     const notifyMap = () => {
-        for (let [key, value] of Object.entries(notify)) {
-            console.log(`${key}: ${value}`);
+        for (let [key, value] of Object.entries(notifications)) {
+            values = Object.entries(value).map(i => notifications[i])
+
+            console.log(`${key}: ` + values);
         }
     }
+    notifyMap()
+    console.log("console log 4")
     console.log(notify)
-
-    // const toNumericPairs = input => {
-    //     const entries = Object.entries(notifiers);
-    //     entries.forEach(entry => entry[0] = +entry[0]);
-    //     return entries;
-    //   }
-    //   console.log(toNumericPairs(notifiers))
-
-    // console.log(Object.entries(notifiers))
-
-    // const request = Object.entries(note)
-    // console.log(request)
 
     return (
 
@@ -74,7 +81,8 @@ const ChallengeResponse = (props) => {
                             <div className="challenge-response">
                                 <div className="challenge-label">You have been invited to race against
                 <div className="opponentName"> @{acceptorName} </div>
-                                    in a <div className="distance"></div> race</div>
+                                    in a <div className="distance">{hours} Hour, {minutes} minute, {seconds} seconds</div> race</div>
+                                    <div className="message">Their message to you: {message}</div>
                                 <button id="submitButton" className="accept-race" onClick={Accept}>Accept</button>
                                 <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>
                             </div>
@@ -86,7 +94,7 @@ const ChallengeResponse = (props) => {
             }
         </div>
     )
-}
+} 
 
 
 export default ChallengeResponse

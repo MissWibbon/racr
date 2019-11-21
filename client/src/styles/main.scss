@@ -195,7 +195,7 @@ input {
 
     input {
         border-bottom: 1px solid $green;
-        width: 50%;
+        width: 100%;
         display: inline-block;
         margin-left: 10px;
         color: $dark-green;
@@ -204,7 +204,8 @@ input {
         color: $dark-green;
     }
     .challenge-label {
-        width: fit-content;
+        width: 80%;
+        margin: auto;
         display: inline-block;
     }
     #distance-metric {
@@ -278,11 +279,16 @@ input {
 .friend-list {
     margin-left: 60px;
 }
-.opponentName {
+.opponentName, .distance {
     display: inline-block;
-    padding: 0px 5px;
+    padding: 0px 3px;
     color: $dark-green;
     font-weight: 700;
+}
+.timewrap {
+    display: inline-block;
+    width: 27%;
+    padding: 22px 13px;
 }
 @media screen and (max-width: 633px) {
     #login {
