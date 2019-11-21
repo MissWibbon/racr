@@ -19,7 +19,8 @@ const FriendPool = ({ match }) => {
             console.log(users)
             users && users.forEach(user => {
                 console.log(user)
-                console.log(user._id + "user Id")
+                console.log('user ^this one')
+                console.log(user._id + " :user Id")
             })
 
             localUser.friends.forEach(id => {

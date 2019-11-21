@@ -10,12 +10,10 @@ function hash(str) {
 
 module.exports = {
     findFriends: function(req, res) {
-      db.User.find(
-        {_id: req.params.id}, {
-          $in: req.params.friends
-        }
-      ).then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      db.User.find({
+        $in: friends
+      }).then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
     },
     findAll: function(req, res) {
         db.User
