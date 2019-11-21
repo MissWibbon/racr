@@ -12,7 +12,7 @@ export const Provider  = props =>{
     const [requestorId, setRequestorId] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
+    const [friends, setFriends] = useState(localStorage.getItem('localFriends')|| []);
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const fetchUsers = (query) =>{
