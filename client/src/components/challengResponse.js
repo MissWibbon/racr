@@ -79,9 +79,9 @@ const ChallengeResponse = (props) => {
                     notifications
                         ? (
                             <div className="challenge-response">
-                                <div className="challenge-label">You have been invited to race against
-                <div className="opponentName"> @{acceptorName} </div>
-                                    in a <div className="distance">{hours} Hour, {minutes} minute, {seconds} seconds</div> race</div>
+                                <div className="challenge-label">
+                <div className="opponentName"> @{acceptorName} </div> wants to race you for
+                                    in a <div className="distance">{hours} Hour, {minutes} Minute, {seconds} Seconds</div></div>
                                     <div className="message">Their message to you: {message}</div>
                                 <button id="submitButton" className="accept-race" onClick={Accept}>Accept</button>
                                 <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>
