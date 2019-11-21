@@ -9,7 +9,7 @@ export default {
             return axios.get(`/api/users/`);
 
         }else{
-            return axios.getUri(`/api/users/${query}`)
+            return axios.get(`/api/users/${query}`)
         }
         
     },

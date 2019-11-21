@@ -10,11 +10,13 @@ export const Provider  = props =>{
     const [profile, setProfile] = useState({});
     const [isOnline, setOnline] = useState(false);
     const [requestorId, setRequestorId] = useState("");
-    const [notifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState(JSON.parse(localStorage.getItem('notifications'))||[]);
+    const [tempNotifications, setTempNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
+    const [room, setRoom] = useState(false)
     const fetchUsers = (query) =>{
 
         API.getUsers(query)
@@ -56,12 +58,7 @@ export const Provider  = props =>{
        const jwt= window.localStorage.getItem('token');
         if(jwt){
             setLocalUser(JSON.parse(jwt))
-            setisAuth(true)
-           
-            
-            
-       
-            
+            setisAuth(true)    
             return true
         }
 
@@ -88,13 +85,22 @@ export const Provider  = props =>{
             console.log(res.data)
         })
     }
+    
+    const notify =(data) =>{
+        console.log(data);
+        // setNotifications((prevState) => {
 
+        //     localStorage.setItem('notifications',[...prevState, data.data.body])
+        //     return [...prevState, data.data.body]
+        // })
+    }
     useEffect(()=>{
         fetchUsers()
         getToken()
 
         
     },[])
+    
 
     socket.on('some event', function(data){
         console.log(data)
@@ -118,10 +124,14 @@ export const Provider  = props =>{
         console.log(data)
           return(
             setNotifications((prevState) => {
+                if(prevState.indexOf(data.data.body) > -1){
+                    return prevState
 
-                localStorage.setItem('notifications',[...prevState, data.data.body])
-                return [...prevState, data.data.body]
-            })
+                }else{
+                    localStorage.setItem('notifications',JSON.stringify([...prevState, data.data.body]))
+                    return [...prevState, data.data.body]
+                }
+                })
           )
         })
     
@@ -144,7 +154,9 @@ export const Provider  = props =>{
             setOnline,
             notifications,
             setNotifications,
-            setisAuth
+            tempNotifications,
+            setisAuth,
+            setRoom
             }}>
             {props.children}
         </RaceContext.Provider>

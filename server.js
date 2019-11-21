@@ -48,19 +48,22 @@ io.on('connection', function(socket){
       
       socket.join('public').emit('welcome')
       
-<<<<<<< HEAD
       socket.join(`${data._id}`).emit('event',{msg: 'things happened'})
-=======
-      socket.join(`${data._id}`).emit('event',{msg: 'data display'})
->>>>>>> facd6f27c2a4b2b33412bae49ffb500154661089
    });
 
    socket.on('challenge',(data) =>{
       console.log('being challenged')
+      socket.join(data.acceptor).emit('challengeresponse',{data})
       socket.join(`${data.requestor}${data.acceptor}`)
-      socket.to(data.acceptor).emit('challengeresponse',{data})
+      socket.on('accepted', data =>{
+         socket.join(data)
+         console.log(data)
+         socket.on('status', post =>{
+            socket.broadcast.to(data).emit(post)
+            console.log(post)
+         })
+      })
       socket.on('startrace', data =>{
-         socket.join(`${data.requestor}${data.acceptor}`)
          socket.to(`${data.requestor}${data.acceptor}`).emit('start', {data: 'race started'})
          console.log(data);
       })
