@@ -7,8 +7,9 @@ const ChallengeForm = ({match}) =>{
     const context = useContext(RaceContext);
     const {id} = match.params
     const {users, isLoading, localUser, profile} = context
-    const metric = useInput ('miles')
-    const number = useInput('')
+    const hours = useInput('hour')
+    const minutes = useInput('minute')
+    const seconds = useInput('second')
     const message = useInput('')
     
     const handleSubmit = (e) => {
@@ -16,8 +17,9 @@ const ChallengeForm = ({match}) =>{
         const body = {
             requestor: localUser._id ,
             acceptor: profile._id,
-            distance: number.value,
-            metric: metric.value,
+            hours: hours.value,
+            minutes: minutes.value,
+            seconds: seconds.value,
             message: message.value,
             acceptor: id
 
@@ -36,14 +38,10 @@ const ChallengeForm = ({match}) =>{
         {isLoading
         ?(
             <div className="challenge-form">
-                <div className="challenge-label">Distance:</div>
-                <input type = 'text' {...number} placeholder ='number' ></input>
-                <p>{number.value}{metric.value}</p>
-                <select id="distance-metric" {...metric}>
-                    <option value="miles">Mile</option>
-                    <option value="kilometers">Kilometer</option>
-                    <option value="feet">Feet</option>
-                </select>                
+                <div className="challenge-label">Length of time for race competition: </div>
+                <div className="timewrap"><label>Hours:</label><input type="number" {...hours}></input></div>
+                <div className="timewrap"><label>Minutes:</label><input type="number" {...minutes}></input></div>
+                <div className="timewrap"><label>Seconds:</label><input type="number" {...seconds}></input></div>              
                 <div className="challenge-label">Message:</div>
                 <input  {...message}placeholder="Your Message" className="challenge-message"></input>               
                 <button id="submitButton" onClick ={handleSubmit}>Send Challenge</button>
