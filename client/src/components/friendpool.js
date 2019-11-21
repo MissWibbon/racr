@@ -1,9 +1,12 @@
+
 import React , {useContext, useEffect, useState} from 'react'
 import API from '../utils/API'
 import {RaceContext} from './appstate'
 
-const FriendPool =({match}) => {
+
+const FriendPool = ({ match }) => {
     const context = useContext(RaceContext);
+
     const {localUser, users, fetchOneUser, friends, setFriends } = context
     const localFriends = [];
 
@@ -30,15 +33,21 @@ const FriendPool =({match}) => {
                 );
             });
            
+
             //fetchOneUser(localUser._id)
                // add api.getUsers - tyfal
                
         }
+
     },[])
-    // console.log('friends..')
-    // console.log(friends)
-    return(
+
+    console.log('friends..')
+
+    console.log(friends)
+    return (
+
         <div className="friend-list">
+
         </div>
 
     )

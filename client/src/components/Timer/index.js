@@ -1,19 +1,19 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Stopwatch from 'rc-stopwatch';
 
 class ApplicationThankYou extends Component {
-    render(){
+    render() {
 
 
         return (
-           <div >
-               <p>Timer</p>
-               <Stopwatch
-                buttonClass="button"
-                onTimeChange={obj => console.log(obj)}
+            <div >
+                <p>Timer</p>
+                <Stopwatch
+                    buttonClass="button"
+                    onTimeChange={obj => console.log(obj)}
                 />
-           </div>
+            </div>
         )
     }
 }
