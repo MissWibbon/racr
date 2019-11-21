@@ -53,7 +53,7 @@ const Demo = (props) => {
                     ?
                     (
                         <>
-                            <p>{state.lat}</p><p>{state.long}</p><p>{state.dist}</p>
+                            <p>{state.lat}</p><p>{state.long}</p><p>{state.dist * 50}</p>
                         </>
                     )
                     : null
