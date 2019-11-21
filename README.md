@@ -3,7 +3,7 @@
 RACR is a mobile based, web-ready, React powered app for all types of runners.
 
 
-# New Features!
+## New Features!
 
 -coming soon.
 
