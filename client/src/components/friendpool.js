@@ -1,13 +1,15 @@
+
 import React , {useContext, useEffect, useState} from 'react'
 import API from '../utils/API'
 import {RaceContext} from './appstate'
 
-const FriendPool =({match}) => {
-    const context = useContext(RaceContext);
-    const {localUser, fetchOneUser, friends, setFriends } = context
 
-    useEffect(()=>{
-        if(localUser !== undefined){
+const FriendPool = ({ match }) => {
+    const context = useContext(RaceContext);
+    const { localUser, fetchOneUser, friends, setFriends } = context
+
+    useEffect(() => {
+        if (localUser !== undefined) {
 
             //fetchOneUser(localUser._id)
                // add api.getUsers - tyfal
@@ -23,11 +25,14 @@ const FriendPool =({match}) => {
                })
                .catch(err => console.log(err));
         }
+
     },[])
     console.log('friends..')
+
     console.log(friends)
-    return(
+    return (
         <div className="friend-list">
+
         </div>
 
     )
