@@ -48,7 +48,11 @@ io.on('connection', function(socket){
       
       socket.join('public').emit('welcome')
       
+<<<<<<< HEAD
+      socket.join(`${data._id}`).emit('event',{msg: 'things happened'})
+=======
       socket.join(`${data._id}`).emit('event',{msg: 'data display'})
+>>>>>>> facd6f27c2a4b2b33412bae49ffb500154661089
    });
 
    socket.on('challenge',(data) =>{

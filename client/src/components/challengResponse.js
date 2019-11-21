@@ -47,7 +47,7 @@ const ChallengeResponse = (props) => {
         const user = users.find(item => {
             console.log(requestorId, item, item.userName)
             acceptorName = item.userName
-             return item._id === requestorId
+            return item._id === requestorId
         })
     }
     console.log(acceptorName)

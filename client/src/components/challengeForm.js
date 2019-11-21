@@ -1,21 +1,22 @@
-import React, {useContext, useEffect, useState}from 'react'
-import {RaceContext} from './appstate'
+import React, { useContext, useEffect, useState } from 'react'
+import { RaceContext } from './appstate'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000');
-const ChallengeForm = ({match}) =>{
-    
+const ChallengeForm = ({ match }) => {
+
     const context = useContext(RaceContext);
+
     const {id} = match.params
     const {users, isLoading, localUser, profile} = context
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
     const message = useInput('')
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
-            requestor: localUser._id ,
+            requestor: localUser._id,
             acceptor: profile._id,
             hours: hours.value,
             minutes: minutes.value,
@@ -24,16 +25,16 @@ const ChallengeForm = ({match}) =>{
             acceptor: id
 
         }
-        socket.emit('challenge', {body})
+        socket.emit('challenge', { body })
 
         console.log(body)
         console.log('--------')
         console.log(body[0])
     }
 
- 
-    return(
-        
+
+    return (
+
         <div id="challengeModal">
         {isLoading
         ?(
@@ -49,15 +50,16 @@ const ChallengeForm = ({match}) =>{
         ):
         <h2>Loading...</h2>
         }
+
         </div>
     )
 }
 
-const useInput = (initialValue) =>{
+const useInput = (initialValue) => {
 
-    const  [value , setValue] = useState(initialValue)
-    
-    const  handlevaluechange = (e) => {
+    const [value, setValue] = useState(initialValue)
+
+    const handlevaluechange = (e) => {
         setValue(e.target.value)
     }
 
@@ -67,15 +69,15 @@ const useInput = (initialValue) =>{
     }
 }
 
-const useSearchValue = (initialValue) =>{
+const useSearchValue = (initialValue) => {
     const [userState, setUserState] = useState(initialValue);
-    const handlevaluechange =(e) =>{
+    const handlevaluechange = (e) => {
         setUserState(e.target.value);
     }
     return {
         value: userState,
         onChange: handlevaluechange,
-       
+
     }
 }
 export default ChallengeForm
