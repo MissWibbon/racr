@@ -13,7 +13,7 @@ export const Provider  = props =>{
     const [notifications, setNotifications] = useState(JSON.parse(localStorage.getItem('notifications'))||[]);
     const [tempNotifications, setTempNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [friends, setFriends] = useState(localStorage.getItem('friends')|| []);
+    const [friends, setFriends] = useState(localStorage.getItem('localFriends')|| []);
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const [room, setRoom] = useState(false)

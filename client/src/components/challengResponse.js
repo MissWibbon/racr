@@ -19,12 +19,14 @@ const ChallengeResponse = (props) => {
                 ? (
                     notifications
                         ? (
+
                             notifications.map( post =>
                             
                             (
                                 <NotifyCard {...props} data ={post}></NotifyCard>
                             )    
                             )
+
 
                         )
                         : <h3>no new notifications</h3>
