@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
+import {Redirect} from 'react-router-dom'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000');
-const ChallengeForm = ({ match }) => {
-
+const ChallengeForm = (props) => {
+    const {match} = props
     const context = useContext(RaceContext);
-
+    
     const {id} = match.params
-    const {users, isLoading, localUser, profile} = context
+    const {users, isLoading, localUser, profile, setStamp , race} = context
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
     const message = useInput('')
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,17 +27,29 @@ const ChallengeForm = ({ match }) => {
             acceptor: id
 
         }
-        socket.emit('challenge', { body })
+        socket.emit('challenge', body)
 
         console.log(body)
         console.log('--------')
-        console.log(body[0])
     }
+    useEffect(() =>{
+        console.log(race)
 
+    })
 
     return (
 
         <div id="challengeModal">
+
+        {
+            race
+            ?
+            (
+                <Redirect to = '/racetest' />
+            )
+            : (
+
+        <>
         {isLoading
         ?(
             <div className="challenge-form">
@@ -49,6 +63,10 @@ const ChallengeForm = ({ match }) => {
             </div>
         ):
         <h2>Loading...</h2>
+        }
+        </>
+            )
+
         }
 
         </div>

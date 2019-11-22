@@ -2,6 +2,10 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import API from '../utils/API'
 import { RaceContext } from './appstate'
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
+
+
 const Landing = (props) => {
     const context = useContext(RaceContext)
     const email = useInput('');
