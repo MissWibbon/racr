@@ -1,5 +1,5 @@
 import React ,{useContext} from 'react';
-import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Redirect, Switch , withRouter } from 'react-router-dom'
 import Landing from './components/landing'
 import Home from './components/home'
 import Navbar from './components/Navbar'
@@ -13,12 +13,15 @@ import{RaceContext} from './components/appstate'
 import ChallengeResponse from './components/challengResponse'
 import io from 'socket.io-client';
 import Demo from './components/geolocation';
+
 // import ChallengeResponse from './components/challengResponse';
 const socket = io('http://localhost:5000');
 
 function App(props) {
   const context = useContext(RaceContext);
-  const {localUser, notifications, setNotifications} = context;
+  const {localUser, notifications, setNotifications ,setStamp} = context;
+  
+
   return (
     <BrowserRouter>
     <Navbar></Navbar>
