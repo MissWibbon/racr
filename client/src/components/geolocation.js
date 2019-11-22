@@ -50,14 +50,14 @@ const Demo = (props) => {
     }
     console.log(state)
     return (
-        <div>
+        <div className="racePage">
             {
                 "geolocation" in navigator
                     ?
                     (
-                        <>
-                            <p>{state.lat}</p><p>{state.long}</p><p>{state.dist}</p>
-                        </>
+                        <div className="raceCard">
+                            <label>Latitude: </label><p className="lat">{state.lat} </p><label>Longitude: </label><p className="long">{state.long} </p><label>Distance: </label><p className="dist">{state.dist}</p>
+                        </div>
                     )
                     : null
             }

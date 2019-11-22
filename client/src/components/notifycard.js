@@ -33,8 +33,10 @@ const NotifyCard = (props) =>{
         <Link className="opponentName" to ={`users/${props.data.requestor}`}>{player.userName} </Link>
             in a <div className="distance">{props.data.hours} Hour, {props.data.minutes} minute, {props.data.seconds} seconds</div> race</div>
         <div className="message">Their message to you: {props.message}</div>
-        <button id="submitButton" className="accept-race" onClick={accept}>Accept</button>
-        <button id="submitButton" className="decline-race"><a href="/home">Decline</a></button>
+        <div className="responseButtonWrap">
+            <button id="responseButton" className="accept-race" onClick={accept}>Accept</button>
+            <button id="responseButton" className="decline-race"><a href="/home">Decline</a></button>
+        </div>
     </div>
     )
 }
