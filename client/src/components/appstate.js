@@ -80,7 +80,7 @@ export const Provider  = props =>{
         console.log(newData)
         API.getfriend(newData)
         .then(res =>{
-            localStorage.setItem('friends', [localUser.friends,friendId])
+            localStorage.setItem('friends', JSON.stringify([localUser.friends,friendId]))
             setFriends(friendId)
             console.log(res.data)
         })
