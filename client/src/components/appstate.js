@@ -137,8 +137,13 @@ export const Provider  = props =>{
                 })
           )
         })
-
-
+   
+        socket.on('startracenow', data =>{
+            console.log(data)
+            // props.history.push('/racetest')
+            setStamp(data)
+        
+        })
     
     
     socket.on('disconnect', function(){});

@@ -2,16 +2,17 @@ import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000');
-const ChallengeForm = ({ match }) => {
-
+const ChallengeForm = (props) => {
+    const {match} = props
     const context = useContext(RaceContext);
-
+    
     const {id} = match.params
-    const {users, isLoading, localUser, profile} = context
+    const {users, isLoading, localUser, profile, setStamp} = context
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
     const message = useInput('')
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();

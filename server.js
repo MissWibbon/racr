@@ -64,8 +64,8 @@ io.on('connection', function (socket) {
       console.log(data)
       const date = Date.now() + 5000
    //   socket.to(combatants).emit('startracenow' , date)
-   socket.emit('startracenow' , date)
-   // socket.to(data.acceptor).emit('startracenow' , date)
+   socket.to(data.requestor).emit('startracenow' , date)
+   socket.to(data.acceptor).emit('startracenow' , date)
    })
    
    // socket.on('status', post => {
