@@ -16,6 +16,7 @@ router
 router
     .route('/friends/:id')
     .put(userController.addFriend)
+    .get(userController.findFriends)
 
     
 router.post('/login',userController.login)

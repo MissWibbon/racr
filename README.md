@@ -3,7 +3,7 @@
 RACR is a mobile based, web-ready, React powered app for all types of runners.
 
 
-# New Features!
+## New Features!
 
 -coming soon.
 
@@ -44,5 +44,5 @@ Racr is currently extended with the following plugins. Instructions on how to us
 
 - Add Night Mode 
 - Add wager option
-
+- Make available on App store
 **Run user run!**

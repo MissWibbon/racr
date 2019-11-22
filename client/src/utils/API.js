@@ -5,13 +5,19 @@ export default {
     // User APIs
     // Gets users
     getUsers: function(query = undefined) {
+
+      
         if(query === undefined){
             return axios.get(`/api/users/`);
 
         }else{
-            return axios.getUri(`/api/users/${query}`)
+            return axios.get(`/api/users/${query}`)
         }
         
+    },
+
+    getFriends: function(id) {
+        return axios.get(`/api/users/friends/${id}`)
     },
 
     // Gets individual user

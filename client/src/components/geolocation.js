@@ -1,18 +1,12 @@
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
-
-import { geolocated } from "react-geolocated";
-import { stat } from 'fs';
-
-// function calcDistance() {
-//     feet = 1;
-//     mile = feet * 5280.00016896;
-//     kilometer = feet * 3280.84;
-// }
-
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
 
 const Demo = (props) => {
     let dist = 0;
+    const context = useContext(RaceContext)
+    const {room, localUser} =context;
     const [state, setState] = useState({
         lat: 0,
         long: 0,
@@ -21,6 +15,7 @@ const Demo = (props) => {
 
 
     useEffect(() => {
+        socket.emit('startrace', { msg: 'just started' })
         navigator.geolocation.getCurrentPosition(function (position) {
             setState({
                 lat: position.coords.latitude,
@@ -30,6 +25,14 @@ const Demo = (props) => {
         });
         distance()
     }, [])
+
+    useEffect(() =>{
+        socket.emit('status', {
+            id: localUser._id,
+            distance: dist
+        });
+
+    },[dist])
     //navigator.geolocation.watchPosition(console.log(this.props.coords.latitude)),
     //Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) );
     const distance = () => {
@@ -47,14 +50,20 @@ const Demo = (props) => {
     }
     console.log(state)
     return (
-        <div>
+        <div className="racePage">
             {
                 "geolocation" in navigator
                     ?
                     (
+<<<<<<< HEAD
                         <>
                             <p>{state.lat}</p><p>{state.long}</p><p>{state.dist * 50}</p>
                         </>
+=======
+                        <div className="raceCard">
+                            <label>Latitude: </label><p className="lat">{state.lat} </p><label>Longitude: </label><p className="long">{state.long} </p><label>Distance: </label><p className="dist">{state.dist}</p>
+                        </div>
+>>>>>>> 5a1c9ef6d6218c341c2c0717ba1a5bde6fb6497b
                     )
                     : null
             }
