@@ -15,6 +15,7 @@ const ChallengeResponse = (props) => {
     return (
 
         <div id="challengeModal">
+        
             {isLoading
                 ? (
                     notifications

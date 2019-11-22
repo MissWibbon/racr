@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
+import {Redirect} from 'react-router-dom'
 import io from 'socket.io-client';
 const socket = io('http://localhost:5000');
 const ChallengeForm = (props) => {
@@ -7,7 +8,7 @@ const ChallengeForm = (props) => {
     const context = useContext(RaceContext);
     
     const {id} = match.params
-    const {users, isLoading, localUser, profile, setStamp} = context
+    const {users, isLoading, localUser, profile, setStamp , race} = context
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
@@ -31,11 +32,24 @@ const ChallengeForm = (props) => {
         console.log(body)
         console.log('--------')
     }
+    useEffect(() =>{
+        console.log(race)
 
+    })
 
     return (
 
         <div id="challengeModal">
+
+        {
+            race
+            ?
+            (
+                <Redirect to = '/racetest' />
+            )
+            : (
+
+        <>
         {isLoading
         ?(
             <div className="challenge-form">
@@ -49,6 +63,10 @@ const ChallengeForm = (props) => {
             </div>
         ):
         <h2>Loading...</h2>
+        }
+        </>
+            )
+
         }
 
         </div>

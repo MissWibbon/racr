@@ -17,6 +17,7 @@ export const Provider  = props =>{
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const [room, setRoom] = useState(false)
+    const [race, setRace] = useState(false)
     const [stamp, setStamp] = useState('')
     const fetchUsers = (query) =>{
 
@@ -140,7 +141,7 @@ export const Provider  = props =>{
    
         socket.on('startracenow', data =>{
             console.log(data)
-            // props.history.push('/racetest')
+            setRace(true)
             setStamp(data)
         
         })
@@ -167,7 +168,8 @@ export const Provider  = props =>{
             tempNotifications,
             setisAuth,
             setRoom,
-            setStamp
+            setStamp,
+            race
             }}>
             {props.children}
         </RaceContext.Provider>
