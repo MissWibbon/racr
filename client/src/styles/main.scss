@@ -12,6 +12,10 @@ html, body {
     height: 100%;
     background-color: $light-grey;
   }
+  a, .distance, .challenge-label, #text {
+      text-decoration: none;
+
+  }
 .logo {
     background-image: url(../Racr-logo_horizontalfull.svg);
     height: 100px;
@@ -182,7 +186,7 @@ input {
 
 
 #challengeModal {
-    padding: 3rem;
+    padding: 1rem 3rem;
     float: right;
     background-color: white;
     border-radius: 5px;
@@ -223,6 +227,7 @@ input {
 }
 
 
+
 #add-friend-btn {
     background-color: $green;
     padding: 5px;
@@ -250,6 +255,13 @@ input {
     display: inline-block;
     float: right;
 
+}
+.challengePlayerImg {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: -30px;
 }
 .responseButtonWrap {
     width: 100%;
@@ -351,12 +363,16 @@ input {
         bottom: 0;
         width: 100%;
     }
+    .small-logo {
+        margin-bottom: -5px;
+    }
     .navLink {
         display: inline-block;
         width: 19%;
         margin-left: -2%;
         margin-top: -20px;
     }
+    
     .navLink:first-of-type {
         margin-left: -2%;
     }

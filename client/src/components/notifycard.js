@@ -29,9 +29,10 @@ const NotifyCard = (props) =>{
 
     return(
         <div className="challenge-response">
-        <div className="challenge-label">You have been invited to race against
-        <Link className="opponentName" to ={`users/${props.data.requestor}`}>{player.userName} </Link>
-            in a <div className="distance">{props.data.hours} Hour, {props.data.minutes} minute, {props.data.seconds} seconds</div> race</div>
+        
+        <div className="challenge-label"><img className="challengePlayerImg" src={player.image}/><Link className="opponentName" to ={`users/${props.data.requestor}`}>@{player.userName} </Link> has challenged you to race for 
+            <div className="distance">{props.data.hours} Hour, {props.data.minutes} minute, {props.data.seconds} seconds</div>
+        </div>
         <div className="message">Their message to you: {props.message}</div>
         <div className="responseButtonWrap">
             <button id="responseButton" className="accept-race" onClick={accept}>Accept</button>
