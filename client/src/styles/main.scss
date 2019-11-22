@@ -262,6 +262,7 @@ input {
     border-radius: 100%;
     display: inline-block;
     margin-left: -30px;
+    margin-bottom: -1%;
 }
 .responseButtonWrap {
     width: 100%;
@@ -383,5 +384,15 @@ input {
     }
     #challengeModal {
         margin: 5%;
+        padding: 1rem;
+    }
+    .challenge-form {
+        padding: 2rem;
+    }
+    .timewrap {
+        display: inline-block;
+        padding: 22px 13px;
+        width: 90%;
+        margin-left: -5%;
     }
 }
