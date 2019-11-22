@@ -25,11 +25,10 @@ const ChallengeForm = ({ match }) => {
             acceptor: id
 
         }
-        socket.emit('challenge', { body })
+        socket.emit('challenge', body)
 
         console.log(body)
         console.log('--------')
-        console.log(body[0])
     }
 
 

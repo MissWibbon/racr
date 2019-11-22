@@ -21,8 +21,8 @@ const NotifyCard = (props) =>{
     }, [])
     
     const accept = () =>{
-       socket.emit('accepted',`${props.data.acceptor}${props.data.requestor}`)
-       setRoom(`${props.data.acceptor}${props.data.requestor}`)
+       socket.emit('accepted',props.data)
+       setRoom(`${props.data.acceptor}-${props.data.requestor}`)
         props.history.push('/racetest')
     }
 

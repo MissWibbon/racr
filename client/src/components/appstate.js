@@ -17,6 +17,7 @@ export const Provider  = props =>{
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const [room, setRoom] = useState(false)
+    const [stamp, setStamp] = useState('')
     const fetchUsers = (query) =>{
 
         API.getUsers(query)
@@ -57,7 +58,9 @@ export const Provider  = props =>{
     const getToken = () => {
        const jwt= window.localStorage.getItem('token');
         if(jwt){
+            socket.emit('online', JSON.parse(jwt) )
             setLocalUser(JSON.parse(jwt))
+
             setisAuth(true)    
             return true
         }
@@ -90,8 +93,8 @@ export const Provider  = props =>{
         console.log(data);
         // setNotifications((prevState) => {
 
-        //     localStorage.setItem('notifications',[...prevState, data.data.body])
-        //     return [...prevState, data.data.body]
+        //     localStorage.setItem('notifications',[...prevState, data])
+        //     return [...prevState, data]
         // })
     }
     useEffect(()=>{
@@ -121,19 +124,21 @@ export const Provider  = props =>{
     })
 
     socket.on('challengeresponse', (data) =>{
-        console.log(data)
+        console.log('inside challenge response', data)
           return(
             setNotifications((prevState) => {
-                if(prevState.indexOf(data.data.body) > -1){
+                if(prevState.indexOf(data) > -1){
                     return prevState
 
                 }else{
-                    localStorage.setItem('notifications',JSON.stringify([...prevState, data.data.body]))
-                    return [...prevState, data.data.body]
+                    localStorage.setItem('notifications',JSON.stringify([...prevState, data]))
+                    return [...prevState, data]
                 }
                 })
           )
         })
+
+
     
     
     socket.on('disconnect', function(){});
@@ -156,7 +161,8 @@ export const Provider  = props =>{
             setNotifications,
             tempNotifications,
             setisAuth,
-            setRoom
+            setRoom,
+            setStamp
             }}>
             {props.children}
         </RaceContext.Provider>

@@ -18,7 +18,15 @@ const socket = io('http://localhost:5000');
 
 function App(props) {
   const context = useContext(RaceContext);
-  const {localUser, notifications, setNotifications} = context;
+  const {localUser, notifications, setNotifications ,setStamp} = context;
+  
+  socket.on('startracenow', data =>{
+    console.log(data)
+    setStamp(data)
+    props.history.push('/racetest')
+
+})
+
   return (
     <BrowserRouter>
     <Navbar></Navbar>
