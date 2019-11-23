@@ -6,7 +6,11 @@ const FriendCard = (props) =>{
 
     console.log(props.data)
     return(
-        <h6>{props.data.userName}</h6>
+            <div className="friendCard">
+                <img className="playerImg" src={props.data.image}/>
+                <h3 className="friendUserName">@{props.data.userName}</h3>
+                <div className="city">{props.data.city}, {props.data.state} {props.data.country}</div>
+            </div>
     )
 }
 
