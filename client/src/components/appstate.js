@@ -1,7 +1,8 @@
 import React , {useState , useEffect} from 'react'
 import API from '../utils/API'
-import io from 'socket.io-client';
-const socket = io('http://localhost:5000');
+// import io from 'socket.io-client';
+// const socket = io('https://mernracr.herokuapp.com');
+import { socket } from '../socket'
 
 export const RaceContext = React.createContext();
 
@@ -17,6 +18,7 @@ export const Provider  = props =>{
     const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const [room, setRoom] = useState(false)
+    const [stats, setStats] = useState({})
     const [race, setRace] = useState(false)
     const [stamp, setStamp] = useState('')
     const fetchUsers = (query) =>{
@@ -141,8 +143,8 @@ export const Provider  = props =>{
    
         socket.on('startracenow', data =>{
             console.log(data)
+            setStats(data)
             setRace(true)
-            setStamp(data)
         
         })
     
@@ -169,6 +171,7 @@ export const Provider  = props =>{
             setisAuth,
             setRoom,
             setStamp,
+            stats,
             race
             }}>
             {props.children}

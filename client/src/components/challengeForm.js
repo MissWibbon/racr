@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import {Redirect} from 'react-router-dom'
 import io from 'socket.io-client';
-const socket = io('http://localhost:5000');
+// const socket = io('https://mernracr.herokuapp.com');
+import { socket } from '../socket'
 const ChallengeForm = (props) => {
     const {match} = props
     const context = useContext(RaceContext);

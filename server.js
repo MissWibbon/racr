@@ -26,6 +26,7 @@ mongoose.connect(MONGODB_URI)
 
 
 var PORT = process.env.PORT || 5000;
+// var SOCKET_SERVER = process.env.SOCKET_SERVER || 'http://localhost:5000'
 
 var server = require('http').createServer(app)
 
@@ -64,8 +65,8 @@ io.on('connection', function (socket) {
       console.log(data)
       const date = Date.now() + 5000
    //   socket.to(combatants).emit('startracenow' , date)
-   socket.to(data.requestor).emit('startracenow' , date)
-   socket.to(data.acceptor).emit('startracenow' , date)
+   socket.to(data.requestor).emit('startracenow' , { ...data , date})
+   socket.to(data.acceptor).emit('startracenow' , { ...data , date})
    })
    
    // socket.on('status', post => {

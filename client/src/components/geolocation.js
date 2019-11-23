@@ -1,7 +1,8 @@
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import io from 'socket.io-client';
-const socket = io('http://localhost:5000');
+// const socket = io('https://mernracr.herokuapp.com');
+import { socket } from '../socket'
 
 const Demo = (props) => {
     let dist = 0;
@@ -10,7 +11,8 @@ const Demo = (props) => {
     const [state, setState] = useState({
         lat: 0,
         long: 0,
-        dist: 0
+        dist: 0,
+        oppPos: 0
     })
 
 

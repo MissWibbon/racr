@@ -12,11 +12,12 @@ import Logout from './components/logout'
 import './styles/main.scss';
 import{RaceContext} from './components/appstate'
 import ChallengeResponse from './components/challengResponse'
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import Demo from './components/geolocation';
 
 // import ChallengeResponse from './components/challengResponse';
-const socket = io('http://localhost:5000');
+// const socket = io('https://mernracr.herokuapp.com/');
+// import { socket } from '../socket'
 
 function App(props) {
   const context = useContext(RaceContext);
