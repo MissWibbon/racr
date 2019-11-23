@@ -2,62 +2,66 @@
 import React , {useContext, useEffect, useState} from 'react'
 import API from '../utils/API'
 import {RaceContext} from './appstate'
+import FriendCard from './friendCard'
 
 
-const FriendPool = ({ match }) => {
+const FriendPool = (props) => {
+    const {match} = props;
     const context = useContext(RaceContext);
 
-    const {localUser, users, fetchOneUser, friends, setFriends } = context
-    let localFriends = []
-    let localFriendsId = null
-    let friendDets = []
-    let friendName = null
-    let userId = null
-    let userName = null
+    const {localUser, users, fetchOneUser, friends, setFriends, isLoading} = context
+   const [pool , setPool] = useState([])
 
-    function getFriendsData(friend){
 
-    }
+   const getfriends =() =>{
+
+       if(localUser ===undefined){
+           return false
+
+       } else{
+               
+               localUser.friends.map(friend =>{
+                API.getOneUser(friend)
+                    .then(res =>{
+                        console.log(res.data)
+                        setPool((prevState)=> [res.data, ...prevState])
+                        
+                    })
+                    .catch(err => console.log(err))
+               })
+           return true
+       }
+   }
 
     useEffect(()=>{
-        if(localUser !== undefined){
-            console.log(users)
-            users && users.forEach(user => {
 
-                userId = user._id
-                userName = user.userName
-
-
-                console.log(userId + " user ID")
-                console.log('00000---------')
-                console.log(localFriends)
-                console.log('00000')
-                console.log(user)
-                console.log('user ^this one')
-                console.log(user._id + " <= user Id + username => " + user.userName + ' has this many friends ' + user.friends.length)
-                
-                
-                function findArrayElementById(localFriends, userId) {
-                    return localFriends.find((userId) => {
-                      return userId === localFriendsId
-                
-                    })
-                  }
-
-                 
-            })
-            
-            
-
-            //?
-        }
-
+    getfriends()
     },[])
     console.log('friends..')
 
     console.log(friends + ' friends')
     return (
-        <div>{localFriends}</div>
+        <div>
+            {isLoading 
+            ?(
+                <>
+                {
+                    pool.map(friend =>
+                    (
+                        <FriendCard key ={friend._id}  {...props} data ={friend}></FriendCard>
+
+                    )
+                    
+                    )
+                }
+                </>
+
+            )
+            :(
+                <h3>...Loading</h3>
+            )
+            }
+        </div>
     )
 
 
