@@ -10,8 +10,6 @@ const FriendCard = (props) =>{
     console.log(props.data._id)
     return(
         <>
-        
-            <div className="friendPageSearch"><SearchBar></SearchBar></div>
             <div className="friendCard">            
                 <Link to ={`users/${props.data._id}`}>
                 <img className="playerImg" src={props.data.image}/>
