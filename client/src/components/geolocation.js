@@ -55,15 +55,9 @@ const Demo = (props) => {
                 "geolocation" in navigator
                     ?
                     (
-<<<<<<< HEAD
-                        <>
-                            <p>{state.lat}</p><p>{state.long}</p><p>{state.dist * 50}</p>
-                        </>
-=======
                         <div className="raceCard">
                             <label>Latitude: </label><p className="lat">{state.lat} </p><label>Longitude: </label><p className="long">{state.long} </p><label>Distance: </label><p className="dist">{state.dist}</p>
                         </div>
->>>>>>> 5a1c9ef6d6218c341c2c0717ba1a5bde6fb6497b
                     )
                     : null
             }
