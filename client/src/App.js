@@ -16,7 +16,7 @@ import io from 'socket.io-client';
 import Demo from './components/geolocation';
 
 // import ChallengeResponse from './components/challengResponse';
-const socket = io('http://localhost:5000');
+const socket = io('https://mernracr.herokuapp.com/');
 
 function App(props) {
   const context = useContext(RaceContext);
