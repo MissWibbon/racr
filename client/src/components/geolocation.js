@@ -3,38 +3,43 @@ import { RaceContext } from './appstate'
 import io from 'socket.io-client';
 // const socket = io('https://mernracr.herokuapp.com');
 import { socket } from '../socket'
+import { set } from 'mongoose';
 
 const Demo = (props) => {
     let dist = 0;
     const context = useContext(RaceContext)
-    const {room, localUser} =context;
+    const {room, localUser , stats} =context;
     const [state, setState] = useState({
         lat: 0,
         long: 0,
         dist: 0,
-        oppPos: 0
+        oppPos: stats.distance || 0
     })
-
+    const [oppID , setOppId] = useState(stats.oppID)
 
     useEffect(() => {
-        socket.emit('startrace', { msg: 'just started' })
+      
+        // socket.emit('startrace', { msg: 'just started' })
         navigator.geolocation.getCurrentPosition(function (position) {
             setState({
                 lat: position.coords.latitude,
                 long: position.coords.longitude,
                 dist: 0
+
             });
         });
         distance()
     }, [])
 
     useEffect(() =>{
-        socket.emit('status', {
-            id: localUser._id,
-            distance: dist
-        });
+        const news = {...stats,
+            distance: state.dist,
+            oppID: stats.oppID
+        }
+        console.log(news)
+        socket.emit('status', news);
 
-    },[dist])
+    },[state.lat , state.long])
     //navigator.geolocation.watchPosition(console.log(this.props.coords.latitude)),
     //Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) );
     const distance = () => {
@@ -59,6 +64,7 @@ const Demo = (props) => {
                     (
                         <div className="raceCard">
                             <label>Latitude: </label><p className="lat">{state.lat} </p><label>Longitude: </label><p className="long">{state.long} </p><label>Distance: </label><p className="dist">{state.dist}</p>
+                            <label>Opposition Distnce: </label><p className="lat">{state.oppPos} </p>
                         </div>
                     )
                     : null

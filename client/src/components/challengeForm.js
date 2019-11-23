@@ -9,7 +9,7 @@ const ChallengeForm = (props) => {
     const context = useContext(RaceContext);
     
     const {id} = match.params
-    const {users, isLoading, localUser, profile, setStamp , race} = context
+    const {users, isLoading, localUser, profile, setStamp , race , setStats} = context
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
@@ -25,7 +25,7 @@ const ChallengeForm = (props) => {
             minutes: minutes.value,
             seconds: seconds.value,
             message: message.value,
-            acceptor: id
+            acceptor: id,
 
         }
         socket.emit('challenge', body)
