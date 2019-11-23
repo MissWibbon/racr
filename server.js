@@ -41,16 +41,8 @@ io.on('connection', function (socket) {
       console.log('online', data._id)
 
       socket.join('public').emit('welcome')
-<<<<<<< HEAD
       
       socket.join(`${data._id}`).emit('event',{msg: 'things happened'})
-=======
-
-
-      socket.join(data._id)
-      socket.to(data._id).emit('event', { msg: 'things happened' })
-
->>>>>>> cfd5045eae2194ab1345b53b55d207465253e6bd
    });
 
    socket.on('challenge', (data) => {
