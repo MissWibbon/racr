@@ -19,7 +19,7 @@ const Navbar = () => {
                             <NavLink className="navLink" exact to='/home'><i className="fas fa-user"></i></NavLink>
                             <NavLink className="navLink" exact to='/notifications'><div id="notify-wrap"><span id="notify-count">0</span></div><i className="fas fa-bell"></i></NavLink>
                             <NavLink className="navLink" exact to='/friends'><i className="fas fa-users"></i></NavLink>
-                            <NavLink className="navLink" exact to='/login'><i className="fas fa-sign-out-alt"></i></NavLink>
+                            <NavLink className="navLink" exact to='/logout'><i className="fas fa-sign-out-alt"></i></NavLink>
                         </div>
                     </div>
 

@@ -8,6 +8,7 @@ import User from './components/user'
 import FriendPool from './components/friendpool'
 import Countdown from './components/countdown'
 import ChallengeForm from './components/challengeForm'
+import Logout from './components/logout'
 import './styles/main.scss';
 import{RaceContext} from './components/appstate'
 import ChallengeResponse from './components/challengResponse'
@@ -36,6 +37,7 @@ function App(props) {
         <Route to exact path = '/friends' component={FriendPool}/>
         <Route to path = '/users/:id' component={User}/>
         <Route to exact path = '/' render= {()=><Redirect to ='/login'/>}/>
+        <Route to exact path = '/logout' render ={(props) => <Logout {...props}/>}/>
         <Route to exact path = '/racetest' component={Demo}/>
       </Switch>
     </BrowserRouter>
