@@ -61,22 +61,26 @@ io.on('connection', function (socket) {
 
    socket.on('accepted', data => {
       const combatants = `${data.requestor}-${data.acceptor}`
-      socket.join(combatants)
+      // socket.join(combatants)
       console.log(data)
       const date = Date.now() + 5000
+      const packageReq = { ...data , date, oppId: data.acceptor}
+      const packageAcc = { ...data , date, oppId: data.requestor}
+      console.log( packageAcc ,'\n\n\n\n\n' ,packageReq)
    //   socket.to(combatants).emit('startracenow' , date)
-   socket.to(data.requestor).emit('startracenow' , { ...data , date})
-   socket.to(data.acceptor).emit('startracenow' , { ...data , date})
+   socket.to(data.requestor).emit('startracenow' , date)
+   socket.to(data.acceptor).emit('startracenow' , date)
    })
    
-   // socket.on('status', post => {
-   //    socket.to().emit(post)
-   //    console.log(post)
-   // })
-   socket.on('startrace', data => {
-      socket.to(`${data.requestor}-${data.acceptor}`).emit('start', { data: 'race started' })
-      console.log(data);
+   socket.on('status', post => {
+      console.log()
+      socket.to(post.oppID).emit('racing',post)
+      console.log(post)
    })
+   // socket.on('startrace', data => {
+   //    socket.to(`${data.requestor}-${data.acceptor}`).emit('start', { data: 'race started' })
+   //    console.log(data);
+   // })
 });
 
 

@@ -8,7 +8,7 @@ import { socket } from '../socket'
 
 const NotifyCard = (props) =>{
     const context = useContext(RaceContext)
-    const {localUser, setRoom} = context
+    const {localUser, setStats} = context
     const [player, setPlayer] = useState({})
 
     useEffect(() => {
@@ -22,8 +22,8 @@ const NotifyCard = (props) =>{
     }, [])
     
     const accept = () =>{
+        setStats(props.data) 
        socket.emit('accepted',props.data)
-       setRoom(`${props.data.acceptor}-${props.data.requestor}`)
         props.history.push('/racetest')
     }
 

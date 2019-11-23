@@ -3,6 +3,7 @@ import API from '../utils/API'
 // import io from 'socket.io-client';
 // const socket = io('https://mernracr.herokuapp.com');
 import { socket } from '../socket'
+import { set } from 'mongoose';
 
 export const RaceContext = React.createContext();
 
@@ -147,6 +148,11 @@ export const Provider  = props =>{
             setRace(true)
         
         })
+        // socket.on('racing', data =>{
+        //     console.log(data)
+        //    setStats(data)
+        
+        // })
     
     
     socket.on('disconnect', function(){});
@@ -172,6 +178,7 @@ export const Provider  = props =>{
             setRoom,
             setStamp,
             stats,
+            setStats,
             race
             }}>
             {props.children}
