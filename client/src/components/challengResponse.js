@@ -13,7 +13,7 @@ const ChallengeResponse = (props) => {
    
 
     return (
-
+        <div className="notificationWrap">
         <div id="challengeModal">
         
             {isLoading
@@ -34,6 +34,7 @@ const ChallengeResponse = (props) => {
                 ) :
                 <h2>Loading...</h2>
             }
+        </div>
         </div>
     )
 }

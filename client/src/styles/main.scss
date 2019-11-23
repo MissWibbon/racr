@@ -260,6 +260,10 @@ input {
     width: 80%;
     margin: auto;
     margin-left: 15%;
+    margin-top: -20px;
+}
+.pageTitle {
+    padding-top: 2rem;
 }
 .friendCard {
     background-color: white;
@@ -357,7 +361,9 @@ input {
 .active {
     display: block;
 }
-
+.notificationWrap {
+    width: 80%;
+}
 #notify-wrap {
     position: absolute;
     margin-top: -10px;
@@ -438,5 +444,8 @@ input {
     }
     .challengePlayerImg {
         margin-left: 0px;
+    }
+    .notificationWrap {
+        width: 100%;
     }
 }
