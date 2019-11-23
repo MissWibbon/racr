@@ -45,4 +45,7 @@ Racr is currently extended with the following plugins. Instructions on how to us
 - Add Night Mode 
 - Add wager option
 - Make available on App store
+- Make user interface for Apple and Android
+
+
 **Run user run!**
