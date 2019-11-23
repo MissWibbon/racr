@@ -11,7 +11,8 @@ const Demo = (props) => {
     const [state, setState] = useState({
         lat: 0,
         long: 0,
-        dist: 0
+        dist: 0,
+        oppPos: 0
     })
 
 
