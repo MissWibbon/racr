@@ -26,6 +26,7 @@ mongoose.connect(MONGODB_URI)
 
 
 var PORT = process.env.PORT || 5000;
+// var SOCKET_SERVER = process.env.SOCKET_SERVER || 'http://localhost:5000'
 
 var server = require('http').createServer(app)
 

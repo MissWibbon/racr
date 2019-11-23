@@ -1,7 +1,8 @@
 import React, { Component, useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import io from 'socket.io-client';
-const socket = io('https://mernracr.herokuapp.com');
+// const socket = io('https://mernracr.herokuapp.com');
+import { socket } from '../socket'
 
 const Demo = (props) => {
     let dist = 0;
