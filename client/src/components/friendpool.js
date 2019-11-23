@@ -41,14 +41,14 @@ const FriendPool = (props) => {
 
     console.log(friends + ' friends')
     return (
-        <div>
+        <div className="friendPage"><h2 className="pageTitle">Your Friends</h2>
             {isLoading 
             ?(
                 <>
                 {
                     pool.map(friend =>
                     (
-                        <FriendCard key ={friend._id}  {...props} data ={friend}></FriendCard>
+                        <FriendCard  key ={friend._id}  {...props} data ={friend}></FriendCard>
 
                     )
                     

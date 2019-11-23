@@ -50,6 +50,7 @@ html, body {
 .navLink:hover {
     color: $light-grey;
 }
+
 #profilePage {
     background-image: $gradient; 
     color: $dark-green; 
@@ -185,7 +186,7 @@ input {
     margin-left: 3%; width: 150px; background-color:$light-grey; padding: 5px; border-radius: 15px; margin-left: -1px;} 
 
 
-#challengeModal {
+#challengeModal{
     padding: 1rem 3rem;
     float: right;
     background-color: white;
@@ -254,6 +255,19 @@ input {
     margin-top: -40px;
     display: inline-block;
     float: right;
+}
+.friendPage {
+    width: 80%;
+    margin: auto;
+    margin-left: 15%;
+}
+.friendCard {
+    background-color: white;
+    width: 35%;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: $light-box-shadow;
+    margin: 2rem;
 
 }
 .challengePlayerImg {
@@ -263,6 +277,24 @@ input {
     display: inline-block;
     margin-left: -30px;
     margin-bottom: -1%;
+}
+.playerImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: -3%;
+}
+.city {
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+}
+.friendUserName {
+    display: inline-block;
+    color: $dark-green;
+    margin-left: 5px;
 }
 .responseButtonWrap {
     width: 100%;
@@ -394,5 +426,17 @@ input {
         padding: 22px 13px;
         width: 90%;
         margin-left: -5%;
+    }
+    .friendCard {
+        width: 100%;
+        margin: auto;
+        margin: 1rem;
+    }
+    .friendPage {
+        margin-left: 5%;
+        width: 80%;
+    }
+    .challengePlayerImg {
+        margin-left: 0px;
     }
 }
