@@ -23,7 +23,7 @@ Racr uses a number of open source projects to work properly:
 * [ Json Web Token ] - Compact and self-contained way for securely transmitting information between parties as a JSON object
 * [ Filestack API ] - Software service that helps you to manage all your file uploads on different internet platforms.
 * [ Geolocation API ] - Software service that allows the user to provide their location to web applications if they so desire
-
+* [ Heroku ] -  Cloud platform as a service supporting programming languages.
 ### Plugins
 
 Racr is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
