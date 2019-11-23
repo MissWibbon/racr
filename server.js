@@ -30,9 +30,8 @@ var server = app.listen(PORT);
 var io = require('socket.io').listen(server);
 
 io.on('connection', function (socket) {
-   let online = false;
    console.log('connect')
-   let interval;
+
 
 
 
