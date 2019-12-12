@@ -7,10 +7,14 @@ import { set } from 'mongoose';
 
 const Demo = (props) => {
     let dist = 0;
+    var R = 6371e3; // metres
     const context = useContext(RaceContext)
     const {room, localUser , stats} =context;
     const [state, setState] = useState({
-        lat: 0,
+        lat1: 0,
+        lat2:0,
+        latdiff: 0,
+        
         long: 0,
         dist: 0,
         oppPos: stats.distance || 0
@@ -47,7 +51,8 @@ const Demo = (props) => {
             setState(prevState =>
                 (
                     {
-                        lat: position.coords.latitude,
+                        lat1: prevState.lat2,
+                        lat2:position.coords.latitude,
                         long: position.coords.longitude,
                         dist: prevState.dist += Math.sqrt(Math.pow((prevState.lat - position.coords.latitude), 2) + Math.pow((prevState.long - position.coords.longitude), 2))
                     }))
