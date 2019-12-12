@@ -21,7 +21,7 @@ const SignUp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
-            email: email.value,
+            email: email.value.toLowerCase(),
             password: password.value,
             firstName: firstName.value,
             lastName: lastName.value,

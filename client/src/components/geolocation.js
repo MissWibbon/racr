@@ -13,10 +13,13 @@ const Demo = (props) => {
     const [state, setState] = useState({
         lat1: 0,
         lat2:0,
-        latdiff: 0,
-        
+        latdiff: 0 ,
         long: 0,
+        longdiff: 0,
+        a: null,
+        c: null,
         dist: 0,
+
         oppPos: stats.distance || 0
     })
     const [oppID , setOppId] = useState(stats.oppID)
@@ -26,9 +29,8 @@ const Demo = (props) => {
         // socket.emit('startrace', { msg: 'just started' })
         navigator.geolocation.getCurrentPosition(function (position) {
             setState({
-                lat: position.coords.latitude,
-                long: position.coords.longitude,
-                dist: 0
+                lat1: position.coords.latitude,
+                long1: position.coords.longitude,
 
             });
         });
@@ -52,9 +54,17 @@ const Demo = (props) => {
                 (
                     {
                         lat1: prevState.lat2,
-                        lat2:position.coords.latitude,
-                        long: position.coords.longitude,
-                        dist: prevState.dist += Math.sqrt(Math.pow((prevState.lat - position.coords.latitude), 2) + Math.pow((prevState.long - position.coords.longitude), 2))
+                        lat2: position.coords.latitude,
+                        latdiff: (state.lat2-state.lat1).toRadians(),
+                        long1:prevState.long1,
+                        long2: position.coords.longitude,
+                        longdiff: (state.long2-state.long1).toRadians(),
+                        a: Math.sin(state.latdiff/2) * Math.sin(state.latdiff/2) +
+                        Math.cos(state.lat2) * Math.cos(state.lat2) *
+                        Math.sin(state.longdiff/2) * Math.sin(state.longdiff/2),
+                        c: 2 * Math.atan2(Math.sqrt(state.a), Math.sqrt(1-state.a)),
+                        d: R * state.c,
+                        dist: prevState.d += state.d
                     }))
         });
 
@@ -68,7 +78,7 @@ const Demo = (props) => {
                     ?
                     (
                         <div className="raceCard">
-                            <label>Latitude: </label><p className="lat">{state.lat} </p><label>Longitude: </label><p className="long">{state.long} </p><label>Distance: </label><p className="dist">{state.dist}</p>
+                            <label>Latitude: </label><p className="lat">{state.lat2} </p><label>Longitude: </label><p className="long">{state.long2} </p><label>Distance: </label><p className="dist">{state.dist}</p>
                             <label>Opposition Distnce: </label><p className="lat">{state.oppPos} </p>
                         </div>
                     )
