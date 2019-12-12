@@ -56,10 +56,10 @@ const Demo = (props) => {
                     {
                         lat1: prevState.lat2,
                         lat2: position.coords.latitude,
-                        latdiff: (state.lat2-state.lat1).toRadians(),
+                        latdiff: state.lat2-state.lat1,
                         long1:prevState.long1,
                         long2: position.coords.longitude,
-                        longdiff: (state.long2-state.long1).toRadians(),
+                        longdiff: state.long2-state.long1,
                         a: Math.sin(state.latdiff/2) * Math.sin(state.latdiff/2) +
                         Math.cos(state.lat2) * Math.cos(state.lat2) *
                         Math.sin(state.longdiff/2) * Math.sin(state.longdiff/2),
