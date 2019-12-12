@@ -3,6 +3,7 @@ import React , {useContext, useEffect, useState} from 'react'
 import API from '../utils/API'
 import {RaceContext} from './appstate'
 import FriendCard from './friendCard'
+import SearchBar from './searchbar'
 
 
 const FriendPool = (props) => {
@@ -45,6 +46,8 @@ const FriendPool = (props) => {
             {isLoading 
             ?(
                 <>
+                <div className="friendPageSearch"><SearchBar></SearchBar></div>
+                <>
                 {
                     pool.map(friend =>
                     (
@@ -55,7 +58,7 @@ const FriendPool = (props) => {
                     )
                 }
                 </>
-
+                </>
             )
             :(
                 <h3>...Loading</h3>
