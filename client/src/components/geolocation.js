@@ -18,6 +18,7 @@ const Demo = (props) => {
         longdiff: 0,
         a: null,
         c: null,
+        d: 0,
         dist: 0,
 
         oppPos: stats.distance || 0
