@@ -7,10 +7,9 @@ import SearchBar from './searchbar'
 
 
 const FriendPool = (props) => {
-    const {match} = props;
     const context = useContext(RaceContext);
 
-    const {localUser, users, fetchOneUser, friends, setFriends, isLoading} = context
+    const {localUser, friends, isLoading} = context
    const [pool , setPool] = useState([])
 
 

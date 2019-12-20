@@ -40,7 +40,6 @@ const SignUp = (props) => {
             })
 
 
-
     }
 
     const fileChange = (event) => {

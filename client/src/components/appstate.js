@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
-// import io from 'socket.io-client';
-// const socket = io('https://mernracr.herokuapp.com');
-import { socket } from '../socket'
-import { set } from 'mongoose';
+import io from 'socket.io-client';
+const socket = io('https://mernracr.herokuapp.com');
+
+
 
 export const RaceContext = React.createContext();
 
@@ -15,8 +15,8 @@ export const Provider = props => {
     const [notifications, setNotifications] = useState(JSON.parse(localStorage.getItem('notifications')) || []);
     const [tempNotifications, setTempNotifications] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [friends, setFriends] = useState(localStorage.getItem('localFriends') || []);
-    const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) || undefined)
+    const [friends, setFriends] = useState(JSON.parse(localStorage.getItem('friends'))|| []);
+    const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('token')) ||undefined)
     const [isAuth, setisAuth] = useState(false)
     const [room, setRoom] = useState(false)
     const [stats, setStats] = useState({})
@@ -26,7 +26,6 @@ export const Provider = props => {
 
         API.getUsers(query)
             .then(res => {
-                console.log(res.data)
                 setusers(res.data)
                 setLoading(true)
             })
@@ -38,7 +37,6 @@ export const Provider = props => {
     const fetchOneUser = async (id) => {
         setLoading(false)
         const res = await API.getOneUser(id)
-        console.log(res.data[0])
         setProfile(res.data)
         setLoading(true)
         return res.data[0]
@@ -60,21 +58,17 @@ export const Provider = props => {
     const addFriend = (data) => {
         let { id, friendId } = data;
         let temp = '';
-        console.log(data)
         API.getfriend(data)
             .then(res => {
-                console.log(res.data)
             })
         temp = id;
         id = friendId;
         friendId = temp
         const newData = { id, friendId }
-        console.log(newData)
         API.getfriend(newData)
             .then(res => {
                 localStorage.setItem('friends', JSON.stringify([localUser.friends, friendId]))
                 setFriends(friendId)
-                console.log(res.data)
             })
     }
 
@@ -87,10 +81,9 @@ export const Provider = props => {
 
 
     socket.on('some event', function (data) {
-        console.log(data)
+
     });
     socket.on('welcome', function (data) {
-        console.log('made it')
     });
     socket.on('ask', () => {
         if (localUser === undefined) {
@@ -101,11 +94,9 @@ export const Provider = props => {
         }
     })
     socket.on('event', data => {
-        console.log(data)
     })
 
     socket.on('challengeresponse', (data) => {
-        console.log('inside challenge response', data)
         return (
             setNotifications((prevState) => {
                 if (prevState.indexOf(data) > -1) {
@@ -120,16 +111,10 @@ export const Provider = props => {
     })
 
     socket.on('startracenow', data => {
-        console.log(data)
         setStats(data)
         setRace(true)
 
     })
-    // socket.on('racing', data =>{
-    //     console.log(data)
-    //    setStats(data)
-
-    // })
 
 
     socket.on('disconnect', function () { });

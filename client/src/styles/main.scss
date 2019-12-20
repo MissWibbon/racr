@@ -24,6 +24,9 @@ html, body {
     margin: auto;
 
 }
+.err{
+    color: red;
+}
 .racr-nav-icon {
     background-image: url(../Racr-logo_graphic_grey.svg);
     height: 20px;
@@ -404,6 +407,7 @@ input {
     .small-logo {
         margin-bottom: -5px;
     }
+   
     .navLink {
         display: inline-block;
         width: 19%;
