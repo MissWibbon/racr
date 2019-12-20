@@ -7,7 +7,6 @@ import SearchBar from './searchbar';
 //simply use the info in props.data
 const FriendCard = (props) =>{
 
-    console.log(props.data._id)
     return(
         <>
             <div className="friendCard">            

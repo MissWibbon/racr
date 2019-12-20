@@ -3,7 +3,7 @@ import { RaceContext } from './appstate'
 import io from 'socket.io-client';
 // const socket = io('https://mernracr.herokuapp.com');
 import { socket } from '../socket'
-import { set } from 'mongoose';
+
 
 const Demo = (props) => {
     let dist = 0;
@@ -56,10 +56,10 @@ const Demo = (props) => {
                     {
                         lat1: prevState.lat2,
                         lat2: position.coords.latitude,
-                        latdiff: state.lat2-state.lat1,
+                        latdiff: Math.abs(state.lat2.value-state.lat1.value),
                         long1:prevState.long1,
                         long2: position.coords.longitude,
-                        longdiff: state.long2-state.long1,
+                        longdiff: Math.abs(state.long2-state.long1),
                         a: Math.sin(state.latdiff/2) * Math.sin(state.latdiff/2) +
                         Math.cos(state.lat2) * Math.cos(state.lat2) *
                         Math.sin(state.longdiff/2) * Math.sin(state.longdiff/2),

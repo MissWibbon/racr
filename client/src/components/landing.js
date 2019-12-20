@@ -9,6 +9,7 @@ import { socket } from '../socket'
 
 const Landing = (props) => {
     const context = useContext(RaceContext)
+    const [errMessage, setErr] = useState('')
     const email = useInput('');
     const password = useInput('');
     const handleSubmit = (e) => {
@@ -19,12 +20,17 @@ const Landing = (props) => {
         }
         API.login(body)
             .then(res => {
-                window.localStorage.setItem('token', JSON.stringify(res.data))
-                const pass = context.getToken()
-                if (pass) {
-                    props.history.push('/home')
-                } else {
-                    console.log('not auth')
+                if(!res.message){
+                    window.localStorage.setItem('token', JSON.stringify(res.data))
+                    const pass = context.getToken()
+                    if (pass) {
+                        props.history.push('/home')
+                    } else {
+                        setErr('Invalid Username or Password')
+                    }
+
+                }else{
+                    setErr(res.message)
                 }
             })
 
@@ -36,6 +42,7 @@ const Landing = (props) => {
                 <form id="login">
                     <label id="email">Email:</label>
                     <input {...email} type='text' name='name'></input>
+                    <p className= 'err'>{errMessage}</p>
                     <label id="password">Password:</label>
                     <input {...password} type='password' name='name'></input>
                     <div><button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button></div>

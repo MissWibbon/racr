@@ -7,8 +7,7 @@ const User = ({ match }) => {
     const context = useContext(RaceContext);
 
     const { id } = match.params
-    const { users, isLoading, profile, addFriend, localUser } = context
-    const searchbar = useSearchValue('');
+    const { isLoading, profile, addFriend, localUser } = context
 
     useEffect(() => {
         context.fetchOneUser(id)
