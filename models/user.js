@@ -10,11 +10,10 @@ const userSchema = new Schema({
     city: String,
     state: String,
     country: { type: String, default: "USA" },
-    age: Number,
+    dob: {type: Date},
     image: String,
-    raceType: String,
     friends: [Schema.Types.ObjectId],
-    date: { type: Date, default: Date.now }
+    onlineStatus: { type: Boolean, default: false }
 });
 
 const User = mongoose.model("User", userSchema);

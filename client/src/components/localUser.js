@@ -24,6 +24,14 @@ const LocalUser = (props) =>{
                     <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
                 </div>
+                <div className="profileActivity">
+                    <div className="profileFriends">
+                        Friends
+                    </div>
+                    <div className="profileRaces">
+                        Races
+                    </div>
+                </div>
             </div>
         ):
         <h2>Loading...</h2>

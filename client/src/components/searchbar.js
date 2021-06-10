@@ -14,13 +14,13 @@ const SearchBar = (props) => {
             .then(res => props.history.push(`/users/${res._id}`))
     }
     return (
-        <>
+        <div className="searchInput">
             <input type='text'
                 {...searchbar}
                 placeholder='Enter Username Here'
             ></input>
-            <button id="searchFriend" onClick={handleSubmit}><i className="fas fa-search"></i></button>
-        </>
+            <button id="searchUsers" onClick={handleSubmit}><i className="fas fa-search"></i></button>
+        </div>
     )
 }
 const useSearchValue = (initialValue) => {

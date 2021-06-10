@@ -12,10 +12,10 @@ const Navbar = () => {
 
 
     return (
-        <div>
+        <div className="navWrapper">
             {isAuth
                 ? (
-                    <div className="navWrapper">
+                    <div>
                         <div className="linkWraps">
                             <NavLink className="navLink" exact to='/challengeform'><div className="racr-nav-icon small-logo" /></NavLink>
                             <NavLink className="navLink" exact to='/home'><i className="fas fa-user"></i></NavLink>

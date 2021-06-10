@@ -1,16 +1,20 @@
 $dark-green: #1F3753;
 $green: #C2FF30;
+$navy: #111622;
+$dark: #06050d;
 $grey-green: #A4C9B4;
 $light-grey: #F8F8F8;
 $light-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 $box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-$bold-font: 'Anton', sans-serif;
+$bold-font: 'Jost', sans-serif;
 $light-font: 'Questrial', sans-serif;
 $gradient: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 $grey-gradient: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 html, body { 
     height: 100%;
-    background-color: $light-grey;
+    background-color: $navy;
+    color: $green;
+    text-align: center;
   }
   a, .distance, .challenge-label, #text {
       text-decoration: none;
@@ -30,47 +34,67 @@ html, body {
 .racr-nav-icon {
     background-image: url(../Racr-logo_graphic_grey.svg);
     height: 20px;
-    width: 20px;
     background-repeat: no-repeat;
     margin-top: 10px;
     margin: auto;
-
+    background-position: center;
 }
 .navWrapper {
-    height: 102vh;
+    height: 100%;
     background-color: $dark-green;
     padding: 1.5rem;
-    float: left;
-    position: fixed;
 }
 .navLink {
     color: $green;
     text-decoration: none;
     line-height: 45px;
-    display: block;
+    display: inline-block;
     text-align: center;
+    width: 20%;
 }
 .navLink:hover {
     color: $light-grey;
 }
 
 #profilePage {
-    background-image: $gradient; 
-    color: $dark-green; 
+    /*background-image: $gradient; */
     padding: 2rem; 
-    height: 100vh;     
-    width: 100%;
-    float: left;
+  
     input {
-        color: $dark-green;
+        color: $green;
+        background-color: $dark;
         font-size: 16px;
+        padding: .5rem;
+    }
+    .searchInput {
+        position: relative;
+
+        #searchUsers {
+            position: absolute;
+            margin-left: -30px;
+            background: transparent;
+            border: none;
+            color: #C2FF30;
+            top: 6px;
+    
+        }
     }
     #searchFriend {
-        position: absolute;
         margin-left: -30px;
-        margin-top: 2px;
         background: transparent;
         border: none;
+        color: $green;
+    }
+    .profileActivity {
+        max-width: 350px;
+        margin: auto;
+        padding: 2rem;
+        color: $gradient;
+    }
+    .profileFriends, .profileRaces {
+        width: 50%;
+        text-align: center;
+        display: inline-block;
     }
 }
 .loginWrap, .registerWrap {
@@ -107,7 +131,6 @@ html, body {
     border: none; 
     font-family: $light-font; 
     padding:5px; 
-    margin-left: 10%; 
     font-size: 20px;
     border-radius: 2em;
     color: $dark-green;
@@ -126,7 +149,7 @@ label {
     width: 100%; 
     text-align: center; 
     display: block; 
-    padding-top: 20px; 
+    padding: .5rem 0; 
     font-family: $light-font;
 }
 .inputWrap {
@@ -136,7 +159,6 @@ label {
 
 input {
     width: 80%; 
-    margin-left: 10%;
     background: rgba(#fff, .3);
     border: none;
     border-radius: 2em;
@@ -169,17 +191,18 @@ input {
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 }
 .profileInfo {
-    background-color: $dark-green;
+    background-color: $navy;
     padding-top: 85px;
     padding-bottom: 20px;
     max-width: 500px;
     margin: auto;
     margin-top: -75px;
+    border-bottom: 1px solid $green;
 }
 
 
 
-.profileUserName {text-align: center; color: $green; font-family: $bold-font;}
+.profileUserName {text-align: center; color: $green; font-family: $bold-font; font-style: italic;}
 .profileName {text-align: center; color: white; font-family: $light-font;}
 .profileLocation {width: fit-content; margin: auto; text-align: center; color:$dark-green;  font-family: $light-font; font-size: 10px;}
 .profileRunType {text-align: center; color: white; font-family: $light-font;}
@@ -192,25 +215,22 @@ input {
 #challengeModal{
     padding: 1rem 3rem;
     float: right;
-    background-color: white;
+    background-color: $dark;
     border-radius: 5px;
     margin: 5%;
     margin-left: 15%;
 
 }
 .challenge-form {
-    background-color: white;
     padding: 4rem 2rem;
     box-shadow: $light-box-shadow;
     border-radius: 5px;
     
 
     input {
-        border-bottom: 1px solid $green;
         width: 100%;
         display: inline-block;
-        margin-left: 10px;
-        color: $dark-green;
+        color: $green;
     }
     input:placeholder {
         color: $dark-green;
@@ -219,6 +239,7 @@ input {
         width: 80%;
         margin: auto;
         display: inline-block;
+        font-family: $bold-font;
     }
     #distance-metric {
         float: right;
@@ -358,6 +379,20 @@ input {
         font-weight: 700;
     }
 }
+.friendPage {
+    input {
+        width: 100%;
+        display: inline-block;
+        color: $dark-green;
+        padding: .5rem;
+    }
+    #searchUsers {
+        margin-left: -30px;
+        background: transparent;
+        border: none;
+        color: $green;
+    }
+}
 .inactive {
     display: none;
 }
@@ -369,8 +404,8 @@ input {
 }
 #notify-wrap {
     position: absolute;
-    margin-top: -10px;
-    margin-left: 10px;
+    left: 55%;
+    top: -20%;
 }
 #notify-count {
     padding: 3px;
@@ -389,10 +424,35 @@ input {
     font-weight: 700;
 }
 .timewrap {
-    display: inline-block;
-    width: 27%;
+    display: flex;
     padding: 22px 13px;
 }
+.friendPageSearch {
+    position: relative;
+}
+.friendPageSearch input {
+    color: $green;
+    background-color: $dark;
+}
+.friendPageSearch #searchUsers {
+    position: absolute;
+    top: 6px;
+    right: 0px;}
+
+    .small-logo {
+        margin-bottom: -5px;
+    }
+   
+    .navLink {
+        display: inline-block;
+        width: 19%;
+        margin-top: -20px;
+        position: relative;
+    }
+    
+    .navLink:first-of-type {
+        margin-left: -2%;
+    }
 @media screen and (max-width: 633px) {
     #login {
         width: 80%;
@@ -402,24 +462,10 @@ input {
         height: 25px;
         position: fixed;
         bottom: 0;
-        width: 100%;
+        width: 91vw;
     }
-    .small-logo {
-        margin-bottom: -5px;
-    }
-   
-    .navLink {
-        display: inline-block;
-        width: 19%;
-        margin-left: -2%;
-        margin-top: -20px;
-    }
-    
-    .navLink:first-of-type {
-        margin-left: -2%;
-    }
+
     #profilePage {
-        width: 100%;
         padding: 0px;
         padding-top: 20px;
     }
@@ -431,7 +477,7 @@ input {
         padding: 2rem;
     }
     .timewrap {
-        display: inline-block;
+        display: flex;
         padding: 22px 13px;
         width: 90%;
         margin-left: -5%;
@@ -442,7 +488,7 @@ input {
         margin: 1rem;
     }
     .friendPage {
-        margin-left: 5%;
+        margin: auto;
         width: 80%;
     }
     .challengePlayerImg {
