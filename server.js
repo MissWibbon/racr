@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 // Define API routes
 app.use(routes);
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://mwuebben:Sc0utm1chelle@clusterracr.c2llr.mongodb.net/RacrDB";
+var MONGODB_URI = process.env.MONGODB_URI || "postgres://wzqgpnclzobdmh:f8719516a29ae6833c341f2d1b2cd3f90dbab55d5589773562df08b129e625a2@ec2-23-23-164-251.compute-1.amazonaws.com:5432/da163ijbf0a8db";
 mongoose.connect(MONGODB_URI)
    .then(() => console.log('Mongo Db connected'))
    .catch(err => console.log(err));
