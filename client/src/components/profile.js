@@ -42,6 +42,7 @@ const SignUp = (props) => {
 
     }
 
+
     const fileChange = (event) => {
         const files = event.target.files;
         const file = files.item(0);

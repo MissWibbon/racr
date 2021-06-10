@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
-const uploadController = require("../../controllers/upload");
 
 
 // Matches with "/api/users"
@@ -21,7 +20,5 @@ router
     .get(userController.findFriends)
 
     
-router.post("/upload", uploadController.uploadFile);
-
 router.post('/login',userController.login)
 module.exports = router;
