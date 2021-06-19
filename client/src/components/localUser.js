@@ -1,19 +1,55 @@
 import React, { useContext, useState } from 'react'
 import { RaceContext } from './appstate'
 import SearchBar from './searchbar';
+import API from '../utils/API'
+
 
 const LocalUser = (props) => {
     const context = useContext(RaceContext)
-    const { users, localUser } = context
+    const { users, localUser, friends } = context
     const { isLoading } = context
     const searchbar = useSearchValue('')
     console.log(users)
+
+    const [pool, setPool] = useState([])
+
     const friendList = localUser.friends
-    const friends = users.filter(user => user._id === friendList).map(user => 
+    const friends = users.filter(user => user._id === friendList).map(user =>
         <li>{user}</li>
     )
     console.log(friends)
     console.log(friendList)
+
+
+    const getfriends = () => {
+
+        if (localUser === undefined) {
+            return false
+
+        } else {
+
+            localUser.friends.map(friend => {
+                API.getOneUser(friend)
+                    .then(res => {
+                        console.log(res.data)
+                        setPool((prevState) => [res.data, ...prevState])
+
+                    })
+                    .catch(err => console.log(err))
+            })
+            return true
+        }
+    }
+
+    useEffect(() => {
+
+        getfriends()
+    }, [])
+
+
+
+
+
     return (
         <div id="profilePage">
             <SearchBar {...props}></SearchBar>
@@ -35,7 +71,17 @@ const LocalUser = (props) => {
                             <div className="profileFriends">
                                 <div className="profileInfo-label">Friends</div>
                                 <ul id="friends">
-                                    {friends.true}
+                                    <>
+                                        {
+                                            pool.map(friend =>
+                                            (
+                                                <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
+
+                                            )
+
+                                            )
+                                        }
+                                    </>
                                 </ul>
                             </div>
                             <div className="profileRaces">
