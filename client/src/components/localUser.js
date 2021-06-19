@@ -10,7 +10,8 @@ const LocalUser = (props) =>{
     console.log(users)
     const friendList = localUser.friends
     const friends = users.map(user => user._id.includes(friendList))
-
+    console.log(friends)
+    console.log(friendList)
     return(
         <div id="profilePage">
         <SearchBar {...props}></SearchBar>
