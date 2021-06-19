@@ -12,7 +12,7 @@ const FriendCard = (props) =>{
             <div className="friendCard">            
                 <Link to ={`users/${props.data._id}`}>
                 <img className="playerImg" src={props.data.image}/>
-                <h3 className="friendUserName">@{props.data.userName}</h3></Link>
+                <h3 className="friendUserName">{props.data.userName}</h3></Link>
                 <div className="city">{props.data.city}, {props.data.state} {props.data.country}</div>
             </div>
             </>

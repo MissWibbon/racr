@@ -290,7 +290,7 @@ input {
     padding-top: 2rem;
 }
 .friendCard {
-    background-color: white;
+    background-color: $dark;
     width: 35%;
     display: inline-block;
     border-radius: 5px;
@@ -321,7 +321,7 @@ input {
 }
 .friendUserName {
     display: inline-block;
-    color: $dark-green;
+    color: $light-grey;
     margin-left: 5px;
 }
 .responseButtonWrap {
