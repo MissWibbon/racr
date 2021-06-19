@@ -7,12 +7,10 @@ const LocalUser = (props) =>{
     const {users,localUser} = context
     const {isLoading} = context
     const searchbar = useSearchValue('')
-    const friends = localUser.friends
-    for (let index = 0; index < friends.length; index++) {
-        const element = friends[index];
-        document.getElementById(friends).insertBefore(<li className="friend">element</li>)               
-                           
-    }
+    const friends = localUser.friends.map((friend) => 
+        <li>friend</li>
+    )
+
     return(
         <div id="profilePage">
         <SearchBar {...props}></SearchBar>
@@ -34,7 +32,7 @@ const LocalUser = (props) =>{
                     <div className="profileFriends">
                         Friends
                         <ul id="friends">
-                            
+                            ${friends}
                         </ul>
                     </div>
                     <div className="profileRaces">
