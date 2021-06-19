@@ -81,7 +81,7 @@ const Demo = (props) => {
                         <div className="raceCard">
                             <label>Latitude: </label><p className="lat">{state.lat2} </p><label>Longitude: </label><p className="long">{state.long2} </p><label>Distance: </label><p className="dist">{state.dist}</p>
                             <label>Opposition Distance: </label><p className="lat">{state.oppPos} </p>
-                            <label>Goal: </label><p className="raceGoal"></p>
+                            <label>Goal: </label>
                         </div>
                     )
                     : null
