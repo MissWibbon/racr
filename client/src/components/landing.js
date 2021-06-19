@@ -31,6 +31,9 @@ const Landing = (props) => {
 
                 }else{
                     setErr(res.message)
+                    props.history.push('/login')
+                    document.getElementsByClassName('incorrectAuthLabel').innerText = 'Invalid Username or Password'
+
                 }
             })
 
@@ -45,6 +48,7 @@ const Landing = (props) => {
                     <p className= 'err'>{errMessage}</p>
                     <label id="password">Password:</label>
                     <input {...password} type='password' name='name'></input>
+                    <div className="incorrectAuthLabel"></div>
                     <div><button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button></div>
                     <div className="registerLink"><Link to="/signup">Register</Link></div>
                 </form>
