@@ -9,10 +9,29 @@ const LocalUser = (props) => {
     const { isLoading } = context
     const searchbar = useSearchValue('')
     console.log(users)
-    const friendList = localUser.friends
+    const getfriends = () => {
 
-    console.log(friends)
-    console.log(friendList)
+        if (localUser === undefined) {
+            return false
+
+        } else {
+
+            localUser.friends.map(friend => {
+                API.getOneUser(friend)
+                    .then(res => {
+                        console.log(res.data)
+                        setPool((prevState) => [res.data, ...prevState])
+
+                    })
+                    .catch(err => console.log(err))
+            })
+            return true
+        }
+    }
+    useEffect(() => {
+
+        getfriends()
+    }, [])
     return (
         <div id="profilePage">
             <SearchBar {...props}></SearchBar>
