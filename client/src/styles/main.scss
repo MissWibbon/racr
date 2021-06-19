@@ -379,12 +379,17 @@ input {
         font-weight: 700;
     }
 }
+.profileActivity #friends {
+    padding-left: 0px;
+}
 .profileActivity li {
     color: $light-grey;
     padding: .5rem;
     margin: 0;
+    font-size: 12px;
+    overflow: scroll;
 }
-.profileActivity li::before {
+.profileActivity li::marker {
     content: '';
 
 }
