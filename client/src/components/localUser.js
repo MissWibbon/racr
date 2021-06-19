@@ -7,7 +7,12 @@ const LocalUser = (props) =>{
     const {users,localUser} = context
     const {isLoading} = context
     const searchbar = useSearchValue('')
-    console.log(localUser.friends)
+    const friends = localUser.friends
+    for (let index = 0; index < friends.length; index++) {
+        const element = friends[index];
+        document.getElementById(friends).insertBefore(<li className="friend">element</li>)               
+                           
+    }
     return(
         <div id="profilePage">
         <SearchBar {...props}></SearchBar>
@@ -21,14 +26,14 @@ const LocalUser = (props) =>{
                     </div>
                 </div>
                 <div className="profileInfo">
-                    <div className="profileUserName">@{`${localUser.userName}` }</div>
+                    <div className="profileUserName">{`${localUser.userName}` }</div>
                     <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
                     {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
                 </div>
                 <div className="profileActivity">
                     <div className="profileFriends">
                         Friends
-                        <ul>
+                        <ul id="friends">
                             
                         </ul>
                     </div>
