@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import SearchBar from './searchbar';
-import FriendPool from './friendPool'
+import FriendCard from './friendCard'
 
 
 
@@ -34,7 +34,17 @@ const LocalUser = (props) => {
                             <div className="profileFriends">
                                 <div className="profileInfo-label">Friends</div>
                                 <ul id="friends">
-                                    {FriendPool}
+                                    <>
+                                        {
+                                            pool.map(friend =>
+                                            (
+                                                <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
+
+                                            )
+
+                                            )
+                                        }
+                                    </>
                                 </ul>
                             </div>
                             <div className="profileRaces">
