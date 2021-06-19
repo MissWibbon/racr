@@ -10,7 +10,6 @@ const LocalUser = (props) =>{
 
     const friends = localUser.friends.map((friend) => {
         <li>{friend}</li>
-         console.log(users._id)
         
     })
 
