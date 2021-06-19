@@ -9,8 +9,8 @@ const LocalUser = (props) => {
     const searchbar = useSearchValue('')
     console.log(users)
     const friendList = localUser.friends
-    const friends = users.map(user => user._id.includes(friendList => (
-        <li>filterFriend.userName</li>
+    const friends = users.filter(user => user._id.includes(friendList => (
+        <li>{user}</li>
     )))
     console.log(friends)
     console.log(friendList)
