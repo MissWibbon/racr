@@ -379,6 +379,19 @@ input {
         font-weight: 700;
     }
 }
+.profileActivity li {
+    color: $light-grey;
+    padding: .5rem;
+    margin: 0;
+}
+.profileActivity li::before {
+    content: '';
+
+}
+.profileActivity li:nth-of-type(odd) {
+    background-color: $dark;
+}
+
 .friendPage {
     input {
         width: 100%;

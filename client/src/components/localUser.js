@@ -8,7 +8,7 @@ const LocalUser = (props) =>{
     const {isLoading} = context
     const searchbar = useSearchValue('')
     const friends = localUser.friends.map((friend) => 
-        <li>friend</li>
+        <li>{friend}</li>
     )
 
     return(
@@ -30,13 +30,13 @@ const LocalUser = (props) =>{
                 </div>
                 <div className="profileActivity">
                     <div className="profileFriends">
-                        Friends
+                        <div className="profileInfo-label">Friends</div>
                         <ul id="friends">
-                            ${friends}
+                            {friends}
                         </ul>
                     </div>
                     <div className="profileRaces">
-                        Races
+                    <div className="profileInfo-label">Races</div>
                     </div>
                 </div>
             </div>
