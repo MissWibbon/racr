@@ -34,7 +34,7 @@ const ChallengeForm = (props) => {
         console.log('--------')
     }
     useEffect(() =>{
-        console.log(race)
+        console.log(race, users)
 
     })
 

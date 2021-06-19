@@ -7,6 +7,7 @@ const LocalUser = (props) =>{
     const {users,localUser} = context
     const {isLoading} = context
     const searchbar = useSearchValue('')
+    console.log(localUser.friends)
     return(
         <div id="profilePage">
         <SearchBar {...props}></SearchBar>
@@ -27,6 +28,9 @@ const LocalUser = (props) =>{
                 <div className="profileActivity">
                     <div className="profileFriends">
                         Friends
+                        <ul>
+                            
+                        </ul>
                     </div>
                     <div className="profileRaces">
                         Races
