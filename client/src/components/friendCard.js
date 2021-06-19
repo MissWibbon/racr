@@ -14,6 +14,7 @@ const FriendCard = (props) =>{
                 <img className="playerImg" src={props.data.image}/>
                 <h3 className="friendUserName">{props.data.userName}</h3></Link>
                 <div className="city">{props.data.city}, {props.data.state} {props.data.country}</div>
+                
             </div>
             </>
     )

@@ -26,6 +26,8 @@ const ChallengeForm = (props) => {
             seconds: seconds.value,
             message: message.value,
             acceptor: id,
+            miles: miles.value,
+            kilometers: kilometers.value
 
         }
         socket.emit('challenge', body)
@@ -58,6 +60,8 @@ const ChallengeForm = (props) => {
                 <div className="timewrap"><label>Hours:</label><input type="number" {...hours}></input></div>
                 <div className="timewrap"><label>Minutes:</label><input type="number" {...minutes}></input></div>
                 <div className="timewrap"><label>Seconds:</label><input type="number" {...seconds}></input></div>              
+                <div className="timewrap"><label>Miles:</label><input type="number" {...miles}></input></div>              
+                <div className="timewrap"><label>Kilometers:</label><input type="number" {...kilometers}></input></div>              
                 <div className="challenge-label">Message:</div>
                 <input  {...message}placeholder="Your Message" className="challenge-message"></input>               
                 <button id="submitButton" onClick ={handleSubmit}>Send Challenge</button>
