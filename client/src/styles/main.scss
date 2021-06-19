@@ -204,12 +204,12 @@ input {
 
 .profileUserName {text-align: center; color: $green; font-family: $bold-font; font-style: italic;}
 .profileName {text-align: center; color: white; font-family: $light-font;}
-.profileLocation {width: fit-content; margin: auto; text-align: center; color:$dark-green;  font-family: $light-font; font-size: 10px;}
+.profileLocation {width: fit-content; margin: auto; text-align: center; color:$dark-green;  font-family: $light-font; font-size: 10px; color: $light-grey;}
 .profileRunType {text-align: center; color: white; font-family: $light-font;}
 .profileUserName {text-align: center; color: $green; font-weight: 500;}
 .profileName {text-align: center; color: white;}
 .locationWrap {position: absolute; margin: auto; margin-top: -20px;
-    margin-left: 3%; width: 150px; background-color:$light-grey; padding: 5px; border-radius: 15px; margin-left: -1px;} 
+    margin-left: 3%; width: 150px; background-color:$dark; padding: 5px; border-radius: 15px; margin-left: -1px;} 
 
 
 #challengeModal{
@@ -371,7 +371,7 @@ input {
     float: right;
     border-radius: 5px;
     box-shadow: $light-box-shadow;
-    background-color: white;
+    background-color: $dark;
     .lat, .long, .dist {
         display: inline-block;
         width: fit-content;
