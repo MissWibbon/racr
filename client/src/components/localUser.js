@@ -35,6 +35,22 @@ const LocalUser = (props) => {
                                 <div className="profileInfo-label">Friends</div>
                                 <ul id="friends">
 
+                                    ? (
+                                            <>
+                                        {
+                                            pool.map(friend =>
+                                            (
+                                                <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
+
+                                            )
+
+                                            )
+                                        }
+                                    </>
+                                        )
+                                        : (
+                                            <h3>...Loading</h3>
+                                        )
                                 </ul>
                             </div>
                             <div className="profileRaces">
