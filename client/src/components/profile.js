@@ -3,7 +3,7 @@ import * as filestack from 'filestack-js';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 
-const client = filestack.init('AFeiQyudCRNK8T2g46sKFz');
+const client = filestack.init('AOSlwG5A8SmC6QervCN3zz');
 
 const SignUp = (props) => {
     //const context = useContext(RaceContext); 

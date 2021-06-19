@@ -10,9 +10,9 @@ const AddFriend = (props) => {
     const handleNewFriend = (e) => {
         e.preventDefault()
         const query = `?userName=${searchbar.value}`
-        findOneAndUpdate({ _id: req.params.id, userName: req.params.userName }, { $push: { friends: req.body } })
+        findOneAndUpdate({ _id: req.params.id }, { $push: { friends: req.body.friendId } })
         fetchOneUser(query)
-            .then(res => props.history.push(`/users/${res}`))
+            .then(res => props.history.push(`/users/${res._id}`))
     }
     return {
         value: userState,
