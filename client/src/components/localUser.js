@@ -7,9 +7,9 @@ const LocalUser = (props) =>{
     const {users,localUser} = context
     const {isLoading} = context
     const searchbar = useSearchValue('')
-
+    console.log(users)
     const friends = localUser.friends.map((friend) => 
-        
+
         <li>{friend}</li>
     )
 
