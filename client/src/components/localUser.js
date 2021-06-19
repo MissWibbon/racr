@@ -8,16 +8,8 @@ const LocalUser = (props) =>{
     const {isLoading} = context
     const searchbar = useSearchValue('')
     console.log(users)
-    const friends = localUser.friends.map((friend) => {
-        users.map((user) => {
-            if(user._id = friend) {
-                
-                <li>{user}</li>
-            }
-        }
-
-        )
-        })
+    const friendList = localUser.friends
+    const friends = users.map(user => user._id.includes(friendList))
 
     return(
         <div id="profilePage">
