@@ -1,7 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { RaceContext } from './appstate'
 import SearchBar from './searchbar';
-import FriendCard from './friendCard'
+import FriendPool from './friendPool'
+
+
+
 
 const LocalUser = (props) => {
     const context = useContext(RaceContext)
@@ -9,29 +12,7 @@ const LocalUser = (props) => {
     const { isLoading } = context
     const searchbar = useSearchValue('')
     console.log(users)
-    const getfriends = () => {
 
-        if (localUser === undefined) {
-            return false
-
-        } else {
-
-            localUser.friends.map(friend => {
-                API.getOneUser(friend)
-                    .then(res => {
-                        console.log(res.data)
-                        setPool((prevState) => [res.data, ...prevState])
-
-                    })
-                    .catch(err => console.log(err))
-            })
-            return true
-        }
-    }
-    useEffect(() => {
-
-        getfriends()
-    }, [])
     return (
         <div id="profilePage">
             <SearchBar {...props}></SearchBar>
@@ -53,23 +34,7 @@ const LocalUser = (props) => {
                             <div className="profileFriends">
                                 <div className="profileInfo-label">Friends</div>
                                 <ul id="friends">
-
-                                    ? (
-                                            <>
-                                        {
-                                            pool.map(friend =>
-                                            (
-                                                <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
-
-                                            )
-
-                                            )
-                                        }
-                                    </>
-                                        )
-                                        : (
-                                            <h3>...Loading</h3>
-                                        )
+                                    {FriendPool}
                                 </ul>
                             </div>
                             <div className="profileRaces">
