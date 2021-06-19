@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { RaceContext } from './appstate'
 import SearchBar from './searchbar';
+import FriendCard from './friendCard'
 
 const LocalUser = (props) => {
     const context = useContext(RaceContext)
@@ -9,9 +10,7 @@ const LocalUser = (props) => {
     const searchbar = useSearchValue('')
     console.log(users)
     const friendList = localUser.friends
-    const friends = users.filter(user => user._id === friendList).map(user => 
-        <li>{user.userName}</li>
-    )
+
     console.log(friends)
     console.log(friendList)
     return (
@@ -35,7 +34,17 @@ const LocalUser = (props) => {
                             <div className="profileFriends">
                                 <div className="profileInfo-label">Friends</div>
                                 <ul id="friends">
-                                    {friends.true}
+                                    <>
+                                        {
+                                            pool.map(friend =>
+                                            (
+                                                <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
+
+                                            )
+
+                                            )
+                                        }
+                                    </>
                                 </ul>
                             </div>
                             <div className="profileRaces">
