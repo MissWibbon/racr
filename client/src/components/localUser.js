@@ -1,63 +1,65 @@
-import React, {useContext, useState}from 'react'
-import {RaceContext} from './appstate'
+import React, { useContext, useState } from 'react'
+import { RaceContext } from './appstate'
 import SearchBar from './searchbar';
 
-const LocalUser = (props) =>{
+const LocalUser = (props) => {
     const context = useContext(RaceContext)
-    const {users,localUser} = context
-    const {isLoading} = context
+    const { users, localUser } = context
+    const { isLoading } = context
     const searchbar = useSearchValue('')
     console.log(users)
     const friendList = localUser.friends
-    const friends = users.filter(user => user._id.includes(friendList))
+    const friends = users.filter(user => user._id.includes(friendList).map(filterFriend => (
+        <li>filterFriend.userName</li>
+    )))
     console.log(friends)
     console.log(friendList)
-    return(
+    return (
         <div id="profilePage">
-        <SearchBar {...props}></SearchBar>
-        {isLoading
-        ?(
-            <div>
-                <div className="profileImage">
-                    <img className="imgSrc" src={`${localUser.image} `} alt="profile-img"/>
-                    <div className="locationWrap">
-                        <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}` }</div>
+            <SearchBar {...props}></SearchBar>
+            {isLoading
+                ? (
+                    <div>
+                        <div className="profileImage">
+                            <img className="imgSrc" src={`${localUser.image} `} alt="profile-img" />
+                            <div className="locationWrap">
+                                <div className="profileLocation">{`${localUser.city}, ${localUser.state} ${localUser.country}`}</div>
+                            </div>
+                        </div>
+                        <div className="profileInfo">
+                            <div className="profileUserName">{`${localUser.userName}`}</div>
+                            <div className="profileName">{`${localUser.firstName} ${localUser.lastName}`}</div>
+                            {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
+                        </div>
+                        <div className="profileActivity">
+                            <div className="profileFriends">
+                                <div className="profileInfo-label">Friends</div>
+                                <ul id="friends">
+                                    {friends.true}
+                                </ul>
+                            </div>
+                            <div className="profileRaces">
+                                <div className="profileInfo-label">Races</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="profileInfo">
-                    <div className="profileUserName">{`${localUser.userName}` }</div>
-                    <div className="profileName">{`${localUser.firstName} ${localUser.lastName}` }</div>
-                    {/* <div className="profileRunType">{`${users[3].raceType.charAt(0).toUpperCase()}` + `${users[3].raceType.slice(1)}`} Runner</div> */}
-                </div>
-                <div className="profileActivity">
-                    <div className="profileFriends">
-                        <div className="profileInfo-label">Friends</div>
-                        <ul id="friends">
-                            {friends}
-                        </ul>
-                    </div>
-                    <div className="profileRaces">
-                    <div className="profileInfo-label">Races</div>
-                    </div>
-                </div>
-            </div>
-        ):
-        <h2>Loading...</h2>
-        }
-    </div>
+                ) :
+                <h2>Loading...</h2>
+            }
+        </div>
     )
 }
 
-const useSearchValue = (initialValue) =>{
+const useSearchValue = (initialValue) => {
     const [userState, setUserState] = useState(initialValue);
-    const handlevaluechange =(e) =>{
+    const handlevaluechange = (e) => {
         setUserState(e.target.value);
         console.log(e.target.value)
     }
     return {
         value: userState,
         onChange: handlevaluechange,
-       
+
     }
 }
 
