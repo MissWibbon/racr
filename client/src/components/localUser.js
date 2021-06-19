@@ -4,23 +4,16 @@ import SearchBar from './searchbar';
 
 const LocalUser = (props) => {
     const context = useContext(RaceContext)
-    const { users, localUser, friends } = context
+    const { users, localUser } = context
     const { isLoading } = context
     const searchbar = useSearchValue('')
     console.log(users)
-    
-    const [pool , setPool] = useState([])
-
     const friendList = localUser.friends
     const friends = users.filter(user => user._id === friendList).map(user => 
         <li>{user}</li>
     )
     console.log(friends)
     console.log(friendList)
-
-
-
-    
     return (
         <div id="profilePage">
             <SearchBar {...props}></SearchBar>
