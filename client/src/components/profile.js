@@ -18,7 +18,7 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+    let warningMsg
 
 
     const handleSubmit = (e) => {
@@ -33,8 +33,7 @@ const SignUp = (props) => {
             state: state.value,
             country: country.value,
             age: age.value,
-            image,
-            warningMsg
+            image
         }
 
         console.log(body)
