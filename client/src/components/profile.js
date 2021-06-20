@@ -34,16 +34,14 @@ const SignUp = (props) => {
             state: state.value,
             country: country.value,
             age: age.value,
-            image,
-            emailWarningMsg,
-            successMsg
+            image
         }
 
         console.log(body)
 
         if (mailregx.test(body.email)) {
             console.log('valid email')
-            return {successMsg: "Account created!"}
+            successMsg = "Account created!"
             // this is a valid email address
             // call setState({email: email}) to update the email
             // or update the data in redux store.
@@ -54,7 +52,7 @@ const SignUp = (props) => {
                 })
         }
         else {
-            return {emailWarningMsg: "Please enter a valid email address."};
+            emailWarningMsg = "Please enter a valid email address.";
             console.log('not valid email')
 
         }
@@ -82,7 +80,7 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
-                    <div className="warningMsg">{emailWarningMsg}</div>
+                    {/* <div className="warningMsg">{emailWarningMsg}</div>*/}
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
@@ -125,7 +123,7 @@ const SignUp = (props) => {
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
-            <div className="successMsg">{successMsg}</div>
+            {/*<div className="successMsg">{successMsg}</div>*/}
 
         </div>
     )
