@@ -135,7 +135,8 @@ const useInput = (initialvalue) => {
     }
     return {
         value: inputs,
-        onChange: handlevaluechange
+        onChange: handlevaluechange,
+        msg: warningMsg
     }
 
 }
