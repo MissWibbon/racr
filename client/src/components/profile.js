@@ -18,8 +18,11 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = null;
-    let successMsg = null;
+    this.state={
+        emailWarningMsg: false,
+        successMsg: false
+    }
+    
     document.getElementsByClassName('warningMsg.email').hide()
 
 
@@ -42,6 +45,9 @@ const SignUp = (props) => {
 
         if (mailregx.test(body.email)) {
             console.log('valid email')
+            this.setState={
+                successMsg: true
+            }
             successMsg = "Account created!"
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -54,7 +60,9 @@ const SignUp = (props) => {
         }
         else {
             console.log('not valid email')
-            document.getElementsByClassName('warningMsg.email').show()
+            this.setState={
+                emailWarningMsg: true
+            }
         }
 
 
@@ -80,7 +88,11 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
-                    <div className="warningMsg email">Please enter a valid email address.</div>
+                    <div className="warningMsg email">
+                    {
+                  this.state.emailWarningMsg? <div>Please enter a valid email address.</div> : null
+              }
+                    </div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
@@ -123,7 +135,11 @@ const SignUp = (props) => {
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
-            {/*<div className="successMsg">{successMsg}</div>*/}
+            <div className="successMsg">
+            {
+                  this.state.successMsg? <div>Account Created!</div> : null
+              }
+            </div>
 
         </div>
     )
