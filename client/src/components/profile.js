@@ -18,7 +18,7 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg
+    let emailWarningMsg = ""
 
 
     const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ const SignUp = (props) => {
 
         console.log(body)
 
-        if ( mailregx.test(body.email)) {
+        if (mailregx.test(body.email)) {
             console.log('valid email')
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -47,10 +47,10 @@ const SignUp = (props) => {
                 .then(res => {
                     document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
                     props.history.push('/login')
-                    
+
                 })
-            }
-            else {
+        }
+        else {
             emailWarningMsg = "Please enter a valid email address."
             console.log('not valid email')
 
@@ -79,6 +79,7 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
+                    <div className="warningMsg">{...emailWarningMsg}</div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
@@ -118,7 +119,6 @@ const SignUp = (props) => {
                     <label id="profileImage">Image:</label>
                     <input id="imageUpload" type="file" onChange={fileChange} name='name'></input>
                 </div>
-                <div className="warningMsg">{...warningMsg}</div>
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
