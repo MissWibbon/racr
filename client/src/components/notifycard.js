@@ -55,7 +55,7 @@ const NotifyCard = (props) =>{
         <div className="challenge-response">
         
         <div className="challenge-label"><img className="challengePlayerImg" src={player.image}/><Link className="opponentName" to ={`users/${props.data.requestor}`}>@{player.userName} </Link> has challenged you to race for 
-            <div className="timechallenge">{hours}, {minutes}, {seconds}</div>
+            <div className="timechallenge">{props.data.hours}, {props.data.minutes}, {props.data.seconds}</div>
             <div className="distance">{props.data.miles}, {props.data.kilometers}</div>
         </div>
         <div className="message">Their message to you: {props.message}</div>
