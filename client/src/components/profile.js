@@ -18,8 +18,9 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = "";
-    let successMsg = "";
+    let emailWarningMsg = null;
+    let successMsg = null;
+    document.getElementsByClassName('warningMsg.email').hide()
 
 
     const handleSubmit = (e) => {
@@ -52,9 +53,8 @@ const SignUp = (props) => {
                 })
         }
         else {
-            emailWarningMsg = "Please enter a valid email address.";
             console.log('not valid email')
-
+            document.getElementsByClassName('warningMsg.email').show()
         }
 
 
@@ -80,7 +80,7 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
-                    {/* <div className="warningMsg">{emailWarningMsg}</div>*/}
+                    <div className="warningMsg email">Please enter a valid email address.</div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
