@@ -18,7 +18,8 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = ""
+    let emailWarningMsg = "";
+    let successMsg = "";
 
 
     const handleSubmit = (e) => {
@@ -40,12 +41,12 @@ const SignUp = (props) => {
 
         if (mailregx.test(body.email)) {
             console.log('valid email')
+            successMsg = "Account created!"
             // this is a valid email address
             // call setState({email: email}) to update the email
             // or update the data in redux store.
             API.saveUser(body)
                 .then(res => {
-                    document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
                     props.history.push('/login')
 
                 })
@@ -79,7 +80,7 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
-                    <div className="warningMsg">{...emailWarningMsg}</div>
+                    <div className="warningMsg">{{emailWarningMsg}}</div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
@@ -122,6 +123,7 @@ const SignUp = (props) => {
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
+            <div className="successMsg">{{successMsg}}</div>
 
         </div>
     )
