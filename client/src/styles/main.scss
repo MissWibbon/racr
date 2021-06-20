@@ -214,7 +214,6 @@ input {
 
 #challengeModal{
     padding: 1rem 3rem;
-    float: right;
     background-color: $dark;
     border-radius: 5px;
     margin: 5%;
@@ -444,7 +443,7 @@ input {
 }
 .timewrap {
     display: flex;
-    padding: 22px 13px;
+    padding: .5rem;
 }
 .friendPageSearch {
     position: relative;
@@ -497,7 +496,7 @@ input {
     }
     .timewrap {
         display: flex;
-        padding: 1rem .5rem;
+        padding: .5rem;
         margin-left: -5%;
     }
     .friendCard {
