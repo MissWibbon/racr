@@ -41,7 +41,8 @@ const SignUp = (props) => {
         }
         console.log(body)
 
-        if ( mailregx.test(body.email) || body.userName == "") {
+        if ( mailregx.test(body.email)) {
+            console.log('valid email')
             // this is a valid email address
             // call setState({email: email}) to update the email
             // or update the data in redux store.
@@ -54,6 +55,7 @@ const SignUp = (props) => {
         }
         else {
             document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a valid email address."
+            console.log('not valid email')
 
         }
 
