@@ -33,12 +33,10 @@ const SignUp = (props) => {
             state: state.value,
             country: country.value,
             age: age.value,
-            image
+            image,
+            warningMsg
         }
 
-        if (body.userName == "") {
-            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a username."
-        }
         console.log(body)
 
         if ( mailregx.test(body.email)) {
@@ -50,11 +48,11 @@ const SignUp = (props) => {
                 .then(res => {
                     document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
                     props.history.push('/login')
-    
+                    
                 })
-        }
-        else {
-            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a valid email address."
+            }
+            else {
+            warningMsg = "Please enter a valid email address."
             console.log('not valid email')
 
         }
@@ -121,7 +119,7 @@ const SignUp = (props) => {
                     <label id="profileImage">Image:</label>
                     <input id="imageUpload" type="file" onChange={fileChange} name='name'></input>
                 </div>
-                <div className="warningMsg"></div>
+                <div className="warningMsg">{warningMsg}</div>
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
