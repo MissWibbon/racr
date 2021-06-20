@@ -17,6 +17,9 @@ const SignUp = (props) => {
     const country = useInput('');
     const age = useInput('');
     let image = '';
+    let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,19 +35,28 @@ const SignUp = (props) => {
             age: age.value,
             image
         }
-        if (body.email == "") {
-            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter an email."
-        }
+
         if (body.userName == "") {
             document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a username."
         }
         console.log(body)
-        API.saveUser(body)
-            .then(res => {
-                document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
-                props.history.push('/login')
 
-            })
+        if ( mailregx.test(body.email) || body.userName == "") {
+            // this is a valid email address
+            // call setState({email: email}) to update the email
+            // or update the data in redux store.
+            API.saveUser(body)
+                .then(res => {
+                    document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
+                    props.history.push('/login')
+    
+                })
+        }
+        else {
+            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a valid email address."
+
+        }
+
 
 
     }
@@ -69,7 +81,7 @@ const SignUp = (props) => {
             <form id="register">
                 <div className="inputWrap">
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name'></input>
+                    <input {...email} type='email' name='name'></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
