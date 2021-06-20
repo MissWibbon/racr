@@ -73,8 +73,8 @@ const SignUp = (props) => {
                     <input {...password} type='password' name='name'></input>
                 </div>
                 <div className="inputWrap">
-                    <label id="age">Age:</label>
-                    <input {...age} type='text' name='name'></input>
+                    <label id="age">Date of Birth:</label>
+                    <input {...age} type='date' name='name'></input>
                 </div>
                 <div className="inputWrap">
                     <label id="firstName">First Name:</label>
