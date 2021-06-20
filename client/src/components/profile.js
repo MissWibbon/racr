@@ -89,9 +89,9 @@ const SignUp = (props) => {
             <form id="register">
                 <div className="inputWrap">
                     <div className="warningMsg email">
-                    {
+                    {/*
                   this.state.emailWarningMsg? <div>Please enter a valid email address.</div> : null
-              }
+                    */}
                     </div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
@@ -136,9 +136,9 @@ const SignUp = (props) => {
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
             <div className="successMsg">
-            {
+            {/*
                   this.state.successMsg? <div>Account Created!</div> : null
-              }
+            */}
             </div>
 
         </div>
