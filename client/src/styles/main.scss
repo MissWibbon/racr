@@ -358,7 +358,7 @@ input {
     padding: 2rem;
 }
 .racePage {
-    padding: 3rem;
+    padding: 1rem;
     label {
         text-align: left;
         display: inline-block;
@@ -366,9 +366,9 @@ input {
     }
 }
 .raceCard {
-    padding: 3rem;
-    width: 75%;
-    float: right;
+    padding: 1rem;
+    max-width: 315px;
+    margin: auto;
     border-radius: 5px;
     box-shadow: $light-box-shadow;
     background-color: $dark;
