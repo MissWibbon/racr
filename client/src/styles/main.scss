@@ -327,15 +327,16 @@ input {
 .responseButtonWrap {
     width: 100%;
 }
-#responseButton {
+#acceptChallenge,
+#declineChallenge {
     width: 48%;
     display: inline-block;
-    background-color: $green;
+    border: 1px solid $green;
     margin: 5% 1%;
     border: none;
     border-radius: 10px;
     transition: all .3s;
-    color: $dark-green;
+    color: $green;
     font-size: 20px;
 
     a {
@@ -438,7 +439,7 @@ input {
 .opponentName, .distance {
     display: inline-block;
     padding: 0px 3px;
-    color: $dark-green;
+    color: $green;
     font-weight: 700;
 }
 .timewrap {
