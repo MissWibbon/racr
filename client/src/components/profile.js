@@ -32,6 +32,12 @@ const SignUp = (props) => {
             age: age.value,
             image
         }
+        if (body.email == "") {
+            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter an email."
+        }
+        if (body.userName == "") {
+            document.getElementsByClassName('warningMsg').innerTEXT = "Please enter a username."
+        }
         console.log(body)
         API.saveUser(body)
             .then(res => {
@@ -100,6 +106,7 @@ const SignUp = (props) => {
                     <label id="profileImage">Image:</label>
                     <input id="imageUpload" type="file" onChange={fileChange} name='name'></input>
                 </div>
+                <div className="warningMsg"></div>
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
