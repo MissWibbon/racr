@@ -82,7 +82,7 @@ const SignUp = (props) => {
         <div className="registerWrap">
             <form id="register">
                 <div className="inputWrap">
-                    <div className="warningMsg">{{emailWarningMsg}}</div>
+                    <div className="warningMsg">{emailWarningMsg}</div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
                 </div>
@@ -125,7 +125,7 @@ const SignUp = (props) => {
                 <button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button>
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
-            <div className="successMsg">{{successMsg}}</div>
+            <div className="successMsg">{successMsg}</div>
 
         </div>
     )
