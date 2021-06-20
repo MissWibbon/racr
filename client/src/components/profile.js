@@ -34,14 +34,16 @@ const SignUp = (props) => {
             state: state.value,
             country: country.value,
             age: age.value,
-            image
+            image,
+            emailWarningMsg,
+            successMsg
         }
 
         console.log(body)
 
         if (mailregx.test(body.email)) {
             console.log('valid email')
-            successMsg = "Account created!"
+            return {successMsg: "Account created!"}
             // this is a valid email address
             // call setState({email: email}) to update the email
             // or update the data in redux store.
@@ -52,7 +54,7 @@ const SignUp = (props) => {
                 })
         }
         else {
-            emailWarningMsg = "Please enter a valid email address."
+            return {emailWarningMsg: "Please enter a valid email address."};
             console.log('not valid email')
 
         }
