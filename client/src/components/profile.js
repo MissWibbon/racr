@@ -6,6 +6,7 @@ import API from '../utils/API';
 const client = filestack.init('AOSlwG5A8SmC6QervCN3zz');
 
 const SignUp = (props) => {
+
     //const context = useContext(RaceContext); 
     const email = useInput('');
     const password = useInput('');
@@ -18,12 +19,8 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.state={
-        emailWarningMsg: false,
-        successMsg: false
-    }
-    
-    document.getElementsByClassName('warningMsg.email').hide()
+    let emailWarningMsg = false,
+    successMsg = false
 
 
     const handleSubmit = (e) => {
@@ -45,10 +42,7 @@ const SignUp = (props) => {
 
         if (mailregx.test(body.email)) {
             console.log('valid email')
-            this.setState={
-                successMsg: true
-            }
-            successMsg = "Account created!"
+            successMsg = true
             // this is a valid email address
             // call setState({email: email}) to update the email
             // or update the data in redux store.
@@ -60,9 +54,7 @@ const SignUp = (props) => {
         }
         else {
             console.log('not valid email')
-            this.setState={
-                emailWarningMsg: true
-            }
+            emailWarningMsg = true
         }
 
 
@@ -89,9 +81,9 @@ const SignUp = (props) => {
             <form id="register">
                 <div className="inputWrap">
                     <div className="warningMsg email">
-                    {/*
-                  this.state.emailWarningMsg? <div>Please enter a valid email address.</div> : null
-                    */}
+                    {
+                  emailWarningMsg? <div>Please enter a valid email address.</div> : null
+                    }
                     </div>
                     <label id="email">Email:</label>
                     <input {...email} type='email' name='name'></input>
@@ -136,9 +128,9 @@ const SignUp = (props) => {
                 <div class="signinLink"><Link to="/">Sign In</Link></div>
             </form>
             <div className="successMsg">
-            {/*
-                  this.state.successMsg? <div>Account Created!</div> : null
-            */}
+            {
+                  successMsg? <div>Account Created!</div> : null
+            }
             </div>
 
         </div>
