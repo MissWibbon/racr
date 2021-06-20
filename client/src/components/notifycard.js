@@ -10,30 +10,7 @@ const NotifyCard = (props) =>{
     const context = useContext(RaceContext)
     const {localUser, setStats} = context
     const [player, setPlayer] = useState({})
-    const hours = props.data.hours
-    if(hours < 1) {
-        hours = ""
-    } else if(hours < 2) {
-        hours = hours + "hour"
-    } else {
-        hours = hours + "hours"
-    }
-    const seconds = props.data.seconds
-    if(seconds < 1) {
-        seconds = ""
-    } else if(seconds < 2) {
-        seconds = seconds + "second"
-    } else {
-        seconds = seconds + "seconds"
-    }
-    const minutes = props.data.minutes
-    if(minutes < 1) {
-        minutes = ""
-    } else if(minutes < 2) {
-        minutes = minutes + "minute"
-    } else {
-        minutes = minutes + "minutes"
-    }
+
     useEffect(() => {
         
             API.getOneUser(props.data.requestor)
