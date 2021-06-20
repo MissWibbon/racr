@@ -41,6 +41,7 @@ const SignUp = (props) => {
         console.log(body)
         API.saveUser(body)
             .then(res => {
+                document.getElementsByClassName('warningMsg').innerTEXT = "User created!"
                 props.history.push('/login')
 
             })
