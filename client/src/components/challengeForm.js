@@ -13,6 +13,8 @@ const ChallengeForm = (props) => {
     const hours = useInput('hour')
     const minutes = useInput('minute')
     const seconds = useInput('second')
+    const miles = useInput('miles')
+    const kilometers = useInput('kilometers')
     const message = useInput('')
     
 
