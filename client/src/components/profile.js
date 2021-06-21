@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import * as filestack from 'filestack-js';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
@@ -22,6 +22,7 @@ const SignUp = (props) => {
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const [errorMsg, setErrorMsg] = useState(false)
+
 
 
     const handleSubmit = (e) => {
@@ -80,12 +81,12 @@ const SignUp = (props) => {
             <form id="register">
                 <div className="inputWrap">
                     <div className="warningMsg email">
-                    {
-                  errorMsg? <div>Please enter a valid email address.</div> : null
-                    }
+                        {
+                            errorMsg ? <div>Please enter a valid email address.</div> : null
+                        }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required onChange={setErrorMsg(prev => !prev)}></input>
+                    <input {...email} type='text' name='name' required onChange={mailregx.test(body.email) ? setErrorMsg(true)}></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
@@ -133,6 +134,7 @@ const SignUp = (props) => {
         </div>
     )
 }
+
 
 const useInput = (initialvalue) => {
     const [inputs, setInputs] = useState(initialvalue);
