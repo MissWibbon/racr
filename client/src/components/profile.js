@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import * as filestack from 'filestack-js';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
+const flistack_init = process.env.FILESTACK_INIT;
 
 const client = filestack.init('FILESTACK_INIT');
 
