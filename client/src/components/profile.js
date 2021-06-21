@@ -3,7 +3,9 @@ import * as filestack from 'filestack-js';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 
-const client = filestack.init('AOSlwG5A8SmC6QervCN3zz');
+const client = filestack.init('FILESTACK_INIT');
+
+
 
 const SignUp = (props) => {
 
@@ -21,6 +23,7 @@ const SignUp = (props) => {
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let emailWarningMsg = false;
     let successMsg = false;
+    const [errorMsg, setErrorMsg] = useState(false)
 
 
     const handleSubmit = (e) => {
@@ -39,9 +42,10 @@ const SignUp = (props) => {
         }
 
         console.log(body)
+        setErrorMsg = mailregx.test(body.email);
 
-        if (mailregx.test(body.email)) {
-            successMsg = true
+        if (errorMsg) {
+            successMsg = useState(true)
             console.log('valid email, successMsg: ' + successMsg)
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -54,7 +58,7 @@ const SignUp = (props) => {
         }
         else {
             console.log('not valid email, emailError: ' + emailWarningMsg)
-            emailWarningMsg = true
+            emailWarningMsg = useState(true)
         }
 
 
@@ -86,7 +90,7 @@ const SignUp = (props) => {
                     }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required></input>
+                    <input {...email} type='text' name='name' required onChange={setErrorMsg}></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
