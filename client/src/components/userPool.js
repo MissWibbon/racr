@@ -2,26 +2,25 @@
 import React, { useContext, useEffect, useState } from 'react'
 import API from '../utils/API'
 import { RaceContext } from './appstate'
-import FriendCard from './friendCard'
-import SearchBar from './searchbar'
+import UserCard from './userCard'
 
 
-const FriendPool = (props) => {
+const UserPool = (props) => {
     const context = useContext(RaceContext);
 
-    const { localUser, friends, isLoading } = context
+    const { localUser, friends, isLoading, users } = context
     const [pool, setPool] = useState([])
 
 
-    const getfriends = () => {
+    const getusers = () => {
 
         if (localUser === undefined) {
             return false
 
         } else {
 
-            localUser.friends.map(friend => {
-                API.getOneUser(friend)
+            users.map(user => {
+                API.getOneUser(user)
                     .then(res => {
                         console.log(res.data)
                         setPool((prevState) => [res.data, ...prevState])
@@ -35,22 +34,22 @@ const FriendPool = (props) => {
 
     useEffect(() => {
 
-        getfriends()
+        getusers()
     }, [])
     console.log('friends..')
 
     console.log(friends + ' friends')
     return (
-        <div className="friendPage"><h2 className="pageTitle">Your Friends</h2>
+        <div className="users"><h2 className="pageTitle">Users</h2>
             {isLoading
                 ? (
                     <>
-                        <div className="friendPageSearch"><SearchBar></SearchBar></div>
+                        <div className="friendPageSearch"></div>
                         <>
                             {
-                                pool.map(friend =>
+                                pool.map(user =>
                                 (
-                                    <FriendCard key={friend._id}  {...props} data={friend}></FriendCard>
+                                    <UserCard key={user._id}  {...props} data={user}></UserCard>
 
                                 )
 
@@ -71,4 +70,4 @@ const FriendPool = (props) => {
 
 }
 
-export default FriendPool
+export default UserPool
