@@ -43,7 +43,6 @@ const SignUp = (props) => {
         console.log(body)
 
         if (mailregx.test(body.email)) {
-            successMsg = setState(true)
             console.log('valid email, successMsg: ' + successMsg)
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -55,7 +54,7 @@ const SignUp = (props) => {
                 })
         }
         else {
-            setErrorMsg = setState(true)
+            setErrorMsg(true)
             console.log('not valid email, emailError: ' + setErrorMsg)
         }
 
