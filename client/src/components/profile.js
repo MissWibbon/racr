@@ -154,7 +154,7 @@ const useInput = (initialvalue) => {
 
     }
     return {
-        value: {inputs, emailWarningMsg},
+        value: inputs,
         onChange: handlevaluechange
     }
 
