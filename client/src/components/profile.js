@@ -21,9 +21,9 @@ const SignUp = (props) => {
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let emailWarningMsg = false;
     let successMsg = false;
+    
 
-    
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
@@ -38,19 +38,10 @@ const SignUp = (props) => {
             age: age.value,
             image
         }
-        
+
         console.log(body)
-        
-        const emailError = () => {
-            if (mailregx.test(body.email)) {
-                return emailWarningMsg
-            }
-            else {
-                emailWarningMsg = true
-            }
-        }
-        emailError
-        if (!emailWarningMsg) {
+
+        if (mailregx.test(body.email)) {
             successMsg = true
             console.log('valid email, successMsg: ' + successMsg)
             // this is a valid email address
@@ -148,6 +139,7 @@ const SignUp = (props) => {
 }
 
 const useInput = (initialvalue) => {
+    const [emailWarningMsg, updatedWarningState]
     const [inputs, setInputs] = useState(initialvalue);
     const handlevaluechange = (e) => {
         setInputs(e.target.value)
