@@ -86,15 +86,15 @@ const SignUp = (props) => {
                     }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='email' name='name'></input>
+                    <input {...email} type='email' name='name' required></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
-                    <input {...userName} type='text' name='name'></input>
+                    <input {...userName} type='text' name='name' required></input>
                 </div>
                 <div className="inputWrap">
                     <label id="password">Password:</label>
-                    <input {...password} type='password' name='name'></input>
+                    <input {...password} type='password' name='name' required></input>
                 </div>
                 <div className="inputWrap">
                     <label id="age">Date of Birth:</label>
