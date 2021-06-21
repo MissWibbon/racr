@@ -86,7 +86,7 @@ const SignUp = (props) => {
                         }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required onChange={console.log(errorMsg)}></input>
+                    <input {...email} type='text' name='name' required onChange={console.log('errorMsg')}></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
