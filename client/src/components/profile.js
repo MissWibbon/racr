@@ -21,7 +21,6 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = useState(false);
     let successMsg = useState(false);
     const [errorMsg, setErrorMsg] = useState(false)
 
@@ -56,8 +55,8 @@ const SignUp = (props) => {
                 })
         }
         else {
-            console.log('not valid email, emailError: ' + emailWarningMsg)
-            emailWarningMsg = setState(true)
+            setErrorMsg = setState(true)
+            console.log('not valid email, emailError: ' + setErrorMsg)
         }
 
 
@@ -85,7 +84,7 @@ const SignUp = (props) => {
                 <div className="inputWrap">
                     <div className="warningMsg email">
                     {
-                  emailWarningMsg? <div>Please enter a valid email address.</div> : null
+                  errorMsg? <div>Please enter a valid email address.</div> : null
                     }
                     </div>
                     <label id="email">Email:</label>
