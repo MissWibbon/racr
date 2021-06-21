@@ -85,7 +85,7 @@ const SignUp = (props) => {
                         }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required onChange={mailregx.test(body.email) ? setErrorMsg(true): null}></input>
+                    <input {...email} type='text' name='name' required ></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
