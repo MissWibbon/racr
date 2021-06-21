@@ -21,7 +21,6 @@ const SignUp = (props) => {
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let emailWarningMsg = false;
     let successMsg = false;
-    
 
 
     const handleSubmit = (e) => {
@@ -139,7 +138,6 @@ const SignUp = (props) => {
 }
 
 const useInput = (initialvalue) => {
-    const [emailWarningMsg, updatedWarningState]
     const [inputs, setInputs] = useState(initialvalue);
     const handlevaluechange = (e) => {
         setInputs(e.target.value)
