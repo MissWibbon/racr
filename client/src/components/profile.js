@@ -21,8 +21,8 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = false;
-    let successMsg = false;
+    let emailWarningMsg = useState(false);
+    let successMsg = useState(false);
     const [errorMsg, setErrorMsg] = useState(false)
 
 
@@ -45,7 +45,7 @@ const SignUp = (props) => {
         setErrorMsg = mailregx.test(body.email);
 
         if (errorMsg) {
-            successMsg = useState(true)
+            successMsg = setState(true)
             console.log('valid email, successMsg: ' + successMsg)
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -58,7 +58,7 @@ const SignUp = (props) => {
         }
         else {
             console.log('not valid email, emailError: ' + emailWarningMsg)
-            emailWarningMsg = useState(true)
+            emailWarningMsg = setState(true)
         }
 
 
