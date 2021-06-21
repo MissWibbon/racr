@@ -19,10 +19,11 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let emailWarningMsg = false,
-    successMsg = false
+    let emailWarningMsg = false;
+    let successMsg = false;
 
-
+    
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
@@ -37,10 +38,19 @@ const SignUp = (props) => {
             age: age.value,
             image
         }
-
+        
         console.log(body)
-
-        if (mailregx.test(body.email)) {
+        
+        const emailError = () => {
+            if (mailregx.test(body.email)) {
+                return emailWarningMsg
+            }
+            else {
+                emailWarningMsg = true
+            }
+        }
+        emailError
+        if (!emailWarningMsg) {
             successMsg = true
             console.log('valid email, successMsg: ' + successMsg)
             // this is a valid email address
@@ -86,7 +96,7 @@ const SignUp = (props) => {
                     }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='email' name='name' required></input>
+                    <input {...email} type='text' name='name' required></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
@@ -94,7 +104,7 @@ const SignUp = (props) => {
                 </div>
                 <div className="inputWrap">
                     <label id="password">Password:</label>
-                    <input {...password} type='password' name='name' required></input>
+                    <input {...password} type='text' name='name' required></input>
                 </div>
                 <div className="inputWrap">
                     <label id="age">Date of Birth:</label>
@@ -144,7 +154,7 @@ const useInput = (initialvalue) => {
 
     }
     return {
-        value: inputs,
+        value: {inputs, emailWarningMsg},
         onChange: handlevaluechange
     }
 
