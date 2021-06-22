@@ -22,11 +22,6 @@ export const Provider = props => {
     const [stats, setStats] = useState({})
     const [race, setRace] = useState(false)
     const [stamp, setStamp] = useState('')
-    let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const [errorMsg, setErrorMsg] = useState(false)
-
-
-
     
     const fetchUsers = (query) => {
 

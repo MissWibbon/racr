@@ -4,6 +4,7 @@ $navy: #111622;
 $dark: #06050d;
 $grey-green: #A4C9B4;
 $light-grey: #F8F8F8;
+$error: #dd2c00;
 $light-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 $box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 $bold-font: 'Jost', sans-serif;
@@ -471,6 +472,11 @@ input {
     .navLink:first-of-type {
         margin-left: -2%;
     }
+    .validEmailWarn {
+        color: $error;
+        font-size: 12px;
+        line-height: 1;
+    }
 @media screen and (max-width: 633px) {
     #login {
         width: 80%;
@@ -482,7 +488,6 @@ input {
         bottom: 0;
         width: 91vw;
     }
-
     #profilePage {
         padding: 0px;
         padding-top: 20px;
