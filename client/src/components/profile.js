@@ -24,7 +24,7 @@ const SignUp = (props) => {
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const [errorMsg, setErrorMsg] = useState(false)
     const emailWarningMsg = useState(errorMsg)
-
+    console.log(errorMsg)
 
 
     const handleSubmit = (e) => {
@@ -44,7 +44,7 @@ const SignUp = (props) => {
 
         console.log(body)
         setErrorMsg(prev => mailregx.test(body.email))
-        console.log(body.email + ' : ' + emailWarningMsg)
+        console.log(body.email + ' : ' + errorMsg)
         if (mailregx.test(body.email)) {
             // this is a valid email address
             // call setState({email: email}) to update the email
