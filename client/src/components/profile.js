@@ -43,7 +43,7 @@ const SignUp = (props) => {
         }
 
         console.log(body)
-        setErrorMsg(prev => mailregx.test(body.email))
+        
         console.log(body.email + ' : ' + errorMsg)
         if (mailregx.test(body.email)) {
             // this is a valid email address
@@ -88,7 +88,7 @@ const SignUp = (props) => {
                         }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required></input>
+                    <input {...email} type='text' name='name' required onChange={console.log(this)}></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
@@ -145,7 +145,7 @@ const useInput = (initialvalue) => {
 
     }
     return {
-        value: inputs,
+        value: {inputs, setErrorMsg},
         onChange: handlevaluechange
     }
 
