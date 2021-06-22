@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 const flistack_init = process.env.FILESTACK_INIT;
 
-const client = filestack.init('FILESTACK_INIT');
+const client = filestack.init(flistack_init);
 
 
 
@@ -96,7 +96,7 @@ const SignUp = (props) => {
                         }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required onChange={handleInputChange}></input>
+                    <input {...email} type='text' name='name' required ></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
