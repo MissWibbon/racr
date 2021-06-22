@@ -23,6 +23,7 @@ const SignUp = (props) => {
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const [errorMsg, setErrorMsg] = useState(false)
+    const emailWarningMsg = useState(errorMsg)
 
 
 
@@ -43,7 +44,7 @@ const SignUp = (props) => {
 
         console.log(body)
         setErrorMsg(prev => mailregx.test(body.email))
-        console.log(body.email + ' : ' + email)
+        console.log(body.email + ' : ' + emailWarningMsg)
         if (mailregx.test(body.email)) {
             // this is a valid email address
             // call setState({email: email}) to update the email
@@ -83,7 +84,7 @@ const SignUp = (props) => {
                 <div className="inputWrap">
                     <div className="warningMsg email">
                         {
-                            errorMsg ? <div>Please enter a valid email address.</div> : null
+                            emailWarningMsg ? <div>Please enter a valid email address.</div> : null
                         }
                     </div>
                     <label id="email">Email:</label>
@@ -141,7 +142,7 @@ const useInput = (initialvalue) => {
     const [inputs, setInputs] = useState(initialvalue);
     const handlevaluechange = (e) => {
         setInputs(e.target.value)
-        
+
     }
     return {
         value: inputs,
