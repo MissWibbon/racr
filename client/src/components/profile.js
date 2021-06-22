@@ -145,7 +145,7 @@ const useInput = (initialvalue) => {
 
     }
     return {
-        value: {inputs, setErrorMsg},
+        value: inputs,
         onChange: handlevaluechange
     }
 
