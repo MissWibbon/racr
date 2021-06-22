@@ -26,6 +26,14 @@ const SignUp = (props) => {
     const emailWarningMsg = useState(errorMsg)
     console.log(errorMsg)
 
+    function handleInputChange(e) {
+        console.log(e.target.value)
+        if (!mailregx.test(body.email)) {
+            setErrorMsg(prev => true)
+            console.log(errorMsg)
+
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -88,7 +96,7 @@ const SignUp = (props) => {
                         }
                     </div>
                     <label id="email">Email:</label>
-                    <input {...email} type='text' name='name' required onChange={console.log(this)}></input>
+                    <input {...email} type='text' name='name' required onChange={handleInputChange}></input>
                 </div>
                 <div className="inputWrap">
                     <label id="userName">User Name:</label>
