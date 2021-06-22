@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react'
 import * as filestack from 'filestack-js';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
+import { RaceContext } from './appstate'
+
 const flistack_init = process.env.FILESTACK_INIT;
 
 const client = filestack.init(flistack_init);
@@ -10,7 +12,8 @@ const client = filestack.init(flistack_init);
 
 const SignUp = (props) => {
 
-    //const context = useContext(RaceContext); 
+    const context = useContext(RaceContext); 
+    const { handleEmailInputChange } = context
     const email = useInput('');
     const password = useInput('');
     const firstName = useInput('');
