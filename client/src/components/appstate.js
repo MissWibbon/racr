@@ -25,16 +25,9 @@ export const Provider = props => {
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const [errorMsg, setErrorMsg] = useState(false)
 
-    const handleEmailInputChange = (e) => {
-        console.log(e.target.value)
-        if (!mailregx.test(body.email)) {
-            setErrorMsg(prev => true)
-            console.log(errorMsg)
-
-        }
-    }
 
 
+    
     const fetchUsers = (query) => {
 
         API.getUsers(query)
@@ -155,7 +148,6 @@ export const Provider = props => {
             stats,
             setStats,
             race,
-            handleEmailInputChange,
         }}>
             {props.children}
         </RaceContext.Provider>
