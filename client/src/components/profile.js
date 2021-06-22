@@ -22,18 +22,8 @@ const SignUp = (props) => {
     const age = useInput('');
     let image = '';
     let mailregx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const [errorMsg, setErrorMsg] = useState(false)
-    const emailWarningMsg = useState(errorMsg)
-    console.log(errorMsg)
 
-    function handleInputChange(e) {
-        console.log(e.target.value)
-        if (!mailregx.test(body.email)) {
-            setErrorMsg(prev => true)
-            console.log(errorMsg)
 
-        }
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
