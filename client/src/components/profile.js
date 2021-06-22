@@ -24,6 +24,8 @@ const SignUp = (props) => {
     const country = useInput('');
     const age = useInput('');
     let image = '';
+    const [errorEmail, setErrorEmail] = useState(false)
+    const emailWarningMsg = errorEmail
 
 
 
