@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 
 const path = require('path');
 const mongoose = require('mongoose');
@@ -7,6 +8,7 @@ var cookieParser = require('cookie-parser');
 const routes = require("./routes");
 const app = express();
 const uri = process.env.MONGODB_URI;
+console.log(uri, 'ur')
 
 
 
@@ -23,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || uri;
-mongoose.connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
    .then(() => console.log('Mongo Db connected'))
    .catch(err => console.log(err));
 

@@ -2,56 +2,95 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import API from '../utils/API'
 import { RaceContext } from './appstate'
-import io from 'socket.io-client';
-// const socket = io('https://secret-ravine-23221.herokuapp.com/');
-import { socket } from '../socket'
+const uri = process.env.MONGODB_URI;
 
 
 const Landing = (props) => {
     const context = useContext(RaceContext)
-    const [errMessage, setErr] = useState('')
+    const { users, isAuth } = context
+    const [errMessage, setErr] = useState(false)
     const email = useInput('');
     const password = useInput('');
+    const [passValue, setPassValue] = useState('')
+    const [authPassValue, setAuthPathValue] = useState('')
+    const [userAuth, setUserAuth] = useState(undefined)
+    const [unknownEmail, setUnknownEmail] = useState(false)
+
+    const handleEmailExists = (e) => {
+        e.preventDefault();
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
+        setPassValue(password.value)
         const body = {
             email: email.value.toLowerCase(),
-            password: password.value
+            password: password.value,
+
         }
-        API.login(body)
-            .then(res => {
-                if(!res.message){
+        let auth = null
+        auth = users.filter((function (user) {
+            return user.email == body.email
+        }))
+        console.log(auth)
+        if(auth.length > 0) {
+            console.log(auth[0].password)
+            console.log(auth)
+
+            API.login(body)
+                .then(res => {
+                    console.log(res.data)
                     window.localStorage.setItem('token', JSON.stringify(res.data))
                     const pass = context.getToken()
-                    if (pass) {
+                    console.log(pass)
+                    const rightPass = password.value
+                    if (!res.message) {
+                        console.log(email.value)
+                        //API.getOneUser(user)
+                        setUserAuth(users.filter((user) => {
+                            return user.email === email.value
+                        }))
+                        console.log(userAuth)
+                        setUnknownEmail(false)
                         props.history.push('/home')
-                    } else {
-                        setErr('Invalid Username or Password')
+
+                    }else {
+                        setErr(true)
+                        props.history.push('/login')
                     }
-
-                }else{
-                    setErr(res.message)
-                    props.history.push('/login')
-                    document.getElementsByClassName('incorrectAuthLabel').innerText = 'Invalid Username or Password'
-
-                }
-            })
+                })
+        }
+        else {
+            setUnknownEmail(true)
+        }
 
     }
+
     return (
         <div>
             <div className="loginWrap">
                 <div className="logo"></div>
-                <form id="login">
-                    <label id="email">Email:</label>
-                    <input {...email} type='text' name='name'></input>
-                    <p className= 'err'>{errMessage}</p>
-                    <label id="password">Password:</label>
-                    <input {...password} type='password' name='name'></input>
-                    <div className="incorrectAuthLabel"></div>
-                    <div><button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button></div>
-                    <div className="registerLink"><Link to="/signup">Register</Link></div>
-                </form>
+                {isAuth ? (
+                    <>
+                        <p>You're already logged in</p>
+                        <Link to="/home">Go home</Link>
+                    </>
+                )
+                    : (
+                        <form id="login" onChange={handleEmailExists}>
+                            <label id="email">Email:</label>
+                            <input {...email} type='text' name='name' ></input>
+                            <label id="password">Password:</label>
+                            <input {...password} type='password' name='name'></input>
+                            {errMessage ?
+                                <div className="incorrectAuthLabel">Incorrect password.</div>
+                                : ''}
+                            {unknownEmail ?
+                                <div className="incorrectAuthLabel">Couldn't find email associated to account.</div>
+                                : ''}
+                            <div><button id="submitButton" onClick={handleSubmit} type='submit'>Submit</button></div>
+                            <div className="registerLink"><Link to="/signup">Register</Link></div>
+                        </form>
+                    )}
             </div>
         </div>
     )
