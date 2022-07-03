@@ -8,6 +8,7 @@ import { socket } from '../socket'
 const User = ({ match, props }) => {
     console.log(match)
     const context = useContext(RaceContext);
+    console.log('michlle')
     const { id } = match.params
     const { isLoading, profile, fetchOneUser, addFriend, localUser, users, setStats, isAuth, race } = context
     const friendSearch = []
